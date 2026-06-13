@@ -33,29 +33,27 @@ const url = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.ur
 
 <style is:global>
   :root {
-    /* Acentos (brillantes para fondo oscuro) */
-    --azul: #4d9fff;
-    --azul-claro: #76b6ff;
-    --verde: #2dd4bf;
-    --amarillo: #f5c14e;
-    /* Disciplinas */
-    --disc-fisio: #4d9fff;
-    --disc-fono: #2dd4bf;
-    --disc-to: #f5b563;
-    /* Texto */
-    --texto: #e7ecf3;
-    --texto-suave: #9fb0c3;
+    /* Neo-brutalismo: papel + tinta */
+    --tinta: #16140f;       /* casi negro */
+    --papel: #fbe9c8;       /* fondo crema */
     --blanco: #ffffff;
-    /* Vidrio (glassmorphism) */
-    --glass-bg: rgba(255, 255, 255, 0.055);
-    --glass-bg-fuerte: rgba(255, 255, 255, 0.09);
-    --glass-borde: rgba(255, 255, 255, 0.12);
-    --glass-borde-fuerte: rgba(255, 255, 255, 0.22);
-    --blur: 16px;
-    --radio: 18px;
-    --sombra: 0 10px 30px rgba(0, 0, 0, 0.35);
-    --sombra-fuerte: 0 18px 50px rgba(0, 0, 0, 0.5);
+    /* Acentos planos por disciplina */
+    --fisio: #2f6df0;
+    --fono: #19b58a;
+    --to: #ff7a3c;
+    --lila: #b69bff;
+    --disc-fisio: #2f6df0;
+    --disc-fono: #19b58a;
+    --disc-to: #ff7a3c;
+    /* compat con componentes existentes */
+    --azul: #2f6df0;
+    --verde: #19b58a;
+    --texto: #16140f;
+    --texto-suave: #5a5346;
     --ancho: 1140px;
+    --borde-grueso: 3px solid var(--tinta);
+    --sombra-dura: 8px 8px 0 var(--tinta);
+    --sombra-dura-sm: 4px 4px 0 var(--tinta);
     --fuente: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
   }
 
@@ -69,7 +67,7 @@ const url = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.ur
   html { scroll-behavior: smooth; }
 
   /* Accesibilidad: foco visible claro para teclado */
-  :focus-visible { outline: 2px solid var(--azul); outline-offset: 2px; border-radius: 4px; }
+  :focus-visible { outline: 3px solid var(--fisio); outline-offset: 2px; }
 
   /* Respeta a quienes prefieren menos movimiento */
   @media (prefers-reduced-motion: reduce) {
@@ -81,40 +79,26 @@ const url = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.ur
     }
   }
 
-  /* La nav fija mide 62px; evita que tape el encabezado al saltar por anclas (#oferta…). */
+  /* La nav fija mide ~62px; evita que tape el encabezado al saltar por anclas. */
   :where(section, header, footer)[id],
-  [id] { scroll-margin-top: 80px; }
+  [id] { scroll-margin-top: 84px; }
 
   body {
     margin: 0;
     font-family: var(--fuente);
     color: var(--texto);
-    background-color: #070b14;
-    /* Luces ambientales: dan algo que desenfocar al vidrio */
-    background-image:
-      radial-gradient(60rem 60rem at 12% -10%, rgba(77, 159, 255, 0.22), transparent 60%),
-      radial-gradient(50rem 50rem at 95% 5%, rgba(45, 212, 191, 0.18), transparent 60%),
-      radial-gradient(55rem 55rem at 50% 110%, rgba(124, 92, 255, 0.16), transparent 60%);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    line-height: 1.65;
+    background-color: var(--papel);
+    /* textura sutil de puntos sobre el papel */
+    background-image: radial-gradient(rgba(22,20,15,0.06) 1.3px, transparent 1.3px);
+    background-size: 22px 22px;
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
   }
 
-  h1, h2, h3, h4 { line-height: 1.2; color: #f3f7fc; margin: 0 0 0.5em; }
+  h1, h2, h3, h4 { line-height: 1.05; color: var(--tinta); margin: 0 0 0.5em; }
 
-  a { color: var(--azul); }
-
-  /* Utilidad glassmorphism */
-  .glass {
-    background: var(--glass-bg);
-    -webkit-backdrop-filter: blur(var(--blur));
-    backdrop-filter: blur(var(--blur));
-    border: 1px solid var(--glass-borde);
-    border-radius: var(--radio);
-    box-shadow: var(--sombra);
-  }
+  a { color: var(--fisio); }
 
   .contenedor {
     width: 100%;
@@ -123,48 +107,50 @@ const url = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.ur
     padding: 0 1.25rem;
   }
 
-  .seccion { padding: 4rem 0; }
+  .seccion { padding: 3rem 0 4rem; }
 
   .seccion__eyebrow {
     display: inline-block;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    background: var(--tinta);
+    color: var(--papel);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--verde);
-    margin-bottom: 0.6rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    margin-bottom: 0.8rem;
   }
 
-  .seccion__titulo { font-size: clamp(1.7rem, 3.5vw, 2.3rem); }
-  .seccion__intro { max-width: 760px; color: var(--texto-suave); font-size: 1.08rem; }
+  .seccion__titulo {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .seccion__intro { max-width: 760px; color: var(--tinta); font-weight: 600; font-size: 1.05rem; }
 
   .btn {
     display: inline-block;
-    background: linear-gradient(135deg, var(--azul), #7c5cff);
-    color: #fff;
-    font-weight: 700;
+    background: var(--tinta);
+    color: var(--papel);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
     text-decoration: none;
-    padding: 0.9rem 2rem;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 0.85rem 1.6rem;
+    border: var(--borde-grueso);
+    border-radius: 0;
     cursor: pointer;
-    font-size: 1.05rem;
-    box-shadow: 0 8px 24px rgba(77, 159, 255, 0.35);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    font-size: 0.95rem;
+    box-shadow: var(--sombra-dura-sm);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
   }
-  .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(124, 92, 255, 0.45); }
-
-  .btn--secundario {
-    background: var(--glass-bg-fuerte);
-    color: #fff;
-    -webkit-backdrop-filter: blur(var(--blur));
-    backdrop-filter: blur(var(--blur));
-    border: 1px solid var(--glass-borde-fuerte);
-    box-shadow: none;
-  }
-  .btn--secundario:hover { background: rgba(255,255,255,0.14); box-shadow: none; }
+  .btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--tinta); }
+  .btn:active { transform: translate(0, 0); box-shadow: 2px 2px 0 var(--tinta); }
 
   @media (max-width: 640px) {
-    .seccion { padding: 2.5rem 0; }
+    .seccion { padding: 2rem 0 3rem; }
   }
 </style>
