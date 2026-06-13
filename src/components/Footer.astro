@@ -22,7 +22,6 @@ const newsletterActivo = WEB3FORMS_KEY !== 'PEGA_TU_ACCESS_KEY_AQUI' && WEB3FORM
         <li><a href="#oferta">Rutas de homologación</a></li>
         <li><a href="#contacto">Contacto</a></li>
         <li><a href="https://www.icetex.gov.co/" target="_blank" rel="noopener noreferrer">Financiación / ICETEX</a></li>
-        <li><a href="#privacidad">Políticas de privacidad</a></li>
       </ul>
     </div>
 
@@ -40,16 +39,6 @@ const newsletterActivo = WEB3FORMS_KEY !== 'PEGA_TU_ACCESS_KEY_AQUI' && WEB3FORM
           {!newsletterActivo && 'Pendiente: configura tu Access Key de Web3Forms para activar el boletín.'}
         </small>
       </form>
-    </div>
-  </div>
-
-  <div class="footer__bottom">
-    <div class="contenedor">
-      <p id="privacidad">
-        © 2026 Guía de Educación Continua en Rehabilitación. La información se recopila de portales
-        oficiales y puede cambiar; verifica siempre con cada institución. No almacenamos datos
-        personales sin consentimiento.
-      </p>
     </div>
   </div>
 </footer>
@@ -120,8 +109,6 @@ const newsletterActivo = WEB3FORMS_KEY !== 'PEGA_TU_ACCESS_KEY_AQUI' && WEB3FORM
   /* honeypot anti-spam: oculto para humanos */
   .footer__hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
   .footer__nota { width: 100%; color: rgba(255, 255, 255, 0.7); font-size: 0.8rem; }
-  .footer__bottom { border-top: 1px solid rgba(255, 255, 255, 0.15); padding: 1.4rem 0; }
-  .footer__bottom p { font-size: 0.82rem; color: rgba(255, 255, 255, 0.6); margin: 0; }
 
   @media (max-width: 760px) {
     .footer__grid { grid-template-columns: 1fr; gap: 2rem; }
