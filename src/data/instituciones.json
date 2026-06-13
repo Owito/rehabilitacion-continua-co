@@ -9,67 +9,67 @@
     "nombre": "Universidad El Bosque",
     "ciudad": "Bogotá",
     "disciplinas": ["Fisioterapia", "Fonoaudiología", "Terapia Ocupacional"],
-    "url": "https://www.unbosque.edu.co/educacion-continuada"
+    "url": "https://www.unbosque.edu.co/educacion-continua"
   },
   {
     "nombre": "Escuela Colombiana de Rehabilitación (ECR)",
     "ciudad": "Bogotá",
     "disciplinas": ["Fisioterapia", "Fonoaudiología", "Terapia Ocupacional"],
-    "url": "https://www.ecr.edu.co/"
+    "url": "https://ecr.edu.co/diplomados"
   },
   {
     "nombre": "Fundación Universitaria de Ciencias de la Salud (FUCS)",
     "ciudad": "Bogotá",
     "disciplinas": ["Fisioterapia", "Terapia Ocupacional"],
-    "url": "https://www.fucsalud.edu.co/educacion-continuada"
+    "url": "https://www.fucsalud.edu.co/diplomados"
   },
   {
     "nombre": "Universidad Manuela Beltrán (UMB)",
     "ciudad": "Bogotá",
     "disciplinas": ["Fisioterapia", "Terapia Ocupacional"],
-    "url": "https://umb.edu.co/"
+    "url": "https://umb.edu.co/diplomados/"
   },
   {
     "nombre": "Universidad de Santander (UDES)",
     "ciudad": "Bucaramanga",
     "disciplinas": ["Fisioterapia", "Terapia Ocupacional"],
-    "url": "https://www.udes.edu.co/"
+    "url": "https://udes.edu.co/estudia/educacion-continua"
   },
   {
     "nombre": "Universidad del Rosario",
     "ciudad": "Bogotá",
     "disciplinas": ["Fisioterapia", "Terapia Ocupacional"],
-    "url": "https://www.urosario.edu.co/escuela-medicina-ciencias-salud/inicio/"
+    "url": "https://educacioncontinua.urosario.edu.co/"
   },
   {
     "nombre": "Universidad del Valle",
     "ciudad": "Cali",
     "disciplinas": ["Fonoaudiología", "Fisioterapia"],
-    "url": "https://www.univalle.edu.co/"
+    "url": "https://extensionsalud.univalle.edu.co/oferta-de-cursos-talleres-diplomados"
   },
   {
     "nombre": "Universidad Nacional de Colombia",
     "ciudad": "Bogotá",
     "disciplinas": ["Fonoaudiología", "Terapia Ocupacional"],
-    "url": "https://unal.edu.co/"
+    "url": "https://extension.bogota.unal.edu.co/educacion-continua"
   },
   {
     "nombre": "ASOFONO",
     "ciudad": "Nacional",
     "disciplinas": ["Fonoaudiología"],
-    "url": "https://asofono.org/"
+    "url": "https://asofono.co/cursos-de-actualizacion/"
   },
   {
     "nombre": "Forafis",
     "ciudad": "Nacional",
     "disciplinas": ["Fisioterapia"],
-    "url": "https://forafis.com/"
+    "url": "https://forafis.com/cursos-en-fisioterapia-colombia/"
   },
   {
     "nombre": "Fundación IDEAL",
     "ciudad": "Cali",
-    "disciplinas": ["Terapia Ocupacional", "Fisioterapia"],
-    "url": "https://www.fundacionideal.org.co/"
+    "disciplinas": ["Terapia Ocupacional", "Fisioterapia", "Fonoaudiología"],
+    "url": "https://www.fundacionideal.org.co/cursos-y-seminarios"
   },
   {
     "nombre": "Academia Expertia",
@@ -81,6 +81,6 @@
     "nombre": "Hand Therapy Academy",
     "ciudad": "Nacional",
     "disciplinas": ["Fisioterapia", "Terapia Ocupacional"],
-    "url": "https://handtherapyacademy.com/"
+    "url": "https://www.handtherapyacademy.com/"
   }
 ]

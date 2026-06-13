@@ -83,8 +83,9 @@ npm run actualizar
 ## Personalización
 
 - **Instituciones**: edita `src/data/instituciones.json` (nombre, ciudad, disciplinas, URL).
-- **Boletín**: en `src/components/Footer.astro`, reemplaza `FORM_ID` por tu endpoint
-  gratuito de [Formspree](https://formspree.io) para activar las suscripciones.
+- **Boletín**: usa [Web3Forms](https://web3forms.com) (gratis, sin cuenta). Entra, escribe
+  tu correo y copia la *Access Key*; pégala en `WEB3FORMS_KEY` dentro de
+  `src/components/Footer.astro` (o define la variable de entorno `PUBLIC_WEB3FORMS_KEY`).
 - **Colores/estilo**: variables CSS en `src/layouts/Layout.astro`.
 
 ## Notas y limitaciones

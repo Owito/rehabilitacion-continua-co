@@ -1,8 +1,9 @@
 ---
-// Para activar el boletín: crea un formulario gratuito en https://formspree.io
-// y reemplaza FORM_ID por tu identificador. Mientras tanto el formulario queda inactivo.
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/FORM_ID';
-const newsletterActivo = !FORMSPREE_ENDPOINT.includes('FORM_ID');
+// BOLETÍN — Web3Forms (gratis, sin crear cuenta, 250 envíos/mes).
+// Para activarlo: entra a https://web3forms.com, escribe tu correo y te llega una
+// "Access Key". Pégala abajo (o defínela como variable de entorno PUBLIC_WEB3FORMS_KEY).
+const WEB3FORMS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY || 'PEGA_TU_ACCESS_KEY_AQUI';
+const newsletterActivo = WEB3FORMS_KEY !== 'PEGA_TU_ACCESS_KEY_AQUI' && WEB3FORMS_KEY.length > 10;
 ---
 
 <footer class="footer" id="contacto">
@@ -28,16 +29,16 @@ const newsletterActivo = !FORMSPREE_ENDPOINT.includes('FORM_ID');
     <div class="footer__col footer__news">
       <h4>Boletín mensual</h4>
       <p>Recibe las nuevas oportunidades de formación en tu correo.</p>
-      <form
-        class="footer__form"
-        action={newsletterActivo ? FORMSPREE_ENDPOINT : undefined}
-        method="POST"
-      >
+      <form id="newsletter-form" class="footer__form" data-activo={String(newsletterActivo)}>
+        <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+        <input type="hidden" name="subject" value="Nueva suscripción — Boletín Rehabilitación CO" />
+        <input type="hidden" name="from_name" value="Directorio Rehabilitación CO" />
+        <input type="checkbox" name="botcheck" class="footer__hp" tabindex="-1" autocomplete="off" />
         <input type="email" name="email" placeholder="tu@correo.com" required aria-label="Correo electrónico" />
         <button type="submit" class="btn">Suscribirme</button>
-        {!newsletterActivo && (
-          <small class="footer__nota">Configura tu endpoint de Formspree en <code>Footer.astro</code> para activarlo.</small>
-        )}
+        <small id="newsletter-msg" class="footer__nota" role="status" aria-live="polite">
+          {!newsletterActivo && 'Pendiente: configura tu Access Key de Web3Forms para activar el boletín.'}
+        </small>
       </form>
     </div>
   </div>
@@ -52,6 +53,33 @@ const newsletterActivo = !FORMSPREE_ENDPOINT.includes('FORM_ID');
     </div>
   </div>
 </footer>
+
+<script>
+  const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
+  const msg = document.getElementById('newsletter-msg');
+  if (form && msg && form.dataset.activo === 'true') {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.textContent = 'Enviando…';
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form),
+        });
+        const data = await res.json();
+        if (data.success) {
+          form.reset();
+          msg.textContent = '¡Listo! Te suscribiste al boletín. ✅';
+        } else {
+          msg.textContent = 'No se pudo suscribir. Intenta de nuevo más tarde.';
+        }
+      } catch {
+        msg.textContent = 'Error de red. Revisa tu conexión e intenta otra vez.';
+      }
+    });
+  }
+</script>
 
 <style>
   .footer { background: var(--azul-oscuro); color: rgba(255, 255, 255, 0.85); padding: 3.5rem 0 0; }
@@ -69,7 +97,7 @@ const newsletterActivo = !FORMSPREE_ENDPOINT.includes('FORM_ID');
   .footer__col a { color: rgba(255, 255, 255, 0.85); text-decoration: none; font-size: 0.92rem; }
   .footer__col a:hover { color: var(--amarillo); }
   .footer__form { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.8rem; }
-  .footer__form input {
+  .footer__form input[type="email"] {
     flex: 1;
     min-width: 180px;
     padding: 0.8rem 1rem;
@@ -79,8 +107,9 @@ const newsletterActivo = !FORMSPREE_ENDPOINT.includes('FORM_ID');
     font-size: 0.95rem;
   }
   .footer__form .btn { padding: 0.8rem 1.5rem; font-size: 0.95rem; }
-  .footer__nota { width: 100%; color: rgba(255, 255, 255, 0.6); font-size: 0.78rem; }
-  .footer__nota code { background: rgba(255,255,255,0.12); padding: 0.1rem 0.35rem; border-radius: 4px; }
+  /* honeypot anti-spam: oculto para humanos */
+  .footer__hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
+  .footer__nota { width: 100%; color: rgba(255, 255, 255, 0.7); font-size: 0.8rem; }
   .footer__bottom { border-top: 1px solid rgba(255, 255, 255, 0.15); padding: 1.4rem 0; }
   .footer__bottom p { font-size: 0.82rem; color: rgba(255, 255, 255, 0.6); margin: 0; }
 

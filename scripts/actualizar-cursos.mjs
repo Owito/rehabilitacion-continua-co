@@ -164,12 +164,15 @@ async function main() {
 
   // Fusión: la base curada (semilla) es el piso; los hallazgos automáticos se suman
   // encima. Así el directorio nunca queda vacío aunque varios sitios bloqueen el bot.
-  const porId = new Map();
-  for (const c of semilla) porId.set(c.id, c);   // base curada primero
-  for (const c of recolectados) {                // enriquecer con hallazgos nuevos
-    if (!porId.has(c.id)) porId.set(c.id, c);
+  // Deduplicar por institución+título (no solo por id) para no repetir programas que
+  // la base ya cubre y que el bot vuelva a encontrar.
+  const clave = (c) => slug(`${c.institucion}-${c.titulo}`);
+  const porClave = new Map();
+  for (const c of semilla) porClave.set(clave(c), c);   // base curada primero (gana)
+  for (const c of recolectados) {                       // enriquecer con lo nuevo
+    if (!porClave.has(clave(c))) porClave.set(clave(c), c);
   }
-  const cursos = [...porId.values()];
+  const cursos = [...porClave.values()];
 
   const huboHallazgos = recolectados.length > 0;
   const salida = {
