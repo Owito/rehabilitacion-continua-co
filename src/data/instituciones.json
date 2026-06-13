@@ -9,7 +9,7 @@
     "nombre": "Universidad El Bosque",
     "ciudad": "Bogotá",
     "disciplinas": ["Fisioterapia", "Fonoaudiología", "Terapia Ocupacional"],
-    "url": "https://www.unbosque.edu.co/educacion-continua"
+    "url": "https://www.unbosque.edu.co/educacion-continua/escuela-de-salud-oferta"
   },
   {
     "nombre": "Escuela Colombiana de Rehabilitación (ECR)",
@@ -39,19 +39,28 @@
     "nombre": "Universidad del Rosario",
     "ciudad": "Bogotá",
     "disciplinas": ["Fisioterapia", "Terapia Ocupacional"],
-    "url": "https://educacioncontinua.urosario.edu.co/"
+    "url": "https://educacioncontinua.urosario.edu.co/buscar"
   },
   {
     "nombre": "Universidad del Valle",
     "ciudad": "Cali",
     "disciplinas": ["Fonoaudiología", "Fisioterapia"],
-    "url": "https://extensionsalud.univalle.edu.co/oferta-de-cursos-talleres-diplomados"
+    "pdf": true,
+    "url": "https://extensionsalud.univalle.edu.co/oferta-de-cursos-talleres-diplomados/2-uncategorised/24-escuela-de-rehabilitacion-humana",
+    "urls": [
+      "https://extensionsalud.univalle.edu.co/oferta-de-cursos-talleres-diplomados/2-uncategorised/24-escuela-de-rehabilitacion-humana",
+      "https://extensionsalud.univalle.edu.co/oferta-de-cursos-talleres-diplomados/2-uncategorised/22-fisioterapia"
+    ]
   },
   {
     "nombre": "Universidad Nacional de Colombia",
     "ciudad": "Bogotá",
     "disciplinas": ["Fonoaudiología", "Terapia Ocupacional"],
-    "url": "https://extension.bogota.unal.edu.co/educacion-continua"
+    "url": "https://extension.bogota.unal.edu.co/educacion-continua?f[0]=facultad_o_instituto:12",
+    "urls": [
+      "https://extension.bogota.unal.edu.co/educacion-continua?f[0]=facultad_o_instituto:12",
+      "https://medicina.bogota.unal.edu.co/extension/diplomados"
+    ]
   },
   {
     "nombre": "ASOFONO",

@@ -8,8 +8,13 @@
  * Requiere la variable de entorno GITHUB_TOKEN (en GitHub Actions se inyecta sola con
  * el permiso `models: read`). No usa ninguna API de pago.
  *
- * Blindaje sector salud: solo conserva programas con enlace; si la extracción falla
- * globalmente, mantiene los datos previos para no vaciar el sitio.
+ * Cada institución en instituciones.json puede traer:
+ *   - url:  string  (una sola página), o
+ *   - urls: string[] (varias páginas a barrer y concatenar)
+ *   - pdf:  true     (además descarga y parsea los PDFs de Google Drive enlazados)
+ *
+ * Blindaje sector salud: solo conserva programas con enlace; la base curada
+ * (cursos.semilla.json) es el piso y los hallazgos automáticos se suman encima.
  */
 
 import { readFile, writeFile } from 'node:fs/promises';
@@ -31,6 +36,9 @@ const MODALIDADES = ['Virtual', 'Híbrida', 'Presencial'];
 const TIPOS = ['Curso', 'Diplomado', 'Especialización', 'Seminario'];
 const MESES = ['Julio', 'Agosto'];
 
+const MAX_TEXTO = 24000;   // tope de texto enviado al modelo por institución
+const MAX_PDFS = 4;        // PDFs de Drive a parsear por institución
+
 const hoy = new Date().toISOString().slice(0, 10);
 
 function log(...a) { console.log('[actualizar]', ...a); }
@@ -44,33 +52,84 @@ function slug(texto) {
     .slice(0, 60);
 }
 
-/** Descarga el HTML del sitio y lo reduce a texto plano para ahorrar tokens. */
-async function traerTexto(url) {
+const CABECERAS = {
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language': 'es-CO,es;q=0.9,en;q=0.8',
+};
+
+/** Descarga el HTML crudo de una URL (con timeout). */
+async function traerHtml(url) {
   const ctrl = new AbortController();
-  const t = setTimeout(() => ctrl.abort(), 20000);
+  const t = setTimeout(() => ctrl.abort(), 25000);
   try {
-    const res = await fetch(url, {
-      signal: ctrl.signal,
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'es-CO,es;q=0.9,en;q=0.8',
-      },
-      redirect: 'follow',
-    });
+    const res = await fetch(url, { signal: ctrl.signal, headers: CABECERAS, redirect: 'follow' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const html = await res.text();
-    return html
-      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-      .replace(/<[^>]+>/g, ' ')
-      .replace(/&nbsp;/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim()
-      .slice(0, 8000);
+    return await res.text();
   } finally {
     clearTimeout(t);
   }
+}
+
+/** Reduce HTML a texto plano para ahorrar tokens. */
+function aTexto(html) {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/** Encuentra IDs de archivos de Google Drive enlazados en el HTML. */
+function extraerDriveIds(html) {
+  const ids = new Set();
+  const re = /drive\.google\.com\/file\/d\/([A-Za-z0-9_-]{20,})/g;
+  let m;
+  while ((m = re.exec(html))) ids.add(m[1]);
+  return [...ids];
+}
+
+/** Descarga un PDF de Drive por su ID y devuelve su texto (o '' si no es PDF). */
+async function traerPdfTexto(id) {
+  const url = `https://drive.google.com/uc?export=download&id=${id}`;
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), 25000);
+  try {
+    const res = await fetch(url, { signal: ctrl.signal, headers: CABECERAS, redirect: 'follow' });
+    const ct = res.headers.get('content-type') || '';
+    if (!res.ok || !ct.includes('pdf')) return ''; // archivos grandes/escaneados → se omiten
+    const buf = Buffer.from(await res.arrayBuffer());
+    // Import a la lib interna: evita el "modo debug" de pdf-parse/index.js que intenta
+    // leer un PDF de prueba al cargarse y rompe en CI.
+    const { default: pdfParse } = await import('pdf-parse/lib/pdf-parse.js');
+    const data = await pdfParse(buf);
+    return aTexto(data.text || '');
+  } catch {
+    return '';
+  } finally {
+    clearTimeout(t);
+  }
+}
+
+/** Junta el texto de todas las URLs de una institución (+ PDFs de Drive si pdf:true). */
+async function recopilarTexto(inst) {
+  const urls = inst.urls && inst.urls.length ? inst.urls : [inst.url];
+  const partes = [];
+  for (const url of urls) {
+    const html = await traerHtml(url);
+    partes.push(aTexto(html));
+    if (inst.pdf) {
+      const ids = extraerDriveIds(html).slice(0, MAX_PDFS);
+      for (const id of ids) {
+        const txt = await traerPdfTexto(id);
+        if (txt) partes.push(txt);
+      }
+    }
+  }
+  return partes.join('\n').slice(0, MAX_TEXTO);
 }
 
 /** Pide a GitHub Models que extraiga la oferta del texto del sitio. */
@@ -84,7 +143,7 @@ Devuelve EXCLUSIVAMENTE un objeto JSON con la forma {"cursos": [...]}. Cada curs
 - modalidad (uno de: ${MODALIDADES.join(', ')})
 - ciudad (string)
 - mes (Julio o Agosto)
-Reglas: solo programas reales que aparezcan en el texto. Si no hay información suficiente, devuelve {"cursos": []}. No inventes. Máximo 6 cursos.`;
+Reglas: solo programas reales que aparezcan en el texto y que sean de fisioterapia, fonoaudiología, terapia ocupacional o rehabilitación. Ignora programas de otras áreas (derecho, ingeniería, odontología, etc.). Si no hay información suficiente, devuelve {"cursos": []}. No inventes. Máximo 8 cursos.`;
 
   const usuario = `Institución: ${institucion.nombre} (${institucion.ciudad}).\nTexto del sitio oficial:\n"""${texto}"""`;
 
@@ -121,9 +180,10 @@ function normalizar(crudo, institucion) {
   if (!crudo || typeof crudo.titulo !== 'string' || !crudo.titulo.trim()) return null;
   const disciplina = DISCIPLINAS.includes(crudo.disciplina) ? crudo.disciplina : null;
   if (!disciplina) return null;
+  const urlBase = institucion.url || (institucion.urls && institucion.urls[0]) || '';
   const enlace = (typeof crudo.enlace === 'string' && crudo.enlace.startsWith('http'))
     ? crudo.enlace
-    : institucion.url; // siempre debe haber enlace a fuente oficial
+    : urlBase; // siempre debe haber enlace a fuente oficial
   return {
     id: `${slug(institucion.nombre)}-${slug(crudo.titulo)}`,
     titulo: crudo.titulo.trim(),
@@ -151,7 +211,7 @@ async function main() {
   for (const inst of instituciones) {
     try {
       log(`→ ${inst.nombre}`);
-      const texto = await traerTexto(inst.url);
+      const texto = await recopilarTexto(inst);
       if (texto.length < 200) { log(`  sitio con poco contenido, omitido`); continue; }
       const crudos = await extraer(inst, texto);
       const validos = crudos.map((c) => normalizar(c, inst)).filter(Boolean);

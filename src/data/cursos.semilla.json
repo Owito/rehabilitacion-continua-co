@@ -312,6 +312,18 @@
     "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
   },
   {
+    "id": "univalle-traqueostomia",
+    "titulo": "Rehabilitación Integral del Paciente con Traqueostomía",
+    "institucion": "Universidad del Valle",
+    "disciplina": "Fonoaudiología",
+    "tema": "Disfagia y vía aérea",
+    "tipo": "Curso",
+    "modalidad": "Presencial",
+    "ciudad": "Cali",
+    "mes": "Agosto",
+    "enlace": "https://extensionsalud.univalle.edu.co/oferta-de-cursos-talleres-diplomados/2-uncategorised/24-escuela-de-rehabilitacion-humana"
+  },
+  {
     "id": "expertia-rehabilitacion-fisica-to",
     "titulo": "Diplomado en Rehabilitación Física y Terapia Ocupacional",
     "institucion": "Academia Expertia",
