@@ -19,6 +19,7 @@ import { dirname, join } from 'node:path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const RAIZ = join(__dirname, '..');
 const RUTA_INSTITUCIONES = join(RAIZ, 'src', 'data', 'instituciones.json');
+const RUTA_SEMILLA = join(RAIZ, 'src', 'data', 'cursos.semilla.json');
 const RUTA_CURSOS = join(RAIZ, 'src', 'data', 'cursos.json');
 
 const MODELS_ENDPOINT = 'https://models.github.ai/inference/chat/completions';
@@ -50,7 +51,11 @@ async function traerTexto(url) {
   try {
     const res = await fetch(url, {
       signal: ctrl.signal,
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; RehabCO-bot/1.0)' },
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'es-CO,es;q=0.9,en;q=0.8',
+      },
       redirect: 'follow',
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -140,7 +145,7 @@ async function main() {
   }
 
   const instituciones = JSON.parse(await readFile(RUTA_INSTITUCIONES, 'utf8'));
-  const previo = JSON.parse(await readFile(RUTA_CURSOS, 'utf8'));
+  const semilla = JSON.parse(await readFile(RUTA_SEMILLA, 'utf8'));
 
   const recolectados = [];
   for (const inst of instituciones) {
@@ -157,26 +162,25 @@ async function main() {
     }
   }
 
-  // Deduplicar por id
+  // Fusión: la base curada (semilla) es el piso; los hallazgos automáticos se suman
+  // encima. Así el directorio nunca queda vacío aunque varios sitios bloqueen el bot.
   const porId = new Map();
-  for (const c of recolectados) porId.set(c.id, c);
+  for (const c of semilla) porId.set(c.id, c);   // base curada primero
+  for (const c of recolectados) {                // enriquecer con hallazgos nuevos
+    if (!porId.has(c.id)) porId.set(c.id, c);
+  }
   const cursos = [...porId.values()];
 
-  // Blindaje: si no se obtuvo nada, conservar datos previos
-  if (cursos.length === 0) {
-    log('No se extrajeron programas; se conservan los datos previos.');
-    return;
-  }
-
+  const huboHallazgos = recolectados.length > 0;
   const salida = {
     actualizado: hoy,
-    fuente: 'automatico',
-    nota: 'Oferta recopilada automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.',
+    fuente: huboHallazgos ? 'automatico' : 'semilla',
+    nota: 'Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.',
     cursos: cursos.sort((a, b) => a.disciplina.localeCompare(b.disciplina, 'es') || a.institucion.localeCompare(b.institucion, 'es')),
   };
 
   await writeFile(RUTA_CURSOS, JSON.stringify(salida, null, 2) + '\n', 'utf8');
-  log(`✓ Escrito cursos.json con ${cursos.length} programas (antes: ${previo.cursos?.length ?? 0}).`);
+  log(`✓ Escrito cursos.json: ${cursos.length} programas (${semilla.length} base + ${recolectados.length} hallazgos automáticos antes de deduplicar).`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

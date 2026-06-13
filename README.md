@@ -30,7 +30,8 @@ npm run preview    # sirve la build
 ```
 src/
   data/
-    cursos.json          # oferta de programas (lo que cambia cada semana)
+    cursos.json          # oferta publicada = base curada + hallazgos automáticos (generado)
+    cursos.semilla.json  # BASE CURADA editable a mano (piso que nunca se borra)
     instituciones.json   # instituciones + URL oficial que se scrapea
   components/            # secciones de la landing
   layouts/Layout.astro   # estilos globales + <head>
@@ -62,8 +63,10 @@ scripts/
 
 - El workflow **`actualizar.yml`** corre cada **lunes a las 6:00 AM (Colombia)** y también
   puede lanzarse a mano en *Actions → Actualizar oferta → Run workflow*.
-- Lee `instituciones.json`, descarga cada portal oficial, extrae la oferta con **GitHub
-  Models** y reescribe `cursos.json`. Si hay cambios, los commitea y eso dispara el deploy.
+- Parte de la **base curada** (`cursos.semilla.json`), descarga cada portal oficial,
+  extrae oferta con **GitHub Models** y **suma** los hallazgos a la base (sin borrarla);
+  escribe el resultado en `cursos.json`. Si hay cambios, los commitea y dispara el deploy.
+  Así el directorio nunca queda vacío aunque varios sitios bloqueen el bot.
 - **No necesitas configurar secretos**: usa el `GITHUB_TOKEN` automático con permiso
   `models: read`. GitHub Models es gratis para cuentas personales (con límites de uso
   holgados para este volumen).
