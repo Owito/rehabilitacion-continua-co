@@ -1,6 +1,9 @@
 ---
-import cursos from '../data/cursos.json';
-const total = cursos.cursos.length;
+import data from '../data/cursos.json';
+import instituciones from '../data/instituciones.json';
+const total = data.cursos.length;
+const numInstituciones = instituciones.length;
+const numDisciplinas = new Set(data.cursos.map((c) => c.disciplina)).size;
 ---
 
 <header class="hero">
@@ -21,8 +24,8 @@ const total = cursos.cursos.length;
     </div>
     <ul class="hero__stats">
       <li><strong>{total}+</strong> programas vigentes</li>
-      <li><strong>14</strong> instituciones aliadas</li>
-      <li><strong>3</strong> disciplinas de rehabilitación</li>
+      <li><strong>{numInstituciones}</strong> instituciones aliadas</li>
+      <li><strong>{numDisciplinas}</strong> disciplinas de rehabilitación</li>
     </ul>
   </div>
 </header>

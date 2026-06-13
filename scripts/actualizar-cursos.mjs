@@ -73,6 +73,18 @@ function claveTitulo(titulo) {
     .join('-');
 }
 
+/** Heurística: ¿el título está en español? Descarta ruido en inglés (p. ej. cursos de
+ *  Hand Therapy Academy como "Flexor Tendon Course") sin tocar títulos de 1 palabra ni
+ *  los que tengan tilde o palabra funcional española. */
+function pareceEspanol(titulo) {
+  const t = titulo.toLowerCase();
+  const palabras = t.split(/\s+/).filter(Boolean);
+  if (palabras.length < 2) return true;                 // 1 palabra: no arriesgar (Disfagia, Vocología)
+  if (/[áéíóúñ¿¡]/.test(t)) return true;                // tilde/ñ ⇒ español
+  const funcionales = ['de', 'en', 'y', 'del', 'la', 'el', 'los', 'las', 'para', 'con', 'por', 'al', 'un', 'una', 'curso', 'diplomado', 'seminario', 'taller', 'rehabilitacion', 'terapia'];
+  return palabras.some((p) => funcionales.includes(p));
+}
+
 /** Pasa títulos en MAYÚSCULAS sostenidas a may. inicial por palabra (más legible). */
 function normalizarTitulo(titulo) {
   const t = titulo.trim().replace(/\s+/g, ' ');
@@ -236,6 +248,7 @@ Reglas: solo programas reales que aparezcan en el texto y que sean de fisioterap
 /** Normaliza y valida un curso devuelto por el modelo. */
 function normalizar(crudo, institucion) {
   if (!crudo || typeof crudo.titulo !== 'string' || !crudo.titulo.trim()) return null;
+  if (!pareceEspanol(crudo.titulo)) return null;        // descarta ruido en inglés
   const disciplina = DISCIPLINAS.includes(crudo.disciplina) ? crudo.disciplina : null;
   if (!disciplina) return null;
   const urlBase = institucion.url || (institucion.urls && institucion.urls[0]) || '';
