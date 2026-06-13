@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write   # para commitear cursos.json
   models: read      # para usar GitHub Models (LLM gratis)
+  actions: write    # para disparar el workflow de deploy tras commitear
 
 jobs:
   actualizar:
@@ -27,7 +28,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/actualizar-cursos.mjs
 
-      - name: Commit si hubo cambios
+      - name: Commit y disparar deploy si hubo cambios
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -35,7 +38,10 @@ jobs:
             git add src/data/cursos.json
             git commit -m "chore: actualización automática semanal de la oferta"
             git push
-            echo "Cambios publicados (esto dispara el deploy)."
+            # El push con GITHUB_TOKEN no dispara otros workflows, así que el deploy
+            # se lanza explícitamente aquí.
+            gh workflow run deploy.yml --ref main
+            echo "Cambios commiteados y deploy disparado."
           else
             echo "Sin cambios en la oferta esta semana."
           fi
