@@ -39,6 +39,13 @@ const MESES = ['Julio', 'Agosto'];
 const MAX_TEXTO = 24000;   // tope de texto enviado al modelo por institución
 const MAX_PDFS = 4;        // PDFs de Drive a parsear por institución
 
+// Palabras clave de rehabilitación para enfocar páginas con mucha oferta de otras áreas.
+const PALABRAS_CLAVE = [
+  'fisioterap', 'fonoaud', 'terapia ocupacional', 'rehabilitac', 'deglucion', 'disfagia',
+  'vocolog', 'suelo pelvico', 'pelviperineal', 'pelvi-perineal', 'neurorrehab', 'neurodesarrollo',
+  'paliativ', 'linfedema', 'traqueost', 'cardiopulmonar', 'musculoesquelet', 'audiolog',
+];
+
 const hoy = new Date().toISOString().slice(0, 10);
 
 function log(...a) { console.log('[actualizar]', ...a); }
@@ -114,6 +121,31 @@ async function traerPdfTexto(id) {
   }
 }
 
+/**
+ * Si el texto excede el tope, prioriza las "ventanas" alrededor de palabras clave de
+ * rehabilitación. Así las páginas con mucha oferta de otras áreas (Rosario, UNAL) no
+ * pierden los programas relevantes por el truncado.
+ */
+function enfocar(texto) {
+  if (texto.length <= MAX_TEXTO) return texto;
+  const bajo = texto.toLowerCase();
+  const trozos = [];
+  let usados = 0;
+  for (const kw of PALABRAS_CLAVE) {
+    let i = bajo.indexOf(kw);
+    while (i !== -1 && usados < MAX_TEXTO) {
+      const ini = Math.max(0, i - 200);
+      const fin = Math.min(texto.length, i + 200);
+      const trozo = texto.slice(ini, fin);
+      trozos.push(trozo);
+      usados += trozo.length;
+      i = bajo.indexOf(kw, i + 200);
+    }
+  }
+  const enfocado = trozos.join(' … ');
+  return enfocado.length > 300 ? enfocado.slice(0, MAX_TEXTO) : texto.slice(0, MAX_TEXTO);
+}
+
 /** Junta el texto de todas las URLs de una institución (+ PDFs de Drive si pdf:true). */
 async function recopilarTexto(inst) {
   const urls = inst.urls && inst.urls.length ? inst.urls : [inst.url];
@@ -129,7 +161,7 @@ async function recopilarTexto(inst) {
       }
     }
   }
-  return partes.join('\n').slice(0, MAX_TEXTO);
+  return enfocar(partes.join('\n'));
 }
 
 /** Pide a GitHub Models que extraiga la oferta del texto del sitio. */
@@ -226,7 +258,10 @@ async function main() {
   // encima. Así el directorio nunca queda vacío aunque varios sitios bloqueen el bot.
   // Deduplicar por institución+título (no solo por id) para no repetir programas que
   // la base ya cubre y que el bot vuelva a encontrar.
-  const clave = (c) => slug(`${c.institucion}-${c.titulo}`);
+  // slug() recorta a 60 chars; con instituciones de nombre largo (p. ej. FUCS) el
+  // título quedaba truncado y distintos programas colisionaban. Por eso se slugifica
+  // cada parte por separado.
+  const clave = (c) => `${slug(c.institucion)}__${slug(c.titulo)}`;
   const porClave = new Map();
   for (const c of semilla) porClave.set(clave(c), c);   // base curada primero (gana)
   for (const c of recolectados) {                       // enriquecer con lo nuevo
