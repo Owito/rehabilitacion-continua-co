@@ -82,7 +82,14 @@ const newsletterActivo = WEB3FORMS_KEY !== 'PEGA_TU_ACCESS_KEY_AQUI' && WEB3FORM
 </script>
 
 <style>
-  .footer { background: var(--azul-oscuro); color: rgba(255, 255, 255, 0.85); padding: 3.5rem 0 0; }
+  .footer {
+    background: rgba(255, 255, 255, 0.03);
+    -webkit-backdrop-filter: blur(var(--blur));
+    backdrop-filter: blur(var(--blur));
+    border-top: 1px solid var(--glass-borde);
+    color: var(--texto-suave);
+    padding: 3.5rem 0 0;
+  }
   .footer__grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1.5fr;
@@ -94,18 +101,21 @@ const newsletterActivo = WEB3FORMS_KEY !== 'PEGA_TU_ACCESS_KEY_AQUI' && WEB3FORM
   .footer p { font-size: 0.92rem; }
   .footer__col ul { list-style: none; padding: 0; margin: 0; }
   .footer__col li { margin-bottom: 0.5rem; }
-  .footer__col a { color: rgba(255, 255, 255, 0.85); text-decoration: none; font-size: 0.92rem; }
-  .footer__col a:hover { color: var(--amarillo); }
+  .footer__col a { color: var(--texto-suave); text-decoration: none; font-size: 0.92rem; }
+  .footer__col a:hover { color: var(--verde); }
   .footer__form { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.8rem; }
   .footer__form input[type="email"] {
     flex: 1;
     min-width: 180px;
     padding: 0.8rem 1rem;
     border-radius: 999px;
-    border: none;
+    border: 1px solid var(--glass-borde);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--texto);
     font-family: inherit;
     font-size: 0.95rem;
   }
+  .footer__form input[type="email"]::placeholder { color: var(--texto-suave); }
   .footer__form .btn { padding: 0.8rem 1.5rem; font-size: 0.95rem; }
   /* honeypot anti-spam: oculto para humanos */
   .footer__hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }

@@ -9,9 +9,9 @@ const meses = [...new Set(cursos.map((c) => c.mes))]
   .sort((a, b) => ORDEN_MESES.indexOf(a) - ORDEN_MESES.indexOf(b));
 
 const colorDisciplina = {
-  'Fisioterapia': '#0f4c81',
-  'Fonoaudiología': '#16a085',
-  'Terapia Ocupacional': '#b9770e',
+  'Fisioterapia': '#4d9fff',
+  'Fonoaudiología': '#2dd4bf',
+  'Terapia Ocupacional': '#f5b563',
 };
 
 const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO', {
@@ -19,7 +19,7 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
 });
 ---
 
-<section class="seccion seccion--gris" id="oferta">
+<section class="seccion" id="oferta">
   <div class="contenedor">
     <span class="seccion__eyebrow">Oferta vigente</span>
     <h2 class="seccion__titulo">Directorio de programas — Julio y Agosto</h2>
@@ -151,18 +151,30 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
 
 <style>
   .dir__aviso {
-    background: #fff8e8;
-    border: 1px solid #f3dca0;
-    border-radius: 10px;
+    background: rgba(245, 193, 78, 0.1);
+    border: 1px solid rgba(245, 193, 78, 0.3);
+    border-radius: 12px;
     padding: 0.85rem 1.1rem;
-    font-size: 0.95rem;
-    color: #6b5418;
+    font-size: 0.92rem;
+    color: #f1d79b;
     margin: 1.6rem 0 2rem;
   }
-  .dir__filtros { display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; margin-bottom: 1.2rem; }
+  .dir__aviso strong { color: #fbe7b8; }
+  .dir__filtros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem 2rem;
+    margin-bottom: 1.2rem;
+    padding: 1.2rem 1.3rem;
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(var(--blur));
+    backdrop-filter: blur(var(--blur));
+    border: 1px solid var(--glass-borde);
+    border-radius: var(--radio);
+  }
   .dir__grupo { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
   .dir__grupo-label {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -170,18 +182,23 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
     margin-right: 0.3rem;
   }
   .chip {
-    background: var(--blanco);
-    border: 1px solid var(--gris-borde);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-borde);
     border-radius: 999px;
     padding: 0.4rem 0.95rem;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     cursor: pointer;
     color: var(--texto);
     font-family: inherit;
     transition: all 0.15s ease;
   }
-  .chip:hover { border-color: var(--azul-claro); }
-  .chip.activo { background: var(--azul); border-color: var(--azul); color: #fff; }
+  .chip:hover { border-color: var(--azul); color: #fff; }
+  .chip.activo {
+    background: linear-gradient(135deg, var(--azul), #7c5cff);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(77, 159, 255, 0.4);
+  }
   .dir__limpiar {
     align-self: center;
     background: transparent;
@@ -193,7 +210,7 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
     text-decoration: underline;
     padding: 0.4rem 0.5rem;
   }
-  .dir__limpiar:hover { color: var(--azul); }
+  .dir__limpiar:hover { color: #fff; }
   .dir__contador { color: var(--texto-suave); font-size: 0.9rem; margin: 0 0 1.5rem; }
 
   .dir__grid {
@@ -202,28 +219,36 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
     gap: 1.4rem;
   }
   .curso {
-    background: var(--blanco);
-    border: 1px solid var(--gris-borde);
-    border-left: 4px solid var(--acento);
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(var(--blur));
+    backdrop-filter: blur(var(--blur));
+    border: 1px solid var(--glass-borde);
+    border-left: 3px solid var(--acento);
     border-radius: var(--radio);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     box-shadow: var(--sombra);
+    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  }
+  .curso:hover {
+    transform: translateY(-4px);
+    border-color: var(--glass-borde-fuerte);
+    box-shadow: var(--sombra-fuerte);
   }
   .curso__top { display: flex; gap: 0.5rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
   .curso__tag {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     padding: 0.25rem 0.6rem;
     border-radius: 6px;
   }
-  .curso__tag--tipo { background: var(--azul-oscuro); color: #fff; }
-  .curso__tag--mod { background: var(--verde-suave); color: var(--verde); }
-  .curso__titulo { font-size: 1.15rem; margin: 0 0 0.3rem; }
-  .curso__institucion { color: var(--texto-suave); font-weight: 600; margin: 0 0 1rem; font-size: 0.95rem; }
+  .curso__tag--tipo { background: rgba(124, 92, 255, 0.25); color: #cdbcff; border: 1px solid rgba(124,92,255,0.4); }
+  .curso__tag--mod { background: rgba(45, 212, 191, 0.15); color: var(--verde); border: 1px solid rgba(45,212,191,0.35); }
+  .curso__titulo { font-size: 1.12rem; margin: 0 0 0.3rem; color: #f3f7fc; }
+  .curso__institucion { color: var(--texto-suave); font-weight: 600; margin: 0 0 1rem; font-size: 0.92rem; }
   .curso__meta {
     list-style: none;
     padding: 0;
@@ -231,7 +256,7 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem 1rem;
-    font-size: 0.88rem;
+    font-size: 0.86rem;
     color: var(--texto-suave);
     flex: 1;
   }

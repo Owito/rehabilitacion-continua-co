@@ -35,20 +35,23 @@ const ordenadas = [...instituciones].sort((a, b) => a.nombre.localeCompare(b.nom
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
-    background: var(--blanco);
-    border: 1px solid var(--gris-borde);
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(var(--blur));
+    backdrop-filter: blur(var(--blur));
+    border: 1px solid var(--glass-borde);
     border-radius: var(--radio);
     padding: 1.2rem;
     text-decoration: none;
     color: var(--texto);
-    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
   }
   .inst__card:hover {
     transform: translateY(-3px);
-    box-shadow: var(--sombra);
-    border-color: var(--azul-claro);
+    box-shadow: var(--sombra-fuerte);
+    border-color: var(--glass-borde-fuerte);
+    background: var(--glass-bg-fuerte);
   }
-  .inst__nombre { font-weight: 700; color: var(--azul-oscuro); line-height: 1.3; }
+  .inst__nombre { font-weight: 700; color: #f3f7fc; line-height: 1.3; }
   .inst__ciudad { font-size: 0.85rem; color: var(--texto-suave); }
   .inst__disc { font-size: 0.78rem; color: var(--verde); font-weight: 600; }
 </style>
