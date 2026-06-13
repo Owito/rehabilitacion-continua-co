@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Directorio from '../components/Directorio.astro';
-import Footer from '../components/Footer.astro';
 import data from '../data/cursos.json';
 import { rangoMeses } from '../utils/meses.js';
 
@@ -21,7 +20,6 @@ const description = `Directorio de cursos, diplomados y especializaciones en Reh
   <main>
     <Directorio />
   </main>
-  <Footer />
 
   <button id="ir-arriba" class="ir-arriba" type="button" aria-label="Volver arriba" hidden>
     <span aria-hidden="true">↑</span>
