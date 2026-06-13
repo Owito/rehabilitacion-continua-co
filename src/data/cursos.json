@@ -4,18 +4,6 @@
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
     {
-      "id": "escuela-colombiana-de-rehabilitacion-ecr-curso-de-manejo-interdisciplinario-de-trastornos-de-la-condu",
-      "titulo": "Curso de Manejo Interdisciplinario de Trastornos de la Conducta Alimentaria",
-      "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
-      "disciplina": "Fisioterapia",
-      "tema": "Trastornos de la conducta alimentaria",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Bogotá",
-      "mes": "Julio",
-      "enlace": "https://ecr.edu.co/diplomados"
-    },
-    {
       "id": "forafis-piso-pelvico-gdp",
       "titulo": "Diplomado Internacional en Piso Pélvico — Concepto GDP",
       "institucion": "Forafis",
@@ -112,6 +100,78 @@
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
+      "id": "fundacion-ideal-curso-introductorio-virtual-y-presencial-de-formacion-en-neu",
+      "titulo": "Curso Introductorio Virtual y Presencial de Formación en Neurodesarrollo y Neurorrehabilitación Basado en el Modelo de Práctica Clínica – Ndta",
+      "institucion": "Fundación IDEAL",
+      "disciplina": "Fisioterapia",
+      "tema": "Neurodesarrollo y Neurorrehabilitación",
+      "tipo": "Curso",
+      "modalidad": "Virtual",
+      "ciudad": "Cali",
+      "mes": "Julio",
+      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+    },
+    {
+      "id": "fundacion-ideal-curso-aplicacion-terapeutica-de-vibracion-en-rehabilitacion-",
+      "titulo": "Curso Aplicación Terapéutica de Vibración en Rehabilitación Neuromuscular",
+      "institucion": "Fundación IDEAL",
+      "disciplina": "Fisioterapia",
+      "tema": "Terapia Vibratoria",
+      "tipo": "Curso",
+      "modalidad": "Virtual",
+      "ciudad": "Cali",
+      "mes": "Agosto",
+      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+    },
+    {
+      "id": "fundacion-ideal-curso-fabrifoam-y-tratamiento-adjuntos-para-resultados-efect",
+      "titulo": "Curso Fabrifoam y tratamiento: Adjuntos para resultados efectivos",
+      "institucion": "Fundación IDEAL",
+      "disciplina": "Fisioterapia",
+      "tema": "Tratamiento con Fabrifoam",
+      "tipo": "Curso",
+      "modalidad": "Virtual",
+      "ciudad": "Cali",
+      "mes": "Agosto",
+      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+    },
+    {
+      "id": "fundacion-ideal-curso-introductorio-modelo-contemporaneo-de-ndt-para-persona",
+      "titulo": "Curso Introductorio Modelo contemporáneo de NDT para personas post ACV o Lesión Cerebral: Un Enfoque Interdisciplinario",
+      "institucion": "Fundación IDEAL",
+      "disciplina": "Fisioterapia",
+      "tema": "NDT y Lesiones Cerebrales",
+      "tipo": "Curso",
+      "modalidad": "Virtual",
+      "ciudad": "Cali",
+      "mes": "Agosto",
+      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+    },
+    {
+      "id": "fundacion-ideal-curso-ataxia-autismo-y-ndt-integracion-de-la-funcion-visual",
+      "titulo": "Curso Ataxia, Autismo y NDT: Integración de la función visual",
+      "institucion": "Fundación IDEAL",
+      "disciplina": "Fisioterapia",
+      "tema": "Ataxia y Autismo",
+      "tipo": "Curso",
+      "modalidad": "Virtual",
+      "ciudad": "Cali",
+      "mes": "Agosto",
+      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+    },
+    {
+      "id": "fundacion-ideal-curso-certificado-por-la-ndta-de-la-practica-contemporanea-d",
+      "titulo": "Curso Certificado por la NDTA™ de la Práctica Contemporánea de NDT para el Tratamiento de Adultos con Eventos Cerebrovasculares (ECV) y Lesión Cerebral",
+      "institucion": "Fundación IDEAL",
+      "disciplina": "Fisioterapia",
+      "tema": "Tratamiento ECV y Lesión Cerebral",
+      "tipo": "Curso",
+      "modalidad": "Virtual",
+      "ciudad": "Cali",
+      "mes": "Agosto",
+      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+    },
+    {
       "id": "fucs-fisioterapia-pelvi-perineal",
       "titulo": "Diplomado en Fisioterapia Pelvi-Perineal",
       "institucion": "Fundación Universitaria de Ciencias de la Salud (FUCS)",
@@ -158,102 +218,6 @@
       "ciudad": "Bogotá",
       "mes": "Agosto",
       "enlace": "https://www.fucsalud.edu.co/diplomados/Diplomado-Rehabilitacion-Deportiva-Readaptacion-Funcional"
-    },
-    {
-      "id": "hand-therapy-academy-provocative-testing",
-      "titulo": "Provocative Testing",
-      "institucion": "Hand Therapy Academy",
-      "disciplina": "Fisioterapia",
-      "tema": "Pruebas provocativas",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Nacional",
-      "mes": "Julio",
-      "enlace": "https://www.handtherapyacademy.com/"
-    },
-    {
-      "id": "hand-therapy-academy-dynamic-splinting",
-      "titulo": "Dynamic Splinting",
-      "institucion": "Hand Therapy Academy",
-      "disciplina": "Fisioterapia",
-      "tema": "Férulas dinámicas",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Nacional",
-      "mes": "Julio",
-      "enlace": "https://www.handtherapyacademy.com/"
-    },
-    {
-      "id": "hand-therapy-academy-wound-care-course",
-      "titulo": "Wound Care Course",
-      "institucion": "Hand Therapy Academy",
-      "disciplina": "Fisioterapia",
-      "tema": "Cuidado de heridas",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Nacional",
-      "mes": "Agosto",
-      "enlace": "https://www.handtherapyacademy.com/"
-    },
-    {
-      "id": "hand-therapy-academy-flexor-tendon-course",
-      "titulo": "Flexor Tendon Course",
-      "institucion": "Hand Therapy Academy",
-      "disciplina": "Fisioterapia",
-      "tema": "Tendones flexores",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Nacional",
-      "mes": "Agosto",
-      "enlace": "https://www.handtherapyacademy.com/"
-    },
-    {
-      "id": "hand-therapy-academy-documentation-course",
-      "titulo": "Documentation Course",
-      "institucion": "Hand Therapy Academy",
-      "disciplina": "Fisioterapia",
-      "tema": "Documentación en terapia",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Nacional",
-      "mes": "Agosto",
-      "enlace": "https://www.handtherapyacademy.com/"
-    },
-    {
-      "id": "hand-therapy-academy-p-nerve-course",
-      "titulo": "P-Nerve Course",
-      "institucion": "Hand Therapy Academy",
-      "disciplina": "Fisioterapia",
-      "tema": "Nervios periféricos",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Nacional",
-      "mes": "Agosto",
-      "enlace": "https://www.handtherapyacademy.com/"
-    },
-    {
-      "id": "hand-therapy-academy-tendon-transfer-course",
-      "titulo": "Tendon Transfer Course",
-      "institucion": "Hand Therapy Academy",
-      "disciplina": "Fisioterapia",
-      "tema": "Transferencia de tendones",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Nacional",
-      "mes": "Agosto",
-      "enlace": "https://www.handtherapyacademy.com/"
-    },
-    {
-      "id": "hand-therapy-academy-shoulder-course",
-      "titulo": "Shoulder Course",
-      "institucion": "Hand Therapy Academy",
-      "disciplina": "Fisioterapia",
-      "tema": "Patología del hombro",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Nacional",
-      "mes": "Agosto",
-      "enlace": "https://www.handtherapyacademy.com/"
     },
     {
       "id": "ces-fisioterapia-clinica-musculoesqueletica",
@@ -352,30 +316,6 @@
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-terapeutico/"
     },
     {
-      "id": "universidad-manuela-beltran-umb-diplomado-en-fisioterapia-para-el-cuidado-materno-parto-y-po",
-      "titulo": "Diplomado en Fisioterapia para el Cuidado Materno, Parto y Postparto",
-      "institucion": "Universidad Manuela Beltrán (UMB)",
-      "disciplina": "Fisioterapia",
-      "tema": "Cuidado Materno",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://umb.edu.co/diplomados/"
-    },
-    {
-      "id": "universidad-manuela-beltran-umb-diplomado-en-rehabilitacion-cardiovascular-y-pulmonar",
-      "titulo": "Diplomado en Rehabilitación Cardiovascular y Pulmonar",
-      "institucion": "Universidad Manuela Beltrán (UMB)",
-      "disciplina": "Fisioterapia",
-      "tema": "Rehabilitación Cardiovascular",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://umb.edu.co/diplomados/"
-    },
-    {
       "id": "asofono-disfagia-practica-moderna",
       "titulo": "Disfagia en la práctica moderna: retos y soluciones basadas en evidencia",
       "institucion": "ASOFONO",
@@ -469,18 +409,6 @@
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
       "mes": "Julio",
-      "enlace": "https://ecr.edu.co/diplomados"
-    },
-    {
-      "id": "escuela-colombiana-de-rehabilitacion-ecr-diplomado-terapia-ocupacional-en-cuidados-paliativos",
-      "titulo": "Diplomado Terapia Ocupacional en Cuidados Paliativos",
-      "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
-      "disciplina": "Terapia Ocupacional",
-      "tema": "Cuidados paliativos",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
       "enlace": "https://ecr.edu.co/diplomados"
     },
     {
