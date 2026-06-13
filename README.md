@@ -1,20 +1,35 @@
 # Educación Continua en Rehabilitación Humana · Colombia
 
-Directorio web (landing page) de la oferta de educación continua en **Fisioterapia,
-Fonoaudiología y Terapia Ocupacional** en Colombia, con foco en julio y agosto.
+Directorio web de la oferta de educación continua en **Fisioterapia, Fonoaudiología y
+Terapia Ocupacional** en Colombia. Una sola página enfocada en la **oferta vigente**, con
+buscador y filtros, que se **actualiza sola cada semana**.
 
-- **100% gratis**: sitio estático en **GitHub Pages**.
-- **Sin APIs de pago**: la oferta se actualiza **automáticamente cada semana** con
-  **GitHub Models** (inferencia LLM gratuita para cuentas personales) dentro de GitHub Actions.
+🌐 **En vivo:** https://owito.github.io/rehabilitacion-continua-co/
+
+- **100% gratis** y estático en **GitHub Pages** (0 JavaScript de framework; solo unos
+  scripts inline para filtros y buscador).
+- **Sin APIs de pago**: la oferta se refresca **cada semana** con **GitHub Models**
+  (inferencia LLM gratuita para cuentas personales) dentro de GitHub Actions.
+- **Diseño neo-brutalista** (papel/tinta, bordes gruesos, sombras duras).
 
 ## Stack
 
 | Capa | Tecnología |
 |------|------------|
 | Sitio | [Astro 5](https://astro.build) |
-| Hosting | GitHub Pages |
+| Hosting | GitHub Pages (deploy con `withastro/action`) |
 | Datos | `src/data/cursos.json` (versionado) |
 | Automatización | GitHub Actions (cron semanal) + GitHub Models |
+
+## Funcionalidades
+
+- **Buscador** por programa / institución / tema + **filtros** por disciplina, modalidad y mes.
+- **Meses dinámicos**: el título, el `<title>` y los chips de mes se derivan de los datos;
+  la automatización usa una **ventana móvil** (mes actual + siguiente), así el periodo
+  mostrado avanza con el calendario sin tocar código.
+- **Accesibilidad**: `aria-pressed` en filtros, landmark `<main>`, `aria-hidden` en iconos
+  decorativos, foco visible y `prefers-reduced-motion`.
+- Botón "volver arriba" y aviso de "verificar fechas/cupos en la fuente oficial".
 
 ## Desarrollo local
 
@@ -30,69 +45,62 @@ npm run preview    # sirve la build
 ```
 src/
   data/
-    cursos.json          # oferta publicada = base curada + hallazgos automáticos (generado)
+    cursos.json          # oferta publicada = base curada + hallazgos automáticos (GENERADO)
     cursos.semilla.json  # BASE CURADA editable a mano (piso que nunca se borra)
-    instituciones.json   # instituciones + URL oficial que se scrapea
-  components/            # secciones de la landing
-  layouts/Layout.astro   # estilos globales + <head>
-  pages/index.astro      # ensambla la página
+    instituciones.json   # instituciones + URL(s) oficiales que se barren
+  components/
+    Directorio.astro     # única sección: buscador + filtros + tarjetas de oferta
+  layouts/Layout.astro   # estilos globales (tema neo-brutalista) + <head>
+  pages/index.astro      # nav + <main> con el Directorio
+  utils/meses.js         # orden y rango de meses (derivados de los datos)
 scripts/
   actualizar-cursos.mjs  # motor de actualización (GitHub Models)
 .github/workflows/
-  deploy.yml             # build + deploy a Pages (al hacer push a main)
-  actualizar.yml         # cron semanal (lunes 6 AM Colombia)
+  deploy.yml             # build + deploy a Pages (push a main / dispatch)
+  actualizar.yml         # cron semanal (lunes 6 AM Colombia) + dispara el deploy
 ```
 
-## Despliegue (una sola vez)
+## Despliegue
 
-1. **Crear el repo** `rehabilitacion-continua-co` en tu cuenta de GitHub y subir el código:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: directorio de educación continua en rehabilitación"
-   git branch -M main
-   git remote add origin https://github.com/<tu-usuario>/rehabilitacion-continua-co.git
-   git push -u origin main
-   ```
-2. **Activar GitHub Pages**: en el repo → *Settings → Pages → Build and deployment →
-   Source = **GitHub Actions***. El workflow `deploy.yml` publicará el sitio en
-   `https://<tu-usuario>.github.io/rehabilitacion-continua-co/`.
-   > Si tu usuario no es `fgoguerra`, ajusta `site` en `astro.config.mjs`.
+1. Subir el código al repo y activar **GitHub Pages**: *Settings → Pages → Build and
+   deployment → Source = **GitHub Actions***. El sitio queda en
+   `https://<usuario>.github.io/rehabilitacion-continua-co/`.
+   > Si el usuario no es `owito`, ajusta `site` en `astro.config.mjs`.
+2. El workflow `deploy.yml` publica en cada push a `main` (o ejecución manual).
 
 ## Actualización automática
 
-- El workflow **`actualizar.yml`** corre cada **lunes a las 6:00 AM (Colombia)** y también
-  puede lanzarse a mano en *Actions → Actualizar oferta → Run workflow*.
-- Parte de la **base curada** (`cursos.semilla.json`), descarga cada portal oficial,
-  extrae oferta con **GitHub Models** y **suma** los hallazgos a la base (sin borrarla);
-  escribe el resultado en `cursos.json`. Si hay cambios, los commitea y dispara el deploy.
-  Así el directorio nunca queda vacío aunque varios sitios bloqueen el bot.
-- **No necesitas configurar secretos**: usa el `GITHUB_TOKEN` automático con permiso
-  `models: read`. GitHub Models es gratis para cuentas personales (con límites de uso
-  holgados para este volumen).
+- **`actualizar.yml`** corre cada **lunes 6:00 AM (Colombia)** y también a mano en
+  *Actions → Actualizar oferta → Run workflow*.
+- Calcula la **ventana de meses** vigente (actual + siguiente), parte de la **base curada**
+  (`cursos.semilla.json`, re-estampada a esa ventana), descarga cada portal oficial —incluye
+  multi-URL y parseo de PDFs de Google Drive— extrae oferta con **GitHub Models**, filtra
+  ruido en otros idiomas, deduplica y **suma** los hallazgos a la base. Escribe `cursos.json`,
+  commitea si hubo cambios y **dispara el deploy** (un push con `GITHUB_TOKEN` no encadena
+  workflows, por eso se lanza explícitamente).
+- **Sin secretos**: usa el `GITHUB_TOKEN` con permiso `models: read`. GitHub Models es
+  gratis para cuentas personales.
 
 ### Probar el script en local
 
-Necesitas un token con permiso `models: read` (un *fine-grained PAT* o el token de Actions):
-
 ```bash
-export GITHUB_TOKEN=<tu_token>
+export GITHUB_TOKEN=<token con permiso models:read>
 npm run actualizar
 ```
 
 ## Personalización
 
-- **Instituciones**: edita `src/data/instituciones.json` (nombre, ciudad, disciplinas, URL).
-- **Boletín**: usa [Web3Forms](https://web3forms.com) (gratis, sin cuenta). Entra, escribe
-  tu correo y copia la *Access Key*; pégala en `WEB3FORMS_KEY` dentro de
-  `src/components/Footer.astro` (o define la variable de entorno `PUBLIC_WEB3FORMS_KEY`).
-- **Colores/estilo**: variables CSS en `src/layouts/Layout.astro`.
+- **Instituciones**: edita `src/data/instituciones.json` (`nombre`, `ciudad`, `disciplinas`,
+  `url` o `urls`, opcional `pdf: true`).
+- **Base curada**: edita `src/data/cursos.semilla.json` (programas verificados, siempre
+  presentes).
+- **Colores/estilo**: variables CSS (tema neo-brutalista) en `src/layouts/Layout.astro`.
 
 ## Notas y limitaciones
 
-- Los datos iniciales de `cursos.json` son **semilla ilustrativa**; el primer run del
-  workflow los reemplaza por oferta real extraída de las fuentes.
-- El scraping puede fallar si una institución rediseña su web; el script tolera fallos por
-  sitio y, si no obtiene nada, **conserva los datos previos** para no vaciar el directorio.
-- Sector salud: el sitio **siempre enlaza a la fuente oficial** y nunca afirma fechas,
-  costos ni cupos sin verificación.
+- El directorio combina **base curada verificada** + **hallazgos automáticos**; la base
+  garantiza que nunca quede vacío aunque varios sitios bloqueen el bot.
+- Algunos portales no son extraíbles automáticamente (SPA, PDFs escaneados, certificados SSL
+  incompletos); esos quedan cubiertos por la base curada.
+- Sector salud: el sitio **siempre enlaza a la fuente oficial** y nunca afirma fechas, costos
+  ni cupos sin verificación. Los meses son indicativos del periodo vigente.
