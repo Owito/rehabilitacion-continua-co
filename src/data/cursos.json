@@ -4,18 +4,6 @@
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
     {
-      "id": "ces-suelo-pelvico-2026",
-      "titulo": "Diplomado en Fisioterapia Pelviperineal (Suelo Pélvico)",
-      "institucion": "Universidad CES",
-      "disciplina": "Fisioterapia",
-      "tema": "Suelo pélvico",
-      "tipo": "Diplomado",
-      "modalidad": "Híbrida",
-      "ciudad": "Medellín",
-      "mes": "Julio",
-      "enlace": "https://www.ces.edu.co/educacion-continua/"
-    },
-    {
       "id": "forafis-fisioterapia-invasiva-2026",
       "titulo": "Curso de Fisioterapia Invasiva y Punción Seca",
       "institucion": "Forafis",
@@ -52,18 +40,6 @@
       "enlace": "https://forafis.com/"
     },
     {
-      "id": "rosario-inclusion-2026",
-      "titulo": "Curso de Inclusión Social y Rehabilitación Basada en Comunidad",
-      "institucion": "Universidad del Rosario",
-      "disciplina": "Fisioterapia",
-      "tema": "Inclusión y rehabilitación comunitaria",
-      "tipo": "Curso",
-      "modalidad": "Híbrida",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://www.urosario.edu.co/escuela-medicina-ciencias-salud/inicio/"
-    },
-    {
       "id": "fucs-cuidado-critico-uci-2026",
       "titulo": "Diplomado en Fisioterapia en Cuidado Crítico (UCI)",
       "institucion": "Fundación Universitaria de Ciencias de la Salud (FUCS)",
@@ -74,6 +50,30 @@
       "ciudad": "Bogotá",
       "mes": "Agosto",
       "enlace": "https://www.fucsalud.edu.co/educacion-continuada"
+    },
+    {
+      "id": "ces-suelo-pelvico-2026",
+      "titulo": "Diplomado en Fisioterapia Pelviperineal (Suelo Pélvico)",
+      "institucion": "Universidad CES",
+      "disciplina": "Fisioterapia",
+      "tema": "Suelo pélvico",
+      "tipo": "Diplomado",
+      "modalidad": "Híbrida",
+      "ciudad": "Medellín",
+      "mes": "Julio",
+      "enlace": "https://www.ces.edu.co/educacion-continua/"
+    },
+    {
+      "id": "rosario-inclusion-2026",
+      "titulo": "Curso de Inclusión Social y Rehabilitación Basada en Comunidad",
+      "institucion": "Universidad del Rosario",
+      "disciplina": "Fisioterapia",
+      "tema": "Inclusión y rehabilitación comunitaria",
+      "tipo": "Curso",
+      "modalidad": "Híbrida",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
+      "enlace": "https://www.urosario.edu.co/escuela-medicina-ciencias-salud/inicio/"
     },
     {
       "id": "umb-rehabilitacion-cardiopulmonar-2026",
@@ -124,30 +124,6 @@
       "enlace": "https://unal.edu.co/"
     },
     {
-      "id": "ecr-salud-mental-to-2026",
-      "titulo": "Diplomado en Terapia Ocupacional en Salud Mental",
-      "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
-      "disciplina": "Terapia Ocupacional",
-      "tema": "Salud mental",
-      "tipo": "Diplomado",
-      "modalidad": "Híbrida",
-      "ciudad": "Bogotá",
-      "mes": "Julio",
-      "enlace": "https://www.ecr.edu.co/"
-    },
-    {
-      "id": "elbosque-arteterapia-2026",
-      "titulo": "Laboratorio Experiencial de Arteterapia",
-      "institucion": "Universidad El Bosque",
-      "disciplina": "Terapia Ocupacional",
-      "tema": "Arteterapia",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://www.unbosque.edu.co/educacion-continuada"
-    },
-    {
       "id": "expertia-envejecimiento-2026",
       "titulo": "Diplomado en Rehabilitación y Envejecimiento Saludable",
       "institucion": "Academia Expertia",
@@ -160,16 +136,16 @@
       "enlace": "https://academiaexpertia.com/"
     },
     {
-      "id": "udes-sst-2026",
-      "titulo": "Especialización en Seguridad y Salud en el Trabajo (SST)",
-      "institucion": "Universidad de Santander (UDES)",
+      "id": "ecr-salud-mental-to-2026",
+      "titulo": "Diplomado en Terapia Ocupacional en Salud Mental",
+      "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
       "disciplina": "Terapia Ocupacional",
-      "tema": "Seguridad y salud en el trabajo",
-      "tipo": "Especialización",
-      "modalidad": "Virtual",
-      "ciudad": "Bucaramanga",
-      "mes": "Agosto",
-      "enlace": "https://www.udes.edu.co/"
+      "tema": "Salud mental",
+      "tipo": "Diplomado",
+      "modalidad": "Híbrida",
+      "ciudad": "Bogotá",
+      "mes": "Julio",
+      "enlace": "https://www.ecr.edu.co/"
     },
     {
       "id": "ideal-neurodesarrollo-2026",
@@ -194,6 +170,30 @@
       "ciudad": "Nacional",
       "mes": "Julio",
       "enlace": "https://handtherapyacademy.com/"
+    },
+    {
+      "id": "udes-sst-2026",
+      "titulo": "Especialización en Seguridad y Salud en el Trabajo (SST)",
+      "institucion": "Universidad de Santander (UDES)",
+      "disciplina": "Terapia Ocupacional",
+      "tema": "Seguridad y salud en el trabajo",
+      "tipo": "Especialización",
+      "modalidad": "Virtual",
+      "ciudad": "Bucaramanga",
+      "mes": "Agosto",
+      "enlace": "https://www.udes.edu.co/"
+    },
+    {
+      "id": "elbosque-arteterapia-2026",
+      "titulo": "Laboratorio Experiencial de Arteterapia",
+      "institucion": "Universidad El Bosque",
+      "disciplina": "Terapia Ocupacional",
+      "tema": "Arteterapia",
+      "tipo": "Curso",
+      "modalidad": "Presencial",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
+      "enlace": "https://www.unbosque.edu.co/educacion-continuada"
     }
   ]
 }
