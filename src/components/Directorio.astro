@@ -1,12 +1,12 @@
 ---
 import data from '../data/cursos.json';
+import { ordenarMeses, rangoMeses } from '../utils/meses.js';
 const { cursos, actualizado, fuente } = data;
 
 const disciplinas = [...new Set(cursos.map((c) => c.disciplina))].sort();
 const modalidades = [...new Set(cursos.map((c) => c.modalidad))].sort();
-const ORDEN_MESES = ['Julio', 'Agosto'];
-const meses = [...new Set(cursos.map((c) => c.mes))]
-  .sort((a, b) => ORDEN_MESES.indexOf(a) - ORDEN_MESES.indexOf(b));
+const meses = ordenarMeses(cursos.map((c) => c.mes));
+const rango = rangoMeses(cursos.map((c) => c.mes));
 
 const colorDisciplina = {
   'Fisioterapia': '#4d9fff',
@@ -22,7 +22,7 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
 <section class="seccion" id="oferta">
   <div class="contenedor">
     <span class="seccion__eyebrow">Oferta vigente</span>
-    <h1 class="seccion__titulo">Directorio de programas — Julio y Agosto</h1>
+    <h1 class="seccion__titulo">Directorio de programas{rango ? ` — ${rango}` : ''}</h1>
     <p class="seccion__intro">
       Filtra por disciplina, modalidad y mes para encontrar el programa ideal. Cada tarjeta enlaza
       a la fuente oficial de la institución.

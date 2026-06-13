@@ -34,7 +34,13 @@ const TOKEN = process.env.GITHUB_TOKEN;
 const DISCIPLINAS = ['Fisioterapia', 'Fonoaudiología', 'Terapia Ocupacional'];
 const MODALIDADES = ['Virtual', 'Híbrida', 'Presencial'];
 const TIPOS = ['Curso', 'Diplomado', 'Especialización', 'Seminario'];
-const MESES = ['Julio', 'Agosto'];
+
+// Ventana de meses MÓVIL: mes actual + siguiente (según la fecha de ejecución).
+// Así la oferta y el texto del sitio avanzan con el calendario, sin "julio y agosto" fijo.
+const NOMBRES_MES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+  'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+const mesIdx = new Date().getMonth();
+const MESES = [NOMBRES_MES[mesIdx], NOMBRES_MES[(mesIdx + 1) % 12]];
 
 const MAX_TEXTO = 24000;   // tope de texto enviado al modelo por institución
 const MAX_PDFS = 4;        // PDFs de Drive a parsear por institución
@@ -204,7 +210,7 @@ async function recopilarTexto(inst) {
 
 /** Pide a GitHub Models que extraiga la oferta del texto del sitio. */
 async function extraer(institucion, texto) {
-  const sistema = `Eres un asistente que extrae oferta de educación continua en rehabilitación humana (Fisioterapia, Fonoaudiología, Terapia Ocupacional) en Colombia para los meses de julio y agosto.
+  const sistema = `Eres un asistente que extrae oferta de educación continua en rehabilitación humana (Fisioterapia, Fonoaudiología, Terapia Ocupacional) en Colombia para los meses de ${MESES[0]} y ${MESES[1]}.
 Devuelve EXCLUSIVAMENTE un objeto JSON con la forma {"cursos": [...]}. Cada curso:
 - titulo (string)
 - disciplina (uno de: ${DISCIPLINAS.join(', ')})
@@ -212,7 +218,7 @@ Devuelve EXCLUSIVAMENTE un objeto JSON con la forma {"cursos": [...]}. Cada curs
 - tipo (uno de: ${TIPOS.join(', ')})
 - modalidad (uno de: ${MODALIDADES.join(', ')})
 - ciudad (string)
-- mes (Julio o Agosto)
+- mes (${MESES[0]} o ${MESES[1]})
 Reglas: solo programas reales que aparezcan en el texto y que sean de fisioterapia, fonoaudiología, terapia ocupacional o rehabilitación. Ignora programas de otras áreas (derecho, ingeniería, odontología, etc.). Si no hay información suficiente, devuelve {"cursos": []}. No inventes. Máximo 8 cursos.`;
 
   const usuario = `Institución: ${institucion.nombre} (${institucion.ciudad}).\nTexto del sitio oficial:\n"""${texto}"""`;
@@ -265,7 +271,7 @@ function normalizar(crudo, institucion) {
     tipo: TIPOS.includes(crudo.tipo) ? crudo.tipo : 'Curso',
     modalidad: MODALIDADES.includes(crudo.modalidad) ? crudo.modalidad : 'Virtual',
     ciudad: typeof crudo.ciudad === 'string' && crudo.ciudad.trim() ? crudo.ciudad.trim() : institucion.ciudad,
-    mes: MESES.includes(crudo.mes) ? crudo.mes : 'Julio',
+    mes: MESES.includes(crudo.mes) ? crudo.mes : MESES[0],
     enlace,
   };
 }
@@ -302,7 +308,10 @@ async function main() {
   // para colapsar variantes del mismo programa y no truncar títulos de nombres largos.
   const clave = (c) => `${slug(c.institucion)}__${claveTitulo(c.titulo)}`;
   const porClave = new Map();
-  for (const c of semilla) porClave.set(clave(c), c);   // base curada primero (gana)
+  // La base curada se re-estampa a la ventana de meses vigente (sus meses eran
+  // estimaciones, no fechas verificadas), para que el directorio sea siempre coherente
+  // con el periodo actual. El aviso del sitio recuerda verificar fechas en la fuente.
+  semilla.forEach((c, i) => porClave.set(clave(c), { ...c, mes: MESES[i % MESES.length] }));
   for (const c of recolectados) {                       // enriquecer con lo nuevo
     if (!porClave.has(clave(c))) porClave.set(clave(c), c);
   }

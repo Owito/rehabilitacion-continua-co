@@ -2,9 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Directorio from '../components/Directorio.astro';
 import Footer from '../components/Footer.astro';
+import data from '../data/cursos.json';
+import { rangoMeses } from '../utils/meses.js';
 
-const title = 'Educación Continua en Rehabilitación en Colombia | Fisioterapia, Fonoaudiología y Terapia Ocupacional (Julio – Agosto)';
-const description = 'Directorio de cursos, diplomados y especializaciones en Rehabilitación Humana en Colombia. Encuentra oferta vigente de Fisioterapia, Fonoaudiología y Terapia Ocupacional para julio y agosto.';
+const rango = rangoMeses(data.cursos.map((c) => c.mes));
+const periodo = rango ? ` (${rango})` : '';
+const title = `Educación Continua en Rehabilitación en Colombia | Fisioterapia, Fonoaudiología y Terapia Ocupacional${periodo}`;
+const description = `Directorio de cursos, diplomados y especializaciones en Rehabilitación Humana en Colombia. Oferta vigente de Fisioterapia, Fonoaudiología y Terapia Ocupacional${rango ? ` para ${rango}` : ''}.`;
 ---
 
 <Layout title={title} description={description}>
