@@ -1,8 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
 import Directorio from '../components/Directorio.astro';
-import Instituciones from '../components/Instituciones.astro';
 import Footer from '../components/Footer.astro';
 
 const title = 'Educación Continua en Rehabilitación en Colombia | Fisioterapia, Fonoaudiología y Terapia Ocupacional (Julio – Agosto)';
@@ -13,16 +11,10 @@ const description = 'Directorio de cursos, diplomados y especializaciones en Reh
   <nav class="nav">
     <div class="contenedor nav__inner">
       <a class="nav__logo" href="#">🧠 Rehabilitación<span>·CO</span></a>
-      <div class="nav__links">
-        <a href="#oferta">Oferta vigente</a>
-        <a href="#instituciones">Aliados académicos</a>
-      </div>
     </div>
   </nav>
 
-  <Hero />
   <Directorio />
-  <Instituciones />
   <Footer />
 </Layout>
 
