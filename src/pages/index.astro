@@ -14,13 +14,29 @@ const description = `Directorio de cursos, diplomados y especializaciones en Reh
 <Layout title={title} description={description}>
   <nav class="nav">
     <div class="contenedor nav__inner">
-      <a class="nav__logo" href="#">🧠 Rehabilitación<span>·CO</span></a>
+      <a class="nav__logo" href="#"><span aria-hidden="true">🧠</span> Rehabilitación<span class="nav__logo-co">·CO</span></a>
     </div>
   </nav>
 
-  <Directorio />
+  <main>
+    <Directorio />
+  </main>
   <Footer />
+
+  <button id="ir-arriba" class="ir-arriba" type="button" aria-label="Volver arriba" hidden>
+    <span aria-hidden="true">↑</span>
+  </button>
 </Layout>
+
+<script>
+  const btn = document.getElementById('ir-arriba');
+  if (btn) {
+    const alternar = () => { btn.hidden = window.scrollY < 600; };
+    window.addEventListener('scroll', alternar, { passive: true });
+    alternar();
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+</script>
 
 <style>
   .nav {
@@ -34,17 +50,26 @@ const description = `Directorio de cursos, diplomados y especializaciones en Reh
   }
   .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 62px; }
   .nav__logo { font-weight: 800; color: #f3f7fc; text-decoration: none; font-size: 1.15rem; }
-  .nav__logo span { color: var(--verde); }
-  .nav__links { display: flex; gap: 1.4rem; }
-  .nav__links a {
-    color: var(--texto-suave);
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 600;
+  .nav__logo-co { color: var(--verde); }
+
+  .ir-arriba {
+    position: fixed;
+    right: 1.4rem;
+    bottom: 1.4rem;
+    z-index: 60;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    line-height: 1;
+    color: #fff;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: blur(var(--blur));
+    backdrop-filter: blur(var(--blur));
+    border: 1px solid var(--glass-borde-fuerte);
+    box-shadow: var(--sombra);
+    transition: transform 0.15s ease, background 0.15s ease;
   }
-  .nav__links a:hover { color: #fff; }
-  @media (max-width: 560px) {
-    .nav__links { gap: 1rem; font-size: 0.85rem; }
-    .nav__links a { font-size: 0.85rem; }
-  }
+  .ir-arriba:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.16); }
 </style>

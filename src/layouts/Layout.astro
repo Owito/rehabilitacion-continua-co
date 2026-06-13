@@ -68,6 +68,19 @@ const url = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.ur
 
   html { scroll-behavior: smooth; }
 
+  /* Accesibilidad: foco visible claro para teclado */
+  :focus-visible { outline: 2px solid var(--azul); outline-offset: 2px; border-radius: 4px; }
+
+  /* Respeta a quienes prefieren menos movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   /* La nav fija mide 62px; evita que tape el encabezado al saltar por anclas (#oferta…). */
   :where(section, header, footer)[id],
   [id] { scroll-margin-top: 80px; }

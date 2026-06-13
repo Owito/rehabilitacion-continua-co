@@ -29,34 +29,46 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
     </p>
 
     <p class="dir__aviso">
-      🔄 Oferta actualizada {fuente === 'automatico' ? 'automáticamente' : '(datos iniciales)'} el
+      <span aria-hidden="true">🔄</span> Oferta actualizada {fuente === 'automatico' ? 'automáticamente' : '(datos iniciales)'} el
       <strong>{fechaFmt}</strong>. Verifica siempre <strong>fechas, costos y cupos</strong> en el
       enlace oficial de cada institución.
     </p>
 
+    <div class="dir__buscador">
+      <label for="dir-busqueda" class="dir__grupo-label">Buscar</label>
+      <input
+        type="search"
+        id="dir-busqueda"
+        class="dir__input"
+        placeholder="Buscar por programa o institución…"
+        aria-label="Buscar por programa o institución"
+        autocomplete="off"
+      />
+    </div>
+
     <div class="dir__filtros" role="group" aria-label="Filtros de programas">
       <div class="dir__grupo">
         <span class="dir__grupo-label">Disciplina</span>
-        <button class="chip activo" data-tipo="disciplina" data-valor="todas">Todas</button>
+        <button class="chip activo" data-tipo="disciplina" data-valor="todas" aria-pressed="true">Todas</button>
         {disciplinas.map((d) => (
-          <button class="chip" data-tipo="disciplina" data-valor={d}>{d}</button>
+          <button class="chip" data-tipo="disciplina" data-valor={d} aria-pressed="false">{d}</button>
         ))}
       </div>
       <div class="dir__grupo">
         <span class="dir__grupo-label">Modalidad</span>
-        <button class="chip activo" data-tipo="modalidad" data-valor="todas">Todas</button>
+        <button class="chip activo" data-tipo="modalidad" data-valor="todas" aria-pressed="true">Todas</button>
         {modalidades.map((m) => (
-          <button class="chip" data-tipo="modalidad" data-valor={m}>{m}</button>
+          <button class="chip" data-tipo="modalidad" data-valor={m} aria-pressed="false">{m}</button>
         ))}
       </div>
       <div class="dir__grupo">
         <span class="dir__grupo-label">Mes</span>
-        <button class="chip activo" data-tipo="mes" data-valor="todas">Todos</button>
+        <button class="chip activo" data-tipo="mes" data-valor="todas" aria-pressed="true">Todos</button>
         {meses.map((m) => (
-          <button class="chip" data-tipo="mes" data-valor={m}>{m}</button>
+          <button class="chip" data-tipo="mes" data-valor={m} aria-pressed="false">{m}</button>
         ))}
       </div>
-      <button id="dir-limpiar" class="dir__limpiar" type="button">✕ Limpiar filtros</button>
+      <button id="dir-limpiar" class="dir__limpiar" type="button"><span aria-hidden="true">✕</span> Limpiar filtros</button>
     </div>
 
     <p class="dir__contador" id="dir-contador"></p>
@@ -68,7 +80,8 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
           data-disciplina={c.disciplina}
           data-modalidad={c.modalidad}
           data-mes={c.mes}
-          style={`--acento:${colorDisciplina[c.disciplina] ?? '#0f4c81'}`}
+          data-buscar={`${c.titulo} ${c.institucion} ${c.tema}`.toLowerCase()}
+          style={`--acento:${colorDisciplina[c.disciplina] ?? 'var(--azul)'}`}
         >
           <div class="curso__top">
             <span class="curso__tag curso__tag--tipo">{c.tipo}</span>
@@ -78,11 +91,17 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
           <p class="curso__institucion">{c.institucion}</p>
           <ul class="curso__meta">
             <li class="curso__disciplina">{c.disciplina}</li>
-            <li>📍 {c.ciudad}</li>
-            <li>🗓️ {c.mes}</li>
+            <li><span aria-hidden="true">📍</span> {c.ciudad}</li>
+            <li><span aria-hidden="true">🗓️</span> {c.mes}</li>
           </ul>
-          <a class="curso__cta" href={c.enlace} target="_blank" rel="noopener noreferrer">
-            Ver en sitio oficial →
+          <a
+            class="curso__cta"
+            href={c.enlace}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${c.titulo} — abre el sitio oficial en una pestaña nueva`}
+          >
+            Ver en sitio oficial <span aria-hidden="true">↗</span>
           </a>
         </article>
       ))}
@@ -93,9 +112,11 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
 
 <script>
   const filtros = { disciplina: 'todas', modalidad: 'todas', mes: 'todas' };
+  let busqueda = '';
   const grid = document.getElementById('dir-grid');
   const contador = document.getElementById('dir-contador');
   const vacio = document.getElementById('dir-vacio');
+  const input = document.getElementById('dir-busqueda') as HTMLInputElement | null;
   const cursos = Array.from(grid?.querySelectorAll('.curso') ?? []);
 
   function aplicar() {
@@ -105,7 +126,8 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
       const ok =
         (filtros.disciplina === 'todas' || el.dataset.disciplina === filtros.disciplina) &&
         (filtros.modalidad === 'todas' || el.dataset.modalidad === filtros.modalidad) &&
-        (filtros.mes === 'todas' || el.dataset.mes === filtros.mes);
+        (filtros.mes === 'todas' || el.dataset.mes === filtros.mes) &&
+        (busqueda === '' || (el.dataset.buscar ?? '').includes(busqueda));
       el.hidden = !ok;
       if (ok) visibles++;
     });
@@ -113,37 +135,44 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
     if (vacio) vacio.hidden = visibles !== 0;
   }
 
+  // Marca un chip como activo dentro de su grupo (y refleja aria-pressed).
+  function activar(btn: HTMLElement) {
+    const tipo = btn.dataset.tipo!;
+    document.querySelectorAll(`.chip[data-tipo="${tipo}"]`).forEach((b) => {
+      const on = b === btn;
+      b.classList.toggle('activo', on);
+      b.setAttribute('aria-pressed', String(on));
+    });
+  }
+
   document.querySelectorAll('.chip').forEach((btn) => {
     btn.addEventListener('click', () => {
-      const tipo = (btn as HTMLElement).dataset.tipo!;
-      const valor = (btn as HTMLElement).dataset.valor!;
-      filtros[tipo as keyof typeof filtros] = valor;
-      document
-        .querySelectorAll(`.chip[data-tipo="${tipo}"]`)
-        .forEach((b) => b.classList.remove('activo'));
-      btn.classList.add('activo');
+      const el = btn as HTMLElement;
+      filtros[el.dataset.tipo as keyof typeof filtros] = el.dataset.valor!;
+      activar(el);
       aplicar();
     });
   });
 
-  // Botón "Limpiar filtros": vuelve los 3 grupos a "todas"
+  // Buscador por título / institución / tema
+  input?.addEventListener('input', () => {
+    busqueda = input.value.trim().toLowerCase();
+    aplicar();
+  });
+
+  // Botón "Limpiar filtros": vuelve los 3 grupos a "todas" y borra la búsqueda
   document.getElementById('dir-limpiar')?.addEventListener('click', () => {
     filtros.disciplina = 'todas';
     filtros.modalidad = 'todas';
     filtros.mes = 'todas';
-    document.querySelectorAll('.chip').forEach((b) =>
-      b.classList.toggle('activo', (b as HTMLElement).dataset.valor === 'todas')
-    );
-    aplicar();
-  });
-
-  // Enlaces "Ver programas de X" desde las tarjetas de categorías
-  document.querySelectorAll('.cat__link[data-disciplina]').forEach((link) => {
-    link.addEventListener('click', () => {
-      const disc = (link as HTMLElement).dataset.disciplina!;
-      const chip = document.querySelector(`.chip[data-tipo="disciplina"][data-valor="${disc}"]`) as HTMLElement | null;
-      chip?.click();
+    busqueda = '';
+    if (input) input.value = '';
+    document.querySelectorAll('.chip').forEach((b) => {
+      const on = (b as HTMLElement).dataset.valor === 'todas';
+      b.classList.toggle('activo', on);
+      b.setAttribute('aria-pressed', String(on));
     });
+    aplicar();
   });
 
   aplicar();
@@ -160,6 +189,26 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
     margin: 1.6rem 0 2rem;
   }
   .dir__aviso strong { color: #fbe7b8; }
+  .dir__buscador { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  .dir__input {
+    width: 100%;
+    max-width: 460px;
+    padding: 0.75rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid var(--glass-borde);
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(var(--blur));
+    backdrop-filter: blur(var(--blur));
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 0.95rem;
+  }
+  .dir__input::placeholder { color: var(--texto-suave); }
+  .dir__input:focus-visible {
+    outline: 2px solid var(--azul);
+    outline-offset: 2px;
+    border-color: transparent;
+  }
   .dir__filtros {
     display: flex;
     flex-wrap: wrap;
