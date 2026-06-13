@@ -53,6 +53,11 @@ const url = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.ur
 
   * { box-sizing: border-box; }
 
+  /* El atributo [hidden] es display:none del navegador (baja prioridad) y lo pisa
+     cualquier regla de display del autor (p. ej. .curso{display:flex}). Esto lo fuerza,
+     para que el filtrado del directorio realmente oculte las tarjetas. */
+  [hidden] { display: none !important; }
+
   html { scroll-behavior: smooth; }
 
   /* La nav fija mide 62px; evita que tape el encabezado al saltar por anclas (#oferta…). */
