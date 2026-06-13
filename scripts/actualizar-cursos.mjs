@@ -59,6 +59,32 @@ function slug(texto) {
     .slice(0, 60);
 }
 
+/** Clave de deduplicación tolerante: quita paréntesis y usa las primeras palabras
+ *  del título normalizado, para colapsar variantes del mismo programa. */
+function claveTitulo(titulo) {
+  return titulo
+    .toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/\([^)]*\)/g, ' ')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim()
+    .split(/\s+/)
+    .slice(0, 6)
+    .join('-');
+}
+
+/** Pasa títulos en MAYÚSCULAS sostenidas a may. inicial por palabra (más legible). */
+function normalizarTitulo(titulo) {
+  const t = titulo.trim().replace(/\s+/g, ' ');
+  const letras = t.replace(/[^a-zA-ZáéíóúñÁÉÍÓÚÑ]/g, '');
+  const esGritado = letras.length > 6 && letras === letras.toUpperCase();
+  if (!esGritado) return t;
+  const menores = new Set(['de', 'en', 'y', 'la', 'el', 'los', 'las', 'del', 'a', 'con', 'para', 'por', 'al', 'un', 'una']);
+  return t.toLowerCase().split(' ').map((p, i) =>
+    (i > 0 && menores.has(p)) ? p : p.charAt(0).toUpperCase() + p.slice(1)
+  ).join(' ');
+}
+
 const CABECERAS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36',
   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -216,9 +242,10 @@ function normalizar(crudo, institucion) {
   const enlace = (typeof crudo.enlace === 'string' && crudo.enlace.startsWith('http'))
     ? crudo.enlace
     : urlBase; // siempre debe haber enlace a fuente oficial
+  const titulo = normalizarTitulo(crudo.titulo);
   return {
-    id: `${slug(institucion.nombre)}-${slug(crudo.titulo)}`,
-    titulo: crudo.titulo.trim(),
+    id: `${slug(institucion.nombre)}-${slug(titulo)}`,
+    titulo,
     institucion: institucion.nombre,
     disciplina,
     tema: typeof crudo.tema === 'string' ? crudo.tema.trim() : '',
@@ -258,10 +285,9 @@ async function main() {
   // encima. Así el directorio nunca queda vacío aunque varios sitios bloqueen el bot.
   // Deduplicar por institución+título (no solo por id) para no repetir programas que
   // la base ya cubre y que el bot vuelva a encontrar.
-  // slug() recorta a 60 chars; con instituciones de nombre largo (p. ej. FUCS) el
-  // título quedaba truncado y distintos programas colisionaban. Por eso se slugifica
-  // cada parte por separado.
-  const clave = (c) => `${slug(c.institucion)}__${slug(c.titulo)}`;
+  // Clave por institución + título normalizado (sin paréntesis, primeras palabras),
+  // para colapsar variantes del mismo programa y no truncar títulos de nombres largos.
+  const clave = (c) => `${slug(c.institucion)}__${claveTitulo(c.titulo)}`;
   const porClave = new Map();
   for (const c of semilla) porClave.set(clave(c), c);   // base curada primero (gana)
   for (const c of recolectados) {                       // enriquecer con lo nuevo
