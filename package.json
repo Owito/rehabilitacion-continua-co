@@ -1,0 +1,15 @@
+{
+  "name": "rehabilitacion-continua-co",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Directorio de educacion continua en Rehabilitacion Humana en Colombia (Fisioterapia, Fonoaudiologia, Terapia Ocupacional)",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "actualizar": "node scripts/actualizar-cursos.mjs"
+  },
+  "dependencies": {
+    "astro": "^5.6.1"
+  }
+}

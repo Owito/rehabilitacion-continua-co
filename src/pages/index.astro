@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Contexto from '../components/Contexto.astro';
+import Categorias from '../components/Categorias.astro';
+import Modalidades from '../components/Modalidades.astro';
+import Directorio from '../components/Directorio.astro';
+import Instituciones from '../components/Instituciones.astro';
+import FAQ from '../components/FAQ.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Educación Continua en Rehabilitación en Colombia | Fisioterapia, Fonoaudiología y Terapia Ocupacional (Julio – Agosto)';
+const description = 'Directorio de cursos, diplomados y especializaciones en Rehabilitación Humana en Colombia. Encuentra oferta vigente de Fisioterapia, Fonoaudiología y Terapia Ocupacional para julio y agosto.';
+---
+
+<Layout title={title} description={description}>
+  <nav class="nav">
+    <div class="contenedor nav__inner">
+      <a class="nav__logo" href="#">🧠 Rehabilitación<span>·CO</span></a>
+      <div class="nav__links">
+        <a href="#categorias">Disciplinas</a>
+        <a href="#modalidades">Modalidades</a>
+        <a href="#oferta">Oferta</a>
+        <a href="#instituciones">Instituciones</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+  </nav>
+
+  <Hero />
+  <Contexto />
+  <Categorias />
+  <Modalidades />
+  <Directorio />
+  <Instituciones />
+  <FAQ />
+  <Footer />
+</Layout>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--gris-borde);
+  }
+  .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 62px; }
+  .nav__logo { font-weight: 800; color: var(--azul-oscuro); text-decoration: none; font-size: 1.15rem; }
+  .nav__logo span { color: var(--verde); }
+  .nav__links { display: flex; gap: 1.6rem; }
+  .nav__links a {
+    color: var(--texto);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .nav__links a:hover { color: var(--azul); }
+  @media (max-width: 760px) {
+    .nav__links { display: none; }
+  }
+</style>

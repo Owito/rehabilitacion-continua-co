@@ -1,0 +1,82 @@
+---
+import cursos from '../data/cursos.json';
+const total = cursos.cursos.length;
+---
+
+<header class="hero">
+  <div class="contenedor hero__inner">
+    <span class="hero__badge">Guía Nacional · Julio – Agosto 2026</span>
+    <h1 class="hero__titulo">
+      Transforma tu Práctica Clínica: Guía de Educación Continua en Rehabilitación en Colombia
+    </h1>
+    <p class="hero__subtitulo">
+      Descubre las mejores opciones de cursos, diplomados y especializaciones en
+      <strong>Fisioterapia</strong>, <strong>Fonoaudiología</strong> y
+      <strong>Terapia Ocupacional</strong> para potenciar tu perfil profesional ante los
+      nuevos retos del sistema de salud colombiano.
+    </p>
+    <div class="hero__acciones">
+      <a class="btn" href="#oferta">Explorar Oferta Académica</a>
+      <a class="btn btn--secundario" href="#categorias">Ver por disciplina</a>
+    </div>
+    <ul class="hero__stats">
+      <li><strong>{total}+</strong> programas vigentes</li>
+      <li><strong>14</strong> instituciones aliadas</li>
+      <li><strong>3</strong> disciplinas de rehabilitación</li>
+    </ul>
+  </div>
+</header>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, var(--azul-oscuro) 0%, var(--azul) 55%, var(--azul-claro) 100%);
+    color: #fff;
+    padding: 5.5rem 0 4.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(244, 183, 64, 0.25), transparent 70%);
+    border-radius: 50%;
+  }
+  .hero__inner { position: relative; z-index: 1; max-width: 880px; }
+  .hero__badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.4rem;
+  }
+  .hero__titulo {
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 3.1rem);
+    margin-bottom: 1.1rem;
+  }
+  .hero__subtitulo {
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 720px;
+    margin-bottom: 2rem;
+  }
+  .hero__subtitulo strong { color: var(--amarillo); }
+  .hero__acciones { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero__stats {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 2.8rem 0 0;
+  }
+  .hero__stats li { font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); }
+  .hero__stats strong { display: block; font-size: 1.9rem; color: #fff; }
+</style>

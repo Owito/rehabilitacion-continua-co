@@ -1,0 +1,90 @@
+---
+// Para activar el boletín: crea un formulario gratuito en https://formspree.io
+// y reemplaza FORM_ID por tu identificador. Mientras tanto el formulario queda inactivo.
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/FORM_ID';
+const newsletterActivo = !FORMSPREE_ENDPOINT.includes('FORM_ID');
+---
+
+<footer class="footer" id="contacto">
+  <div class="contenedor footer__grid">
+    <div class="footer__col footer__brand">
+      <h3>Educación Continua en Rehabilitación · Colombia</h3>
+      <p>
+        Directorio independiente de oferta académica en Fisioterapia, Fonoaudiología y Terapia
+        Ocupacional. Actualizado automáticamente cada semana.
+      </p>
+    </div>
+
+    <div class="footer__col">
+      <h4>Recursos</h4>
+      <ul>
+        <li><a href="#oferta">Rutas de homologación</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="https://www.icetex.gov.co/" target="_blank" rel="noopener noreferrer">Financiación / ICETEX</a></li>
+        <li><a href="#privacidad">Políticas de privacidad</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col footer__news">
+      <h4>Boletín mensual</h4>
+      <p>Recibe las nuevas oportunidades de formación en tu correo.</p>
+      <form
+        class="footer__form"
+        action={newsletterActivo ? FORMSPREE_ENDPOINT : undefined}
+        method="POST"
+      >
+        <input type="email" name="email" placeholder="tu@correo.com" required aria-label="Correo electrónico" />
+        <button type="submit" class="btn">Suscribirme</button>
+        {!newsletterActivo && (
+          <small class="footer__nota">Configura tu endpoint de Formspree en <code>Footer.astro</code> para activarlo.</small>
+        )}
+      </form>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="contenedor">
+      <p id="privacidad">
+        © 2026 Guía de Educación Continua en Rehabilitación. La información se recopila de portales
+        oficiales y puede cambiar; verifica siempre con cada institución. No almacenamos datos
+        personales sin consentimiento.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer { background: var(--azul-oscuro); color: rgba(255, 255, 255, 0.85); padding: 3.5rem 0 0; }
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    gap: 2.5rem;
+    padding-bottom: 3rem;
+  }
+  .footer h3 { color: #fff; font-size: 1.15rem; }
+  .footer h4 { color: #fff; font-size: 1rem; margin-bottom: 0.9rem; }
+  .footer p { font-size: 0.92rem; }
+  .footer__col ul { list-style: none; padding: 0; margin: 0; }
+  .footer__col li { margin-bottom: 0.5rem; }
+  .footer__col a { color: rgba(255, 255, 255, 0.85); text-decoration: none; font-size: 0.92rem; }
+  .footer__col a:hover { color: var(--amarillo); }
+  .footer__form { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.8rem; }
+  .footer__form input {
+    flex: 1;
+    min-width: 180px;
+    padding: 0.8rem 1rem;
+    border-radius: 999px;
+    border: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+  }
+  .footer__form .btn { padding: 0.8rem 1.5rem; font-size: 0.95rem; }
+  .footer__nota { width: 100%; color: rgba(255, 255, 255, 0.6); font-size: 0.78rem; }
+  .footer__nota code { background: rgba(255,255,255,0.12); padding: 0.1rem 0.35rem; border-radius: 4px; }
+  .footer__bottom { border-top: 1px solid rgba(255, 255, 255, 0.15); padding: 1.4rem 0; }
+  .footer__bottom p { font-size: 0.82rem; color: rgba(255, 255, 255, 0.6); margin: 0; }
+
+  @media (max-width: 760px) {
+    .footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>

@@ -1,0 +1,86 @@
+[
+  {
+    "nombre": "Universidad CES",
+    "ciudad": "Medellín",
+    "disciplinas": ["Fisioterapia", "Fonoaudiología", "Terapia Ocupacional"],
+    "url": "https://www.ces.edu.co/educacion-continua/"
+  },
+  {
+    "nombre": "Universidad El Bosque",
+    "ciudad": "Bogotá",
+    "disciplinas": ["Fisioterapia", "Fonoaudiología", "Terapia Ocupacional"],
+    "url": "https://www.unbosque.edu.co/educacion-continuada"
+  },
+  {
+    "nombre": "Escuela Colombiana de Rehabilitación (ECR)",
+    "ciudad": "Bogotá",
+    "disciplinas": ["Fisioterapia", "Fonoaudiología", "Terapia Ocupacional"],
+    "url": "https://www.ecr.edu.co/"
+  },
+  {
+    "nombre": "Fundación Universitaria de Ciencias de la Salud (FUCS)",
+    "ciudad": "Bogotá",
+    "disciplinas": ["Fisioterapia", "Terapia Ocupacional"],
+    "url": "https://www.fucsalud.edu.co/educacion-continuada"
+  },
+  {
+    "nombre": "Universidad Manuela Beltrán (UMB)",
+    "ciudad": "Bogotá",
+    "disciplinas": ["Fisioterapia", "Terapia Ocupacional"],
+    "url": "https://umb.edu.co/"
+  },
+  {
+    "nombre": "Universidad de Santander (UDES)",
+    "ciudad": "Bucaramanga",
+    "disciplinas": ["Fisioterapia", "Terapia Ocupacional"],
+    "url": "https://www.udes.edu.co/"
+  },
+  {
+    "nombre": "Universidad del Rosario",
+    "ciudad": "Bogotá",
+    "disciplinas": ["Fisioterapia", "Terapia Ocupacional"],
+    "url": "https://www.urosario.edu.co/escuela-medicina-ciencias-salud/inicio/"
+  },
+  {
+    "nombre": "Universidad del Valle",
+    "ciudad": "Cali",
+    "disciplinas": ["Fonoaudiología", "Fisioterapia"],
+    "url": "https://www.univalle.edu.co/"
+  },
+  {
+    "nombre": "Universidad Nacional de Colombia",
+    "ciudad": "Bogotá",
+    "disciplinas": ["Fonoaudiología", "Terapia Ocupacional"],
+    "url": "https://unal.edu.co/"
+  },
+  {
+    "nombre": "ASOFONO",
+    "ciudad": "Nacional",
+    "disciplinas": ["Fonoaudiología"],
+    "url": "https://asofono.org/"
+  },
+  {
+    "nombre": "Forafis",
+    "ciudad": "Nacional",
+    "disciplinas": ["Fisioterapia"],
+    "url": "https://forafis.com/"
+  },
+  {
+    "nombre": "Fundación IDEAL",
+    "ciudad": "Cali",
+    "disciplinas": ["Terapia Ocupacional", "Fisioterapia"],
+    "url": "https://www.fundacionideal.org.co/"
+  },
+  {
+    "nombre": "Academia Expertia",
+    "ciudad": "Nacional",
+    "disciplinas": ["Fisioterapia", "Terapia Ocupacional"],
+    "url": "https://academiaexpertia.com/"
+  },
+  {
+    "nombre": "Hand Therapy Academy",
+    "ciudad": "Nacional",
+    "disciplinas": ["Fisioterapia", "Terapia Ocupacional"],
+    "url": "https://handtherapyacademy.com/"
+  }
+]

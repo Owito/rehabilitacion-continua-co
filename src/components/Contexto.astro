@@ -1,0 +1,63 @@
+---
+const puntos = [
+  {
+    icono: '👵',
+    titulo: 'Envejecimiento poblacional',
+    texto: 'El aumento de la población adulta mayor demanda terapeutas capaces de abordar la funcionalidad, la prevención de la dependencia y la rehabilitación geriátrica.',
+  },
+  {
+    icono: '🧠',
+    titulo: 'Salud mental y secuelas críticas',
+    texto: 'La recuperación de secuelas neurológicas, post-UCI y de salud mental exige intervenciones holísticas y basadas en la evidencia.',
+  },
+  {
+    icono: '📋',
+    titulo: 'Habilitación y competitividad',
+    texto: 'Las certificaciones formales permiten ascender laboralmente y cumplir con los estándares de habilitación de servicios de salud en IPS y EAPB.',
+  },
+];
+---
+
+<section class="seccion" id="contexto">
+  <div class="contenedor">
+    <span class="seccion__eyebrow">El contexto</span>
+    <h2 class="seccion__titulo">¿Por qué actualizarse hoy en Colombia?</h2>
+    <p class="seccion__intro">
+      La dinámica de la educación continuada en Colombia exige cada vez más competencias
+      <strong>hiperespecializadas</strong>. El envejecimiento poblacional, la salud mental y la
+      recuperación de secuelas críticas obligan a los terapeutas a integrar intervenciones
+      holísticas y basadas en la evidencia. Contar con certificaciones formales tiene un impacto
+      directo en tu desarrollo profesional y en el cumplimiento de los estándares de habilitación
+      de servicios de salud del país.
+    </p>
+
+    <div class="contexto__grid">
+      {puntos.map((p) => (
+        <article class="contexto__card">
+          <span class="contexto__icono" aria-hidden="true">{p.icono}</span>
+          <h3>{p.titulo}</h3>
+          <p>{p.texto}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .contexto__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .contexto__card {
+    background: var(--blanco);
+    border: 1px solid var(--gris-borde);
+    border-radius: var(--radio);
+    padding: 1.8rem;
+    box-shadow: var(--sombra);
+  }
+  .contexto__icono { font-size: 2.2rem; display: block; margin-bottom: 0.8rem; }
+  .contexto__card h3 { font-size: 1.2rem; }
+  .contexto__card p { color: var(--texto-suave); margin: 0; }
+</style>

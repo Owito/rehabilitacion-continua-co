@@ -1,0 +1,216 @@
+---
+import data from '../data/cursos.json';
+const { cursos, actualizado, fuente } = data;
+
+const disciplinas = [...new Set(cursos.map((c) => c.disciplina))].sort();
+const modalidades = [...new Set(cursos.map((c) => c.modalidad))].sort();
+const meses = [...new Set(cursos.map((c) => c.mes))];
+
+const colorDisciplina = {
+  'Fisioterapia': '#0f4c81',
+  'Fonoaudiología': '#16a085',
+  'Terapia Ocupacional': '#b9770e',
+};
+
+const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO', {
+  day: 'numeric', month: 'long', year: 'numeric',
+});
+---
+
+<section class="seccion seccion--gris" id="oferta">
+  <div class="contenedor">
+    <span class="seccion__eyebrow">Oferta vigente</span>
+    <h2 class="seccion__titulo">Directorio de programas — Julio y Agosto</h2>
+    <p class="seccion__intro">
+      Filtra por disciplina, modalidad y mes para encontrar el programa ideal. Cada tarjeta enlaza
+      a la fuente oficial de la institución.
+    </p>
+
+    <p class="dir__aviso">
+      🔄 Oferta actualizada {fuente === 'automatico' ? 'automáticamente' : '(datos iniciales)'} el
+      <strong>{fechaFmt}</strong>. Verifica siempre <strong>fechas, costos y cupos</strong> en el
+      enlace oficial de cada institución.
+    </p>
+
+    <div class="dir__filtros" role="group" aria-label="Filtros de programas">
+      <div class="dir__grupo">
+        <span class="dir__grupo-label">Disciplina</span>
+        <button class="chip activo" data-tipo="disciplina" data-valor="todas">Todas</button>
+        {disciplinas.map((d) => (
+          <button class="chip" data-tipo="disciplina" data-valor={d}>{d}</button>
+        ))}
+      </div>
+      <div class="dir__grupo">
+        <span class="dir__grupo-label">Modalidad</span>
+        <button class="chip activo" data-tipo="modalidad" data-valor="todas">Todas</button>
+        {modalidades.map((m) => (
+          <button class="chip" data-tipo="modalidad" data-valor={m}>{m}</button>
+        ))}
+      </div>
+      <div class="dir__grupo">
+        <span class="dir__grupo-label">Mes</span>
+        <button class="chip activo" data-tipo="mes" data-valor="todas">Todos</button>
+        {meses.map((m) => (
+          <button class="chip" data-tipo="mes" data-valor={m}>{m}</button>
+        ))}
+      </div>
+    </div>
+
+    <p class="dir__contador" id="dir-contador"></p>
+
+    <div class="dir__grid" id="dir-grid">
+      {cursos.map((c) => (
+        <article
+          class="curso"
+          data-disciplina={c.disciplina}
+          data-modalidad={c.modalidad}
+          data-mes={c.mes}
+          style={`--acento:${colorDisciplina[c.disciplina] ?? '#0f4c81'}`}
+        >
+          <div class="curso__top">
+            <span class="curso__tag curso__tag--tipo">{c.tipo}</span>
+            <span class="curso__tag curso__tag--mod">{c.modalidad}</span>
+          </div>
+          <h3 class="curso__titulo">{c.titulo}</h3>
+          <p class="curso__institucion">{c.institucion}</p>
+          <ul class="curso__meta">
+            <li class="curso__disciplina">{c.disciplina}</li>
+            <li>📍 {c.ciudad}</li>
+            <li>🗓️ {c.mes}</li>
+          </ul>
+          <a class="curso__cta" href={c.enlace} target="_blank" rel="noopener noreferrer">
+            Ver en sitio oficial →
+          </a>
+        </article>
+      ))}
+    </div>
+    <p class="dir__vacio" id="dir-vacio" hidden>No hay programas que coincidan con los filtros seleccionados.</p>
+  </div>
+</section>
+
+<script>
+  const filtros = { disciplina: 'todas', modalidad: 'todas', mes: 'todas' };
+  const grid = document.getElementById('dir-grid');
+  const contador = document.getElementById('dir-contador');
+  const vacio = document.getElementById('dir-vacio');
+  const cursos = Array.from(grid?.querySelectorAll('.curso') ?? []);
+
+  function aplicar() {
+    let visibles = 0;
+    cursos.forEach((card) => {
+      const el = card as HTMLElement;
+      const ok =
+        (filtros.disciplina === 'todas' || el.dataset.disciplina === filtros.disciplina) &&
+        (filtros.modalidad === 'todas' || el.dataset.modalidad === filtros.modalidad) &&
+        (filtros.mes === 'todas' || el.dataset.mes === filtros.mes);
+      el.hidden = !ok;
+      if (ok) visibles++;
+    });
+    if (contador) contador.textContent = `${visibles} programa${visibles === 1 ? '' : 's'} encontrado${visibles === 1 ? '' : 's'}`;
+    if (vacio) vacio.hidden = visibles !== 0;
+  }
+
+  document.querySelectorAll('.chip').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tipo = (btn as HTMLElement).dataset.tipo!;
+      const valor = (btn as HTMLElement).dataset.valor!;
+      filtros[tipo as keyof typeof filtros] = valor;
+      document
+        .querySelectorAll(`.chip[data-tipo="${tipo}"]`)
+        .forEach((b) => b.classList.remove('activo'));
+      btn.classList.add('activo');
+      aplicar();
+    });
+  });
+
+  // Enlaces "Ver programas de X" desde las tarjetas de categorías
+  document.querySelectorAll('.cat__link[data-disciplina]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const disc = (link as HTMLElement).dataset.disciplina!;
+      const chip = document.querySelector(`.chip[data-tipo="disciplina"][data-valor="${disc}"]`) as HTMLElement | null;
+      chip?.click();
+    });
+  });
+
+  aplicar();
+</script>
+
+<style>
+  .dir__aviso {
+    background: #fff8e8;
+    border: 1px solid #f3dca0;
+    border-radius: 10px;
+    padding: 0.85rem 1.1rem;
+    font-size: 0.95rem;
+    color: #6b5418;
+    margin: 1.6rem 0 2rem;
+  }
+  .dir__filtros { display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; margin-bottom: 1.2rem; }
+  .dir__grupo { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+  .dir__grupo-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--texto-suave);
+    margin-right: 0.3rem;
+  }
+  .chip {
+    background: var(--blanco);
+    border: 1px solid var(--gris-borde);
+    border-radius: 999px;
+    padding: 0.4rem 0.95rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: var(--texto);
+    font-family: inherit;
+    transition: all 0.15s ease;
+  }
+  .chip:hover { border-color: var(--azul-claro); }
+  .chip.activo { background: var(--azul); border-color: var(--azul); color: #fff; }
+  .dir__contador { color: var(--texto-suave); font-size: 0.9rem; margin: 0 0 1.5rem; }
+
+  .dir__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.4rem;
+  }
+  .curso {
+    background: var(--blanco);
+    border: 1px solid var(--gris-borde);
+    border-left: 4px solid var(--acento);
+    border-radius: var(--radio);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--sombra);
+  }
+  .curso__top { display: flex; gap: 0.5rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+  .curso__tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+  }
+  .curso__tag--tipo { background: var(--azul-oscuro); color: #fff; }
+  .curso__tag--mod { background: var(--verde-suave); color: var(--verde); }
+  .curso__titulo { font-size: 1.15rem; margin: 0 0 0.3rem; }
+  .curso__institucion { color: var(--texto-suave); font-weight: 600; margin: 0 0 1rem; font-size: 0.95rem; }
+  .curso__meta {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    font-size: 0.88rem;
+    color: var(--texto-suave);
+    flex: 1;
+  }
+  .curso__disciplina { color: var(--acento); font-weight: 700; }
+  .curso__cta { color: var(--acento); font-weight: 600; text-decoration: none; margin-top: auto; }
+  .curso__cta:hover { text-decoration: underline; }
+  .dir__vacio { text-align: center; color: var(--texto-suave); padding: 2rem; }
+</style>
