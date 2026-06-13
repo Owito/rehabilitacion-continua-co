@@ -112,90 +112,6 @@
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
-      "id": "fundacion-ideal-curso-introductorio-virtual-y-presencial-de-formacion-en-neu",
-      "titulo": "CURSO INTRODUCTORIO VIRTUAL Y PRESENCIAL DE FORMACIÓN EN NEURODESARROLLO Y NEURORREHABILITACIÓN BASADO EN EL MODELO DE PRÁCTICA CLÍNICA – NDTA",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Neurodesarrollo y Neurorrehabilitación",
-      "tipo": "Curso",
-      "modalidad": "Híbrida",
-      "ciudad": "Cali",
-      "mes": "Julio",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-aplicacion-terapeutica-de-vibracion-en-rehabilitacion-",
-      "titulo": "Curso Aplicación Terapéutica de Vibración en Rehabilitación Neuromuscular",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Terapia Vibratoria",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Cali",
-      "mes": "Agosto",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-fabrifoam-y-tratamiento-adjuntos-para-resultados-efect",
-      "titulo": "Curso Fabrifoam y tratamiento: Adjuntos para resultados efectivos",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Tratamiento con Fabrifoam",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Cali",
-      "mes": "Agosto",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-introductorio-modelo-contemporaneo-de-ndt-para-persona",
-      "titulo": "Curso Introductorio Modelo contemporáneo de NDT para personas post ACV o Lesión Cerebral: Un Enfoque Interdisciplinario",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "NDT para ACV",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Cali",
-      "mes": "Agosto",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-ataxia-autismo-y-ndt-integracion-de-la-funcion-visual",
-      "titulo": "Curso Ataxia, Autismo y NDT: Integración de la función visual",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Tratamiento de Ataxia y Autismo",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Cali",
-      "mes": "Agosto",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-introductorio-en-terapia-acuatica-international-aquati",
-      "titulo": "Curso Introductorio en Terapia Acuática (International Aquatic Therapy Faculty- IATF)",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Terapia Acuática",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Cali",
-      "mes": "Agosto",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-de-certificacion-en-terapia-acuatica-wst-halliwick",
-      "titulo": "Curso de certificación en Terapia Acuática - WST-Halliwick",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Terapia Acuática",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Cali",
-      "mes": "Agosto",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
       "id": "fucs-fisioterapia-pelvi-perineal",
       "titulo": "Diplomado en Fisioterapia Pelvi-Perineal",
       "institucion": "Fundación Universitaria de Ciencias de la Salud (FUCS)",
@@ -316,11 +232,11 @@
       "enlace": "https://www.handtherapyacademy.com/"
     },
     {
-      "id": "hand-therapy-academy-common-pip-diagnoses",
-      "titulo": "Common PIP Diagnoses",
+      "id": "hand-therapy-academy-tendon-transfer-course",
+      "titulo": "Tendon Transfer Course",
       "institucion": "Hand Therapy Academy",
       "disciplina": "Fisioterapia",
-      "tema": "Diagnósticos de PIP",
+      "tema": "Transferencia de tendones",
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
@@ -444,7 +360,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://umb.edu.co/diplomados/"
     },
     {
@@ -453,18 +369,6 @@
       "institucion": "Universidad Manuela Beltrán (UMB)",
       "disciplina": "Fisioterapia",
       "tema": "Rehabilitación Cardiovascular",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://umb.edu.co/diplomados/"
-    },
-    {
-      "id": "universidad-manuela-beltran-umb-abordaje-fisioterapeutico-y-alternativo-de-la-salud-mental",
-      "titulo": "Abordaje Fisioterapéutico y Alternativo de la Salud Mental",
-      "institucion": "Universidad Manuela Beltrán (UMB)",
-      "disciplina": "Fisioterapia",
-      "tema": "Salud Mental",
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
