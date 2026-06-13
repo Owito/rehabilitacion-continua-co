@@ -4,6 +4,18 @@
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
     {
+      "id": "escuela-colombiana-de-rehabilitacion-ecr-curso-de-manejo-interdisciplinario-de-trastornos-de-la-condu",
+      "titulo": "Curso de Manejo Interdisciplinario de Trastornos de la Conducta Alimentaria",
+      "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
+      "disciplina": "Fisioterapia",
+      "tema": "Trastornos de la conducta alimentaria",
+      "tipo": "Curso",
+      "modalidad": "Presencial",
+      "ciudad": "Bogotá",
+      "mes": "Julio",
+      "enlace": "https://ecr.edu.co/diplomados"
+    },
+    {
       "id": "forafis-piso-pelvico-gdp",
       "titulo": "Diplomado Internacional en Piso Pélvico — Concepto GDP",
       "institucion": "Forafis",
@@ -12,7 +24,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Junio",
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
@@ -36,7 +48,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Junio",
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
@@ -60,19 +72,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
-    },
-    {
-      "id": "forafis-curso-de-fisioterapia-en-las-disfunciones-urinarias-y-prolap",
-      "titulo": "Curso de Fisioterapia en las Disfunciones Urinarias y Prolapsos de Órganos Pélvicos",
-      "institucion": "Forafis",
-      "disciplina": "Fisioterapia",
-      "tema": "Disfunciones urinarias",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Junio",
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
@@ -100,78 +100,6 @@
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
-      "id": "fundacion-ideal-curso-introductorio-virtual-y-presencial-de-formacion-en-neu",
-      "titulo": "Curso Introductorio Virtual y Presencial de Formación en Neurodesarrollo y Neurorrehabilitación Basado en el Modelo de Práctica Clínica – Ndta",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Neurodesarrollo y Neurorrehabilitación",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Cali",
-      "mes": "Julio",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-aplicacion-terapeutica-de-vibracion-en-rehabilitacion-",
-      "titulo": "Curso Aplicación Terapéutica de Vibración en Rehabilitación Neuromuscular",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Terapia Vibratoria",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Cali",
-      "mes": "Agosto",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-fabrifoam-y-tratamiento-adjuntos-para-resultados-efect",
-      "titulo": "Curso Fabrifoam y tratamiento: Adjuntos para resultados efectivos",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Tratamiento con Fabrifoam",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Cali",
-      "mes": "Agosto",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-introductorio-modelo-contemporaneo-de-ndt-para-persona",
-      "titulo": "Curso Introductorio Modelo contemporáneo de NDT para personas post ACV o Lesión Cerebral: Un Enfoque Interdisciplinario",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "NDT y Lesiones Cerebrales",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Cali",
-      "mes": "Agosto",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-ataxia-autismo-y-ndt-integracion-de-la-funcion-visual",
-      "titulo": "Curso Ataxia, Autismo y NDT: Integración de la función visual",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Ataxia y Autismo",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Cali",
-      "mes": "Agosto",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-certificado-por-la-ndta-de-la-practica-contemporanea-d",
-      "titulo": "Curso Certificado por la NDTA™ de la Práctica Contemporánea de NDT para el Tratamiento de Adultos con Eventos Cerebrovasculares (ECV) y Lesión Cerebral",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Tratamiento ECV y Lesión Cerebral",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Cali",
-      "mes": "Agosto",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
       "id": "fucs-fisioterapia-pelvi-perineal",
       "titulo": "Diplomado en Fisioterapia Pelvi-Perineal",
       "institucion": "Fundación Universitaria de Ciencias de la Salud (FUCS)",
@@ -192,7 +120,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Junio",
       "enlace": "https://www.fucsalud.edu.co/diplomados/Diplomado-intervencion-fisioterapeutica-paliativa-en-cancer"
     },
     {
@@ -216,7 +144,7 @@
       "tipo": "Diplomado",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Junio",
       "enlace": "https://www.fucsalud.edu.co/diplomados/Diplomado-Rehabilitacion-Deportiva-Readaptacion-Funcional"
     },
     {
@@ -228,7 +156,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Medellín",
-      "mes": "Julio",
+      "mes": "Junio",
       "enlace": "https://www.ces.edu.co/educacion-continua/diplomado/diplomado-en-fisioterapia-clinica-musculoesqueletica/"
     },
     {
@@ -240,7 +168,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Medellín",
-      "mes": "Agosto",
+      "mes": "Julio",
       "enlace": "https://www.ces.edu.co/educacion-continua/"
     },
     {
@@ -252,7 +180,7 @@
       "tipo": "Curso",
       "modalidad": "Híbrida",
       "ciudad": "Medellín",
-      "mes": "Julio",
+      "mes": "Junio",
       "enlace": "https://www.ces.edu.co/educacion-continua/"
     },
     {
@@ -264,7 +192,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Medellín",
-      "mes": "Agosto",
+      "mes": "Julio",
       "enlace": "https://www.ces.edu.co/educacion-continua/"
     },
     {
@@ -276,7 +204,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bucaramanga",
-      "mes": "Agosto",
+      "mes": "Julio",
       "enlace": "https://udes.edu.co/estudia/educacion-continua"
     },
     {
@@ -288,7 +216,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Julio",
+      "mes": "Junio",
       "enlace": "https://umb.edu.co/programa/diplomado-en-neurorrehabilitacion-en-pediatria/"
     },
     {
@@ -300,7 +228,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Julio",
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-fisioterapeutico-y-alternativo-de-la-salud-mental/"
     },
     {
@@ -312,7 +240,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Julio",
+      "mes": "Junio",
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-terapeutico/"
     },
     {
@@ -324,7 +252,7 @@
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Julio",
+      "mes": "Junio",
       "enlace": "https://asofono.co/cursos-de-actualizacion/"
     },
     {
@@ -336,8 +264,20 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Agosto",
+      "mes": "Julio",
       "enlace": "https://asofono.co/cursos-virtuales/"
+    },
+    {
+      "id": "asofono-diplomado-fonoaudiologia-para-el-peritaje-forense",
+      "titulo": "Diplomado Fonoaudiología para el Peritaje Forense",
+      "institucion": "ASOFONO",
+      "disciplina": "Fonoaudiología",
+      "tema": "Peritaje Forense",
+      "tipo": "Diplomado",
+      "modalidad": "Virtual",
+      "ciudad": "Nacional",
+      "mes": "Julio",
+      "enlace": "https://asofono.co/cursos-de-actualizacion/"
     },
     {
       "id": "ideal-disfagia-neurodesarrollo",
@@ -348,7 +288,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Agosto",
+      "mes": "Junio",
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
@@ -360,7 +300,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Agosto",
+      "mes": "Junio",
       "enlace": "https://extensionsalud.univalle.edu.co/oferta-de-cursos-talleres-diplomados/2-uncategorised/24-escuela-de-rehabilitacion-humana"
     },
     {
@@ -384,7 +324,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Julio",
+      "mes": "Junio",
       "enlace": "https://ecr.edu.co/diplomados"
     },
     {
@@ -396,7 +336,7 @@
       "tipo": "Diplomado",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Julio",
       "enlace": "https://ecr.edu.co/diplomados"
     },
     {
@@ -406,6 +346,18 @@
       "disciplina": "Terapia Ocupacional",
       "tema": "Salud mental",
       "tipo": "Curso",
+      "modalidad": "Virtual",
+      "ciudad": "Bogotá",
+      "mes": "Junio",
+      "enlace": "https://ecr.edu.co/diplomados"
+    },
+    {
+      "id": "escuela-colombiana-de-rehabilitacion-ecr-diplomado-terapia-ocupacional-en-cuidados-paliativos",
+      "titulo": "Diplomado Terapia Ocupacional en Cuidados Paliativos",
+      "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
+      "disciplina": "Terapia Ocupacional",
+      "tema": "Cuidados paliativos",
+      "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
       "mes": "Julio",
@@ -432,7 +384,7 @@
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Julio",
+      "mes": "Junio",
       "enlace": "https://www.handtherapyacademy.com/"
     }
   ]
