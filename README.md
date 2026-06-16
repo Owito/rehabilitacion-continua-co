@@ -96,6 +96,13 @@ npm run actualizar
   presentes).
 - **Colores/estilo**: variables CSS (tema neo-brutalista) en `src/layouts/Layout.astro`.
 
+## Contribuir
+
+¿Conoces una oferta o institución que falta? Las contribuciones manuales van en la **base
+curada** (`src/data/cursos.semilla.json`) e `instituciones.json`. Consulta la guía completa
+con el formato exacto de cada campo y el checklist de calidad en
+**[CONTRIBUTING.md](./CONTRIBUTING.md)**.
+
 ## Notas y limitaciones
 
 - El directorio combina **base curada verificada** + **hallazgos automáticos**; la base
