@@ -1,8 +1,20 @@
 {
-  "actualizado": "2026-06-15",
+  "actualizado": "2026-06-22",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
+    {
+      "id": "escuela-colombiana-de-rehabilitacion-ecr-curso-de-manejo-interdisciplinario-de-trastornos-de-la-condu",
+      "titulo": "Curso de Manejo Interdisciplinario de Trastornos de la Conducta Alimentaria",
+      "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
+      "disciplina": "Fisioterapia",
+      "tema": "Trastornos de la conducta alimentaria",
+      "tipo": "Curso",
+      "modalidad": "Presencial",
+      "ciudad": "Bogotá",
+      "mes": "Julio",
+      "enlace": "https://ecr.edu.co/diplomados"
+    },
     {
       "id": "forafis-piso-pelvico-gdp",
       "titulo": "Diplomado Internacional en Piso Pélvico — Concepto GDP",
@@ -64,18 +76,6 @@
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
-      "id": "forafis-curso-de-fisioterapia-en-las-disfunciones-urinarias-y-prolap",
-      "titulo": "Curso de Fisioterapia en las Disfunciones Urinarias y Prolapsos de Órganos Pélvicos",
-      "institucion": "Forafis",
-      "disciplina": "Fisioterapia",
-      "tema": "Disfunciones Urinarias",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Bogotá",
-      "mes": "Julio",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
-    },
-    {
       "id": "ideal-neurodesarrollo-ndta",
       "titulo": "Curso Introductorio en Neurodesarrollo y Neurorrehabilitación (Modelo NDTA)",
       "institucion": "Fundación IDEAL",
@@ -95,78 +95,6 @@
       "tema": "Terapia acuática",
       "tipo": "Curso",
       "modalidad": "Presencial",
-      "ciudad": "Cali",
-      "mes": "Julio",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-introductorio-virtual-y-presencial-de-formacion-en-neu",
-      "titulo": "Curso Introductorio Virtual y Presencial de Formación en Neurodesarrollo y Neurorrehabilitación Basado en el Modelo de Práctica Clínica – Ndta",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Neurodesarrollo y Neurorrehabilitación",
-      "tipo": "Curso",
-      "modalidad": "Híbrida",
-      "ciudad": "Cali",
-      "mes": "Julio",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-aplicacion-terapeutica-de-vibracion-en-rehabilitacion-",
-      "titulo": "Curso Aplicación Terapéutica de Vibración en Rehabilitación Neuromuscular",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Terapia Vibratoria",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Cali",
-      "mes": "Julio",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-introductorio-modelo-contemporaneo-de-ndt-para-persona",
-      "titulo": "Curso Introductorio Modelo contemporáneo de NDT para personas post ACV o Lesión Cerebral: Un Enfoque Interdisciplinario",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "NDT y Lesiones Cerebrales",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Cali",
-      "mes": "Julio",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-ataxia-autismo-y-ndt-integracion-de-la-funcion-visual",
-      "titulo": "Curso Ataxia, Autismo y NDT: Integración de la función visual",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Tratamiento de Ataxia y Autismo",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Cali",
-      "mes": "Julio",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-certificado-por-la-ndta-de-la-practica-contemporanea-d",
-      "titulo": "Curso Certificado por la NDTA™ de la Práctica Contemporánea de NDT para el Tratamiento de Adultos con Eventos Cerebrovasculares (ECV) y Lesión Cerebral",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Tratamiento de ECV",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Cali",
-      "mes": "Julio",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-curso-de-certificacion-en-terapia-acuatica-wst-halliwick",
-      "titulo": "Curso de certificación en Terapia Acuática - WST-Halliwick",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Terapia Acuática",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
       "ciudad": "Cali",
       "mes": "Julio",
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
@@ -376,18 +304,6 @@
       "enlace": "https://asofono.co/cursos-virtuales/"
     },
     {
-      "id": "asofono-diplomado-fonoaudiologia-para-el-peritaje-forense",
-      "titulo": "Diplomado Fonoaudiología para el Peritaje Forense",
-      "institucion": "ASOFONO",
-      "disciplina": "Fonoaudiología",
-      "tema": "Peritaje Forense",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Nacional",
-      "mes": "Julio",
-      "enlace": "https://asofono.co/cursos-de-actualizacion/"
-    },
-    {
       "id": "ideal-disfagia-neurodesarrollo",
       "titulo": "Curso Intensivo de Intervención en Disfagia y Neurodesarrollo",
       "institucion": "Fundación IDEAL",
@@ -460,16 +376,16 @@
       "enlace": "https://ecr.edu.co/diplomados"
     },
     {
-      "id": "fundacion-ideal-curso-fabrifoam-y-tratamiento-adjuntos-para-resultados-efect",
-      "titulo": "Curso Fabrifoam y tratamiento: Adjuntos para resultados efectivos",
-      "institucion": "Fundación IDEAL",
+      "id": "escuela-colombiana-de-rehabilitacion-ecr-diplomado-terapia-ocupacional-en-cuidados-paliativos",
+      "titulo": "Diplomado Terapia Ocupacional en Cuidados Paliativos",
+      "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
       "disciplina": "Terapia Ocupacional",
-      "tema": "Tratamiento con Fabrifoam",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Cali",
+      "tema": "Cuidados paliativos",
+      "tipo": "Diplomado",
+      "modalidad": "Virtual",
+      "ciudad": "Bogotá",
       "mes": "Julio",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+      "enlace": "https://ecr.edu.co/diplomados"
     },
     {
       "id": "fucs-rehabilitacion-integral-pediatria",
