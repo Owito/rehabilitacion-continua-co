@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-06-22",
+  "actualizado": "2026-06-29",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -302,6 +302,18 @@
       "ciudad": "Nacional",
       "mes": "Julio",
       "enlace": "https://asofono.co/cursos-virtuales/"
+    },
+    {
+      "id": "asofono-diplomado-fonoaudiologia-para-el-peritaje-forense",
+      "titulo": "Diplomado Fonoaudiología para el Peritaje Forense",
+      "institucion": "ASOFONO",
+      "disciplina": "Fonoaudiología",
+      "tema": "Peritaje Forense",
+      "tipo": "Diplomado",
+      "modalidad": "Virtual",
+      "ciudad": "Nacional",
+      "mes": "Julio",
+      "enlace": "https://asofono.co/cursos-de-actualizacion/"
     },
     {
       "id": "ideal-disfagia-neurodesarrollo",
