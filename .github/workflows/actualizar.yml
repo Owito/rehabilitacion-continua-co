@@ -1,9 +1,9 @@
-name: Actualizar oferta (semanal)
+name: Actualizar oferta (diaria)
 
 on:
   schedule:
-    # Lunes 11:00 UTC = 6:00 AM hora Colombia (UTC-5)
-    - cron: '0 11 * * 1'
+    # Todos los días 11:00 UTC = 6:00 AM hora Colombia (UTC-5)
+    - cron: '0 11 * * *'
   workflow_dispatch: # permite ejecutarlo manualmente desde la pestaña Actions
 
 permissions:
@@ -36,12 +36,12 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if [[ -n "$(git status --porcelain src/data/cursos.json)" ]]; then
             git add src/data/cursos.json
-            git commit -m "chore: actualización automática semanal de la oferta"
+            git commit -m "chore: actualización automática diaria de la oferta"
             git push
             # El push con GITHUB_TOKEN no dispara otros workflows, así que el deploy
             # se lanza explícitamente aquí.
             gh workflow run deploy.yml --ref main
             echo "Cambios commiteados y deploy disparado."
           else
-            echo "Sin cambios en la oferta esta semana."
+            echo "Sin cambios en la oferta hoy."
           fi

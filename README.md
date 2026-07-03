@@ -2,13 +2,13 @@
 
 Directorio web de la oferta de educación continua en **Fisioterapia, Fonoaudiología y
 Terapia Ocupacional** en Colombia. Una sola página enfocada en la **oferta vigente**, con
-buscador y filtros, que se **actualiza sola cada semana**.
+buscador y filtros, que se **actualiza sola a diario**.
 
 🌐 **En vivo:** https://owito.github.io/rehabilitacion-continua-co/
 
 - **100% gratis** y estático en **GitHub Pages** (0 JavaScript de framework; solo unos
   scripts inline para filtros y buscador).
-- **Sin APIs de pago**: la oferta se refresca **cada semana** con **GitHub Models**
+- **Sin APIs de pago**: la oferta se refresca **cada día** con **GitHub Models**
   (inferencia LLM gratuita para cuentas personales) dentro de GitHub Actions.
 - **Diseño neo-brutalista** (papel/tinta, bordes gruesos, sombras duras).
 
@@ -19,7 +19,7 @@ buscador y filtros, que se **actualiza sola cada semana**.
 | Sitio | [Astro 5](https://astro.build) |
 | Hosting | GitHub Pages (deploy con `withastro/action`) |
 | Datos | `src/data/cursos.json` (versionado) |
-| Automatización | GitHub Actions (cron semanal) + GitHub Models |
+| Automatización | GitHub Actions (cron diario) + GitHub Models |
 
 ## Funcionalidades
 
@@ -57,7 +57,7 @@ scripts/
   actualizar-cursos.mjs  # motor de actualización (GitHub Models)
 .github/workflows/
   deploy.yml             # build + deploy a Pages (push a main / dispatch)
-  actualizar.yml         # cron semanal (lunes 6 AM Colombia) + dispara el deploy
+  actualizar.yml         # cron diario (6 AM Colombia) + dispara el deploy
 ```
 
 ## Despliegue
@@ -70,7 +70,7 @@ scripts/
 
 ## Actualización automática
 
-- **`actualizar.yml`** corre cada **lunes 6:00 AM (Colombia)** y también a mano en
+- **`actualizar.yml`** corre **todos los días a las 6:00 AM (Colombia)** y también a mano en
   *Actions → Actualizar oferta → Run workflow*.
 - Calcula la **ventana de meses** vigente (actual + siguiente), parte de la **base curada**
   (`cursos.semilla.json`, re-estampada a esa ventana), descarga cada portal oficial —incluye
