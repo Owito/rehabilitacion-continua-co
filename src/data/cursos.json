@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-06-29",
+  "actualizado": "2026-07-03",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -24,7 +24,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Junio",
+      "mes": "Julio",
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
@@ -36,7 +36,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
@@ -48,7 +48,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Junio",
+      "mes": "Julio",
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
@@ -60,7 +60,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
@@ -72,7 +72,19 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Junio",
+      "mes": "Julio",
+      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+    },
+    {
+      "id": "forafis-curso-de-fisioterapia-en-las-disfunciones-urinarias-y-prolap",
+      "titulo": "Curso de Fisioterapia en las Disfunciones Urinarias y Prolapsos de Órganos Pélvicos",
+      "institucion": "Forafis",
+      "disciplina": "Fisioterapia",
+      "tema": "Disfunciones urinarias",
+      "tipo": "Curso",
+      "modalidad": "Presencial",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
@@ -84,7 +96,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
@@ -96,7 +108,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
@@ -108,7 +120,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://www.fucsalud.edu.co/diplomados/Diplomado-Fisioterapia-pelvi-perineal"
     },
     {
@@ -120,7 +132,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Junio",
+      "mes": "Julio",
       "enlace": "https://www.fucsalud.edu.co/diplomados/Diplomado-intervencion-fisioterapeutica-paliativa-en-cancer"
     },
     {
@@ -132,7 +144,7 @@
       "tipo": "Diplomado",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://www.fucsalud.edu.co/diplomados/Diplomado-Rehabilitacion-musculo-esqueletica-Miembro-Superior"
     },
     {
@@ -144,7 +156,7 @@
       "tipo": "Diplomado",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Junio",
+      "mes": "Julio",
       "enlace": "https://www.fucsalud.edu.co/diplomados/Diplomado-Rehabilitacion-Deportiva-Readaptacion-Funcional"
     },
     {
@@ -156,7 +168,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Medellín",
-      "mes": "Junio",
+      "mes": "Julio",
       "enlace": "https://www.ces.edu.co/educacion-continua/diplomado/diplomado-en-fisioterapia-clinica-musculoesqueletica/"
     },
     {
@@ -168,7 +180,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Medellín",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://www.ces.edu.co/educacion-continua/"
     },
     {
@@ -180,7 +192,7 @@
       "tipo": "Curso",
       "modalidad": "Híbrida",
       "ciudad": "Medellín",
-      "mes": "Junio",
+      "mes": "Julio",
       "enlace": "https://www.ces.edu.co/educacion-continua/"
     },
     {
@@ -192,7 +204,31 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Medellín",
+      "mes": "Agosto",
+      "enlace": "https://www.ces.edu.co/educacion-continua/"
+    },
+    {
+      "id": "universidad-ces-nivelatorio-de-fisioterapia-en-ciencias-basicas",
+      "titulo": "Nivelatorio de Fisioterapia en Ciencias Básicas",
+      "institucion": "Universidad CES",
+      "disciplina": "Fisioterapia",
+      "tema": "Ciencias Básicas",
+      "tipo": "Curso",
+      "modalidad": "Presencial",
+      "ciudad": "Medellín",
       "mes": "Julio",
+      "enlace": "https://www.ces.edu.co/educacion-continua/"
+    },
+    {
+      "id": "universidad-ces-curva-carga-velocidad-un-enfoque-en-la-rehabilitacion",
+      "titulo": "Curva Carga-Velocidad: un enfoque en la rehabilitación",
+      "institucion": "Universidad CES",
+      "disciplina": "Fisioterapia",
+      "tema": "Rehabilitación",
+      "tipo": "Curso",
+      "modalidad": "Híbrida",
+      "ciudad": "Medellín",
+      "mes": "Agosto",
       "enlace": "https://www.ces.edu.co/educacion-continua/"
     },
     {
@@ -204,7 +240,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bucaramanga",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://udes.edu.co/estudia/educacion-continua"
     },
     {
@@ -216,7 +252,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Junio",
+      "mes": "Julio",
       "enlace": "https://umb.edu.co/programa/diplomado-en-neurorrehabilitacion-en-pediatria/"
     },
     {
@@ -228,7 +264,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-fisioterapeutico-y-alternativo-de-la-salud-mental/"
     },
     {
@@ -240,44 +276,8 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Junio",
+      "mes": "Julio",
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-terapeutico/"
-    },
-    {
-      "id": "universidad-manuela-beltran-umb-diplomado-en-fisioterapia-para-el-cuidado-materno-parto-y-po",
-      "titulo": "Diplomado en Fisioterapia para el Cuidado Materno, Parto y Postparto",
-      "institucion": "Universidad Manuela Beltrán (UMB)",
-      "disciplina": "Fisioterapia",
-      "tema": "Cuidado Materno",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Julio",
-      "enlace": "https://umb.edu.co/diplomados/"
-    },
-    {
-      "id": "universidad-manuela-beltran-umb-diplomado-en-rehabilitacion-cardiovascular-y-pulmonar",
-      "titulo": "Diplomado en Rehabilitación Cardiovascular y Pulmonar",
-      "institucion": "Universidad Manuela Beltrán (UMB)",
-      "disciplina": "Fisioterapia",
-      "tema": "Rehabilitación Cardiovascular",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Julio",
-      "enlace": "https://umb.edu.co/diplomados/"
-    },
-    {
-      "id": "universidad-manuela-beltran-umb-abordaje-fisioterapeutico-y-alternativo-de-la-salud-mental",
-      "titulo": "Abordaje Fisioterapéutico y Alternativo de la Salud Mental",
-      "institucion": "Universidad Manuela Beltrán (UMB)",
-      "disciplina": "Fisioterapia",
-      "tema": "Salud Mental",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Julio",
-      "enlace": "https://umb.edu.co/diplomados/"
     },
     {
       "id": "asofono-disfagia-practica-moderna",
@@ -288,7 +288,7 @@
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Junio",
+      "mes": "Julio",
       "enlace": "https://asofono.co/cursos-de-actualizacion/"
     },
     {
@@ -300,20 +300,8 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://asofono.co/cursos-virtuales/"
-    },
-    {
-      "id": "asofono-diplomado-fonoaudiologia-para-el-peritaje-forense",
-      "titulo": "Diplomado Fonoaudiología para el Peritaje Forense",
-      "institucion": "ASOFONO",
-      "disciplina": "Fonoaudiología",
-      "tema": "Peritaje Forense",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Nacional",
-      "mes": "Julio",
-      "enlace": "https://asofono.co/cursos-de-actualizacion/"
     },
     {
       "id": "ideal-disfagia-neurodesarrollo",
@@ -324,7 +312,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Junio",
+      "mes": "Julio",
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
@@ -336,7 +324,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Junio",
+      "mes": "Julio",
       "enlace": "https://extensionsalud.univalle.edu.co/oferta-de-cursos-talleres-diplomados/2-uncategorised/24-escuela-de-rehabilitacion-humana"
     },
     {
@@ -348,7 +336,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://academiaexpertia.com/producto/diplomado-en-rehabilitacion-fisica-y-terapia-ocupacional/"
     },
     {
@@ -360,7 +348,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Junio",
+      "mes": "Julio",
       "enlace": "https://ecr.edu.co/diplomados"
     },
     {
@@ -372,7 +360,7 @@
       "tipo": "Diplomado",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://ecr.edu.co/diplomados"
     },
     {
@@ -384,7 +372,7 @@
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
-      "mes": "Junio",
+      "mes": "Julio",
       "enlace": "https://ecr.edu.co/diplomados"
     },
     {
@@ -396,7 +384,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://ecr.edu.co/diplomados"
     },
     {
@@ -408,7 +396,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://www.fucsalud.edu.co/diplomados/abordaje-rehabilitacion-integral-pediatria"
     },
     {
@@ -420,7 +408,7 @@
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Junio",
+      "mes": "Julio",
       "enlace": "https://www.handtherapyacademy.com/"
     }
   ]
