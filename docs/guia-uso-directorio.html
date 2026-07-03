@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Guía — Directorio Rehabilitación·CO</title>
+<style>
+  @page {
+    size: A4;
+    margin: 14mm 15mm 16mm 15mm;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: #14110b;
+    background: #faf1dc;
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+  .page { page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+
+  /* ---------- Cover ---------- */
+  .cover {
+    min-height: 265mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 4mm;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-weight: 800; letter-spacing: .04em; font-size: 13pt;
+    margin-bottom: 26px;
+  }
+  .brand .dot { font-size: 16pt; }
+  .brand .co { color: #12b98a; }
+  .kicker {
+    display: inline-block;
+    background: #14110b; color: #ffd23f;
+    font-weight: 800; letter-spacing: .12em; font-size: 9pt;
+    padding: 7px 14px; text-transform: uppercase;
+    border: 2px solid #14110b;
+  }
+  .cover h1 {
+    font-size: 38pt; line-height: 1.02; font-weight: 900;
+    letter-spacing: -.01em; margin: 20px 0 14px;
+    text-transform: uppercase;
+  }
+  .cover .sub {
+    font-size: 13pt; max-width: 150mm; color: #3a3324;
+    font-weight: 500;
+  }
+  .cover .audience {
+    margin-top: 34px; border: 3px solid #14110b;
+    background: #fff; padding: 16px 20px;
+    box-shadow: 6px 6px 0 #14110b; max-width: 150mm;
+  }
+  .cover .audience b { font-weight: 800; }
+  .cover .meta {
+    margin-top: 28px; font-size: 9.5pt; color: #6a6047;
+  }
+  .cover .meta a { color: #1554d1; font-weight: 700; text-decoration: none; }
+
+  /* ---------- Content ---------- */
+  h2 {
+    font-size: 17pt; font-weight: 900; text-transform: uppercase;
+    letter-spacing: -.01em; margin: 0 0 4px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  h2 .num {
+    background: #14110b; color: #ffd23f;
+    width: 30px; height: 30px; min-width: 30px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 13pt; border-radius: 50%;
+  }
+  h2 + .lead { color: #5a5138; margin: 0 0 14px 40px; font-size: 10.5pt; }
+  .section { margin-bottom: 22px; }
+  .section.first { margin-top: 2px; }
+
+  h3 { font-size: 11.5pt; font-weight: 800; margin: 14px 0 6px; }
+  p { margin: 0 0 8px; }
+  ul, ol { margin: 4px 0 8px 20px; }
+  li { margin-bottom: 5px; }
+  b, strong { font-weight: 700; }
+
+  .card {
+    border: 3px solid #14110b; background: #fff;
+    padding: 14px 18px; box-shadow: 5px 5px 0 #14110b;
+    margin: 10px 0;
+  }
+  .card.tip { background: #eafcf5; }
+  .card.warn { background: #fff6e0; }
+
+  .badge {
+    display: inline-block; font-weight: 800; font-size: 8pt;
+    letter-spacing: .06em; text-transform: uppercase;
+    border: 2px solid #14110b; padding: 3px 8px; margin: 2px 4px 2px 0;
+  }
+  .badge.blue { background: #4263eb; color: #fff; }
+  .badge.plain { background: #fff; }
+
+  .steps { counter-reset: step; list-style: none; margin-left: 0; }
+  .steps li {
+    position: relative; padding-left: 40px; margin-bottom: 12px;
+    min-height: 28px;
+  }
+  .steps li::before {
+    counter-increment: step; content: counter(step);
+    position: absolute; left: 0; top: -2px;
+    width: 28px; height: 28px;
+    background: #ffd23f; border: 2.5px solid #14110b;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 11pt;
+  }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .filterbox {
+    border: 2.5px solid #14110b; background: #fff; padding: 11px 14px;
+  }
+  .filterbox h4 {
+    font-size: 9pt; letter-spacing: .1em; text-transform: uppercase;
+    color: #6a6047; margin-bottom: 6px; font-weight: 800;
+  }
+  .filterbox .opts { display: flex; flex-wrap: wrap; gap: 5px; }
+  .chip {
+    border: 2px solid #14110b; background: #fff; font-size: 8pt;
+    font-weight: 700; padding: 3px 9px; text-transform: uppercase;
+    letter-spacing: .03em;
+  }
+  .chip.on { background: #14110b; color: #fff; }
+
+  /* mock card */
+  .mock {
+    border: 3px solid #14110b; background: #fff; box-shadow: 5px 5px 0 #14110b;
+    padding: 16px; max-width: 95mm; position: relative;
+  }
+  .mock .anno {
+    font-size: 8.5pt; color: #1554d1; font-weight: 700;
+  }
+  .mock .title { font-size: 13pt; font-weight: 900; margin: 8px 0 3px; }
+  .mock .inst { font-weight: 800; font-size: 9.5pt; }
+  .mock .facts { margin: 10px 0; font-size: 9pt; font-weight: 700; color: #3a3324; }
+  .mock .facts span { margin-right: 12px; }
+  .mock .cta {
+    display: inline-block; background: #14110b; color: #fff;
+    font-weight: 800; font-size: 9pt; padding: 9px 14px;
+    letter-spacing: .04em; text-transform: uppercase;
+  }
+  .callout-row { display: flex; gap: 14px; align-items: flex-start; }
+  .callout-row .num2 {
+    background: #4263eb; color: #fff; font-weight: 900; font-size: 10pt;
+    width: 24px; height: 24px; min-width: 24px; border: 2px solid #14110b;
+    display: flex; align-items: center; justify-content: center; margin-top: 2px;
+  }
+
+  .foot {
+    margin-top: 26px; border-top: 3px solid #14110b; padding-top: 10px;
+    font-size: 8.5pt; color: #6a6047; display: flex; justify-content: space-between;
+  }
+  .disc-tag { font-weight: 800; }
+  .fisio { color: #1f6fd6; }
+  .fono { color: #0f9e86; }
+  .to { color: #c9781f; }
+</style>
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<section class="page cover">
+  <div class="brand"><span class="dot">🧠</span> REHABILITACIÓN<span class="co">·CO</span></div>
+  <span class="kicker">Guía de uso</span>
+  <h1>Cómo usar el directorio de educación continua</h1>
+  <p class="sub">Encuentra cursos, diplomados y formaciones vigentes en Fisioterapia, Fonoaudiología y Terapia Ocupacional en Colombia — filtrando por disciplina, modalidad y mes.</p>
+
+  <div class="audience">
+    <b>Para quién es esta guía:</b> terapeutas y personal de salud
+    (fisioterapeutas, fonoaudiólogos, terapeutas ocupacionales y profesionales
+    afines) que quieren mantenerse actualizados con oferta académica verificada,
+    sin perder tiempo buscando en decenas de páginas institucionales.
+  </div>
+
+  <div class="meta">
+    Sitio: <a href="https://owito.github.io/rehabilitacion-continua-co/">owito.github.io/rehabilitacion-continua-co</a><br>
+    Acceso libre y gratuito · Cada programa enlaza a la fuente oficial de la institución
+  </div>
+</section>
+
+<!-- ================= PAGE 1 ================= -->
+<section class="page">
+  <div class="section first">
+    <h2><span class="num">1</span> Qué es este directorio</h2>
+    <p class="lead">Un solo lugar con la oferta de educación continua en rehabilitación.</p>
+    <p>El directorio reúne <b>cursos, diplomados y formaciones</b> de educación continua
+    en <b>rehabilitación humana</b> que están vigentes en Colombia. En vez de revisar
+    una por una las páginas de cada universidad o instituto, aquí ves toda la oferta
+    reunida, organizada y con enlace directo a la página oficial de cada institución.</p>
+
+    <div class="card">
+      <p style="margin:0"><b>Tres disciplinas cubiertas:</b></p>
+      <p style="margin:6px 0 0">
+        <span class="disc-tag fisio">● Fisioterapia</span> &nbsp;·&nbsp;
+        <span class="disc-tag fono">● Fonoaudiología</span> &nbsp;·&nbsp;
+        <span class="disc-tag to">● Terapia Ocupacional</span>
+      </p>
+    </div>
+
+    <h3>Lo que debes saber antes de empezar</h3>
+    <ul>
+      <li><b>Es gratis y de acceso libre:</b> no necesitas registrarte ni iniciar sesión.</li>
+      <li><b>Se actualiza solo, todos los días:</b> la oferta se refresca automáticamente
+      cada día (a las 6:00 a.m., hora de Colombia). En la parte de arriba verás la fecha de la
+      última actualización (p. ej. <i>"Oferta actualizada automáticamente el 3 de julio de 2026"</i>).</li>
+      <li><b>El título muestra el periodo vigente:</b> el encabezado dice qué meses cubre la
+      oferta actual (p. ej. <i>"Directorio de programas — Julio y Agosto"</i>).</li>
+      <li><b>No inscribe ni cobra:</b> el directorio solo te muestra y te lleva a la fuente
+      oficial. La inscripción, el pago y los cupos se gestionan en la página de cada institución.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">2</span> Recorrido en 4 pasos</h2>
+    <p class="lead">La forma más rápida de encontrar un programa.</p>
+    <ol class="steps">
+      <li><b>Escribe qué buscas</b> en la barra <i>“Buscar por programa o institución…”</i>
+      (por ejemplo: <i>“piso pélvico”</i> o <i>“ECR”</i>), o pasa directo a los filtros.</li>
+      <li><b>Afina con los filtros</b> de Disciplina, Modalidad y Mes para reducir la lista
+      a lo que realmente te sirve.</li>
+      <li><b>Revisa las tarjetas</b> de resultados: cada una resume el programa (tipo, título,
+      institución, ciudad, disciplina y mes).</li>
+      <li><b>Entra a la fuente oficial</b> con el botón <b>“Ver en sitio oficial”</b> para
+      confirmar fechas, costos y cupos, e inscribirte.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= PAGE 2 ================= -->
+<section class="page">
+  <div class="section first">
+    <h2><span class="num">3</span> Los filtros, uno por uno</h2>
+    <p class="lead">Puedes combinarlos: se aplican todos a la vez.</p>
+
+    <h3>🔎 Buscador de texto</h3>
+    <p>Escribe una palabra y la lista se filtra al instante por <b>nombre del programa,
+    institución o tema</b>. Útil cuando ya sabes qué quieres (“punción seca”, “ecografía”,
+    “Forafis”).</p>
+
+    <div class="grid2">
+      <div class="filterbox">
+        <h4>Disciplina</h4>
+        <div class="opts">
+          <span class="chip on">Todas</span>
+          <span class="chip">Fisioterapia</span>
+          <span class="chip">Fonoaudiología</span>
+          <span class="chip">Terapia Ocupacional</span>
+        </div>
+        <p style="font-size:8.5pt;margin:8px 0 0;color:#5a5138">Muestra solo los programas
+        de tu profesión.</p>
+      </div>
+      <div class="filterbox">
+        <h4>Modalidad</h4>
+        <div class="opts">
+          <span class="chip on">Todas</span>
+          <span class="chip">Híbrida</span>
+          <span class="chip">Presencial</span>
+          <span class="chip">Virtual</span>
+        </div>
+        <p style="font-size:8.5pt;margin:8px 0 0;color:#5a5138">Filtra según cómo puedes
+        estudiar: en línea, presencial o mixto.</p>
+      </div>
+    </div>
+
+    <div class="filterbox" style="margin-top:12px">
+      <h4>Mes</h4>
+      <div class="opts">
+        <span class="chip on">Todos</span>
+        <span class="chip">Junio</span>
+        <span class="chip">Julio</span>
+      </div>
+      <p style="font-size:8.5pt;margin:8px 0 0;color:#5a5138">Los meses disponibles cambian
+      solos según el periodo vigente (ventana móvil: mes actual y el siguiente).</p>
+    </div>
+
+    <div class="card tip">
+      <p style="margin:0"><b>💡 Tip:</b> ¿La lista quedó vacía o te perdiste entre filtros?
+      Usa el botón <b>“✕ Limpiar filtros”</b> para volver a ver toda la oferta y empezar de nuevo.</p>
+    </div>
+    <p style="font-size:9pt;color:#5a5138"><b>Contador de resultados:</b> justo encima de las
+    tarjetas verás cuántos programas coinciden (p. ej. <i>“35 programas encontrados”</i>).</p>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">4</span> Cómo leer una tarjeta de programa</h2>
+    <p class="lead">Cada tarjeta condensa lo esencial antes de que salgas del sitio.</p>
+
+    <div class="callout-row">
+      <div class="mock">
+        <div>
+          <span class="badge blue">Diplomado</span>
+          <span class="badge plain">Híbrida</span>
+        </div>
+        <div class="anno">❶ Tipo y modalidad</div>
+        <div class="title">Diplomado Internacional en Piso Pélvico</div>
+        <div class="anno">❷ Nombre del programa</div>
+        <div class="inst">Forafis</div>
+        <div class="anno">❸ Institución</div>
+        <div class="facts">
+          <span class="fisio">● Fisioterapia</span>
+          <span>📍 Bogotá</span>
+          <span>📅 Julio</span>
+        </div>
+        <div class="anno">❹ Disciplina · ciudad · mes</div>
+        <div style="margin-top:12px"><span class="cta">Ver en sitio oficial ↗</span></div>
+        <div class="anno" style="margin-top:4px">❺ Enlace a la fuente oficial</div>
+      </div>
+
+      <div style="flex:1">
+        <p><span style="font-weight:900">❶</span> <b>Tipo y modalidad:</b> de un vistazo sabes
+        si es curso o diplomado y si es presencial, virtual o híbrida.</p>
+        <p><span style="font-weight:900">❷</span> <b>Nombre del programa:</b> el título oficial.</p>
+        <p><span style="font-weight:900">❸</span> <b>Institución:</b> quién lo dicta (universidad
+        o instituto).</p>
+        <p><span style="font-weight:900">❹</span> <b>Datos clave:</b> disciplina (con su color),
+        ciudad y mes.</p>
+        <p><span style="font-weight:900">❺</span> <b>Botón de acción:</b> abre la página oficial
+        en una pestaña nueva. Ahí confirmas todo e inscribes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE 3 ================= -->
+<section class="page">
+  <div class="section first">
+    <h2><span class="num">5</span> Antes de inscribirte: verifica siempre</h2>
+    <p class="lead">El directorio es tu punto de partida, no la fuente final.</p>
+
+    <div class="card warn">
+      <p style="margin:0"><b>⚠️ Importante:</b> el directorio se actualiza automáticamente, pero
+      las fechas, los costos y los cupos <b>los define cada institución</b> y pueden cambiar.
+      <b>Confirma siempre estos tres datos en el enlace oficial</b> antes de pagar o inscribirte:</p>
+      <ul style="margin-top:8px;margin-bottom:0">
+        <li><b>Fechas exactas</b> de inicio, duración y cierre de inscripciones.</li>
+        <li><b>Costo</b> y formas de pago (el directorio no muestra precios).</li>
+        <li><b>Cupos disponibles</b> y requisitos de admisión.</li>
+      </ul>
+    </div>
+
+    <h3>Buenas prácticas para el personal de salud</h3>
+    <ul>
+      <li><b>Guarda el enlace oficial</b>, no la tarjeta: la oferta rota semana a semana.</li>
+      <li><b>Revisa que el programa aplique a tu perfil</b> (algunos exigen título o experiencia previa).</li>
+      <li><b>Pregunta por certificación y horas</b> si necesitas el curso para créditos o recertificación.</li>
+      <li><b>Vuelve seguido:</b> la oferta se refresca a diario, así que aparecen programas nuevos con frecuencia.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><span class="num">6</span> Preguntas frecuentes</h2>
+
+    <h3>¿Tengo que pagar por usar el directorio?</h3>
+    <p>No. El acceso es totalmente gratuito y no requiere registro. Los costos, si los hay,
+    son de cada programa y se pagan en la institución.</p>
+
+    <h3>¿Está toda la oferta del país?</h3>
+    <p>Se incluye la oferta que se puede verificar en fuentes oficiales, más una base curada
+    de programas confiables. Algunas instituciones no publican su oferta de forma legible para
+    la actualización automática, así que si conoces un programa que falta, siempre vale
+    confirmarlo directamente con la institución.</p>
+
+    <h3>¿Cada cuánto se actualiza?</h3>
+    <p>Automáticamente <b>todos los días</b> (a las 6:00 a.m., hora de Colombia). La fecha de
+    la última actualización aparece siempre en la parte superior de la página, así que puedes
+    confirmar de un vistazo qué tan reciente es la oferta.</p>
+
+    <h3>¿Los enlaces abren otra página?</h3>
+    <p>Sí. “Ver en sitio oficial” abre la web de la institución en una <b>pestaña nueva</b>,
+    para que no pierdas tu búsqueda en el directorio.</p>
+
+    <h3>¿Sirve desde el celular?</h3>
+    <p>Sí. La página se adapta a móvil, tablet y computador; los filtros y el buscador
+    funcionan igual.</p>
+  </div>
+
+  <div class="foot">
+    <span>Guía de uso — Directorio Rehabilitación·CO</span>
+    <span>owito.github.io/rehabilitacion-continua-co</span>
+  </div>
+</section>
+
+</body>
+</html>
