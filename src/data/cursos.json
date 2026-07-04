@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-03",
+  "actualizado": "2026-07-04",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -109,6 +109,18 @@
       "modalidad": "Presencial",
       "ciudad": "Cali",
       "mes": "Agosto",
+      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+    },
+    {
+      "id": "fundacion-ideal-telesalud-en-rehabilitacion-fisica-y-salud-mental",
+      "titulo": "Telesalud en Rehabilitación Física y Salud Mental",
+      "institucion": "Fundación IDEAL",
+      "disciplina": "Fisioterapia",
+      "tema": "Telerehabilitación",
+      "tipo": "Curso",
+      "modalidad": "Virtual",
+      "ciudad": "Cali",
+      "mes": "Julio",
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
@@ -237,6 +249,18 @@
       "institucion": "Universidad de Santander (UDES)",
       "disciplina": "Fisioterapia",
       "tema": "Drenaje linfático",
+      "tipo": "Curso",
+      "modalidad": "Presencial",
+      "ciudad": "Bucaramanga",
+      "mes": "Agosto",
+      "enlace": "https://udes.edu.co/estudia/educacion-continua"
+    },
+    {
+      "id": "universidad-de-santander-udes-iii-simposio-de-residentes-de-medicina-critica-y-cuidado-int",
+      "titulo": "III Simposio de Residentes de Medicina Crítica y Cuidado Intensivo Pediátrico: “Un Enfoque Fisiológico y Clínico del Niño Críticamente Enfermo”",
+      "institucion": "Universidad de Santander (UDES)",
+      "disciplina": "Fisioterapia",
+      "tema": "Medicina Crítica",
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bucaramanga",
