@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-04",
+  "actualizado": "2026-07-05",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -112,18 +112,6 @@
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
-      "id": "fundacion-ideal-telesalud-en-rehabilitacion-fisica-y-salud-mental",
-      "titulo": "Telesalud en Rehabilitación Física y Salud Mental",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Telerehabilitación",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Cali",
-      "mes": "Julio",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
       "id": "fucs-fisioterapia-pelvi-perineal",
       "titulo": "Diplomado en Fisioterapia Pelvi-Perineal",
       "institucion": "Fundación Universitaria de Ciencias de la Salud (FUCS)",
@@ -220,14 +208,14 @@
       "enlace": "https://www.ces.edu.co/educacion-continua/"
     },
     {
-      "id": "universidad-ces-nivelatorio-de-fisioterapia-en-ciencias-basicas",
-      "titulo": "Nivelatorio de Fisioterapia en Ciencias Básicas",
+      "id": "universidad-ces-mision-academica-internacional-fisioterapia-clinica-musculoe",
+      "titulo": "Misión Académica Internacional: fisioterapia clínica musculoesquelética",
       "institucion": "Universidad CES",
       "disciplina": "Fisioterapia",
-      "tema": "Ciencias Básicas",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Medellín",
+      "tema": "Fisioterapia clínica",
+      "tipo": "Diplomado",
+      "modalidad": "Híbrida",
+      "ciudad": "Poblado",
       "mes": "Julio",
       "enlace": "https://www.ces.edu.co/educacion-continua/"
     },
@@ -239,7 +227,7 @@
       "tema": "Rehabilitación",
       "tipo": "Curso",
       "modalidad": "Híbrida",
-      "ciudad": "Medellín",
+      "ciudad": "Poblado",
       "mes": "Agosto",
       "enlace": "https://www.ces.edu.co/educacion-continua/"
     },
@@ -302,6 +290,30 @@
       "ciudad": "Bogotá",
       "mes": "Julio",
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-terapeutico/"
+    },
+    {
+      "id": "universidad-manuela-beltran-umb-diplomado-en-fisioterapia-para-el-cuidado-materno-parto-y-po",
+      "titulo": "Diplomado en Fisioterapia para el Cuidado Materno, Parto y Postparto",
+      "institucion": "Universidad Manuela Beltrán (UMB)",
+      "disciplina": "Fisioterapia",
+      "tema": "Cuidado Materno",
+      "tipo": "Diplomado",
+      "modalidad": "Virtual",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
+      "enlace": "https://umb.edu.co/diplomados/"
+    },
+    {
+      "id": "universidad-manuela-beltran-umb-diplomado-en-rehabilitacion-cardiovascular-y-pulmonar",
+      "titulo": "Diplomado en Rehabilitación Cardiovascular y Pulmonar",
+      "institucion": "Universidad Manuela Beltrán (UMB)",
+      "disciplina": "Fisioterapia",
+      "tema": "Rehabilitación Cardiovascular",
+      "tipo": "Diplomado",
+      "modalidad": "Virtual",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
+      "enlace": "https://umb.edu.co/diplomados/"
     },
     {
       "id": "asofono-disfagia-practica-moderna",
