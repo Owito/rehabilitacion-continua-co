@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-05",
+  "actualizado": "2026-07-06",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -8,7 +8,7 @@
       "titulo": "Curso de Manejo Interdisciplinario de Trastornos de la Conducta Alimentaria",
       "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
       "disciplina": "Fisioterapia",
-      "tema": "Trastornos de la conducta alimentaria",
+      "tema": "Trastornos de la Conducta Alimentaria",
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
@@ -112,6 +112,18 @@
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
+      "id": "fundacion-ideal-telesalud-en-rehabilitacion-fisica-y-salud-mental",
+      "titulo": "Telesalud en Rehabilitación Física y Salud Mental",
+      "institucion": "Fundación IDEAL",
+      "disciplina": "Fisioterapia",
+      "tema": "Telerehabilitación",
+      "tipo": "Curso",
+      "modalidad": "Virtual",
+      "ciudad": "Cali",
+      "mes": "Julio",
+      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+    },
+    {
       "id": "fucs-fisioterapia-pelvi-perineal",
       "titulo": "Diplomado en Fisioterapia Pelvi-Perineal",
       "institucion": "Fundación Universitaria de Ciencias de la Salud (FUCS)",
@@ -208,14 +220,14 @@
       "enlace": "https://www.ces.edu.co/educacion-continua/"
     },
     {
-      "id": "universidad-ces-mision-academica-internacional-fisioterapia-clinica-musculoe",
-      "titulo": "Misión Académica Internacional: fisioterapia clínica musculoesquelética",
+      "id": "universidad-ces-nivelatorio-de-fisioterapia-en-ciencias-basicas",
+      "titulo": "Nivelatorio de Fisioterapia en Ciencias Básicas",
       "institucion": "Universidad CES",
       "disciplina": "Fisioterapia",
-      "tema": "Fisioterapia clínica",
-      "tipo": "Diplomado",
-      "modalidad": "Híbrida",
-      "ciudad": "Poblado",
+      "tema": "Ciencias Básicas",
+      "tipo": "Curso",
+      "modalidad": "Presencial",
+      "ciudad": "Medellín",
       "mes": "Julio",
       "enlace": "https://www.ces.edu.co/educacion-continua/"
     },
@@ -227,7 +239,7 @@
       "tema": "Rehabilitación",
       "tipo": "Curso",
       "modalidad": "Híbrida",
-      "ciudad": "Poblado",
+      "ciudad": "Medellín",
       "mes": "Agosto",
       "enlace": "https://www.ces.edu.co/educacion-continua/"
     },
@@ -416,7 +428,7 @@
       "titulo": "Diplomado Terapia Ocupacional en Cuidados Paliativos",
       "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
       "disciplina": "Terapia Ocupacional",
-      "tema": "Cuidados paliativos",
+      "tema": "Cuidados Paliativos",
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
