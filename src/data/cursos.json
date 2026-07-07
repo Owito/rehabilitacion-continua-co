@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-06",
+  "actualizado": "2026-07-07",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -8,7 +8,7 @@
       "titulo": "Curso de Manejo Interdisciplinario de Trastornos de la Conducta Alimentaria",
       "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
       "disciplina": "Fisioterapia",
-      "tema": "Trastornos de la Conducta Alimentaria",
+      "tema": "Trastornos de la conducta alimentaria",
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
@@ -256,14 +256,14 @@
       "enlace": "https://udes.edu.co/estudia/educacion-continua"
     },
     {
-      "id": "universidad-de-santander-udes-iii-simposio-de-residentes-de-medicina-critica-y-cuidado-int",
-      "titulo": "III Simposio de Residentes de Medicina Crítica y Cuidado Intensivo Pediátrico: “Un Enfoque Fisiológico y Clínico del Niño Críticamente Enfermo”",
+      "id": "universidad-de-santander-udes-diplomado-perdida-de-capacidad-laboral-y-ocupacional",
+      "titulo": "Diplomado Pérdida de Capacidad Laboral y Ocupacional",
       "institucion": "Universidad de Santander (UDES)",
       "disciplina": "Fisioterapia",
-      "tema": "Medicina Crítica",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Bucaramanga",
+      "tema": "Capacidad Laboral",
+      "tipo": "Diplomado",
+      "modalidad": "Virtual",
+      "ciudad": "Cúcuta",
       "mes": "Agosto",
       "enlace": "https://udes.edu.co/estudia/educacion-continua"
     },
@@ -428,7 +428,7 @@
       "titulo": "Diplomado Terapia Ocupacional en Cuidados Paliativos",
       "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
       "disciplina": "Terapia Ocupacional",
-      "tema": "Cuidados Paliativos",
+      "tema": "Cuidados paliativos",
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
