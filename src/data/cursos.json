@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-07",
+  "actualizado": "2026-07-08",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -76,6 +76,18 @@
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
+      "id": "forafis-diplomado-internacional-en-piso-pelvico",
+      "titulo": "Diplomado Internacional en Piso Pélvico",
+      "institucion": "Forafis",
+      "disciplina": "Fisioterapia",
+      "tema": "Piso pélvico",
+      "tipo": "Diplomado",
+      "modalidad": "Híbrida",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
+      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+    },
+    {
       "id": "forafis-curso-de-fisioterapia-en-las-disfunciones-urinarias-y-prolap",
       "titulo": "Curso de Fisioterapia en las Disfunciones Urinarias y Prolapsos de Órganos Pélvicos",
       "institucion": "Forafis",
@@ -109,18 +121,6 @@
       "modalidad": "Presencial",
       "ciudad": "Cali",
       "mes": "Agosto",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-telesalud-en-rehabilitacion-fisica-y-salud-mental",
-      "titulo": "Telesalud en Rehabilitación Física y Salud Mental",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Telerehabilitación",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Cali",
-      "mes": "Julio",
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
@@ -220,30 +220,6 @@
       "enlace": "https://www.ces.edu.co/educacion-continua/"
     },
     {
-      "id": "universidad-ces-nivelatorio-de-fisioterapia-en-ciencias-basicas",
-      "titulo": "Nivelatorio de Fisioterapia en Ciencias Básicas",
-      "institucion": "Universidad CES",
-      "disciplina": "Fisioterapia",
-      "tema": "Ciencias Básicas",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Medellín",
-      "mes": "Julio",
-      "enlace": "https://www.ces.edu.co/educacion-continua/"
-    },
-    {
-      "id": "universidad-ces-curva-carga-velocidad-un-enfoque-en-la-rehabilitacion",
-      "titulo": "Curva Carga-Velocidad: un enfoque en la rehabilitación",
-      "institucion": "Universidad CES",
-      "disciplina": "Fisioterapia",
-      "tema": "Rehabilitación",
-      "tipo": "Curso",
-      "modalidad": "Híbrida",
-      "ciudad": "Medellín",
-      "mes": "Agosto",
-      "enlace": "https://www.ces.edu.co/educacion-continua/"
-    },
-    {
       "id": "udes-drenaje-linfatico-manual",
       "titulo": "Curso de Profundización en Drenaje Linfático Manual",
       "institucion": "Universidad de Santander (UDES)",
@@ -252,18 +228,6 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bucaramanga",
-      "mes": "Agosto",
-      "enlace": "https://udes.edu.co/estudia/educacion-continua"
-    },
-    {
-      "id": "universidad-de-santander-udes-diplomado-perdida-de-capacidad-laboral-y-ocupacional",
-      "titulo": "Diplomado Pérdida de Capacidad Laboral y Ocupacional",
-      "institucion": "Universidad de Santander (UDES)",
-      "disciplina": "Fisioterapia",
-      "tema": "Capacidad Laboral",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Cúcuta",
       "mes": "Agosto",
       "enlace": "https://udes.edu.co/estudia/educacion-continua"
     },
@@ -304,30 +268,6 @@
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-terapeutico/"
     },
     {
-      "id": "universidad-manuela-beltran-umb-diplomado-en-fisioterapia-para-el-cuidado-materno-parto-y-po",
-      "titulo": "Diplomado en Fisioterapia para el Cuidado Materno, Parto y Postparto",
-      "institucion": "Universidad Manuela Beltrán (UMB)",
-      "disciplina": "Fisioterapia",
-      "tema": "Cuidado Materno",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://umb.edu.co/diplomados/"
-    },
-    {
-      "id": "universidad-manuela-beltran-umb-diplomado-en-rehabilitacion-cardiovascular-y-pulmonar",
-      "titulo": "Diplomado en Rehabilitación Cardiovascular y Pulmonar",
-      "institucion": "Universidad Manuela Beltrán (UMB)",
-      "disciplina": "Fisioterapia",
-      "tema": "Rehabilitación Cardiovascular",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://umb.edu.co/diplomados/"
-    },
-    {
       "id": "asofono-disfagia-practica-moderna",
       "titulo": "Disfagia en la práctica moderna: retos y soluciones basadas en evidencia",
       "institucion": "ASOFONO",
@@ -362,6 +302,18 @@
       "ciudad": "Cali",
       "mes": "Julio",
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+    },
+    {
+      "id": "universidad-del-rosario-neuropsicologia-en-los-trastornos-del-lenguaje-y-el-aprendiz",
+      "titulo": "Neuropsicología en los Trastornos del Lenguaje y el Aprendizaje",
+      "institucion": "Universidad del Rosario",
+      "disciplina": "Fonoaudiología",
+      "tema": "Neuropsicología",
+      "tipo": "Diplomado",
+      "modalidad": "Virtual",
+      "ciudad": "Bogotá",
+      "mes": "Julio",
+      "enlace": "https://educacioncontinua.urosario.edu.co/buscar"
     },
     {
       "id": "univalle-traqueostomia",
@@ -458,6 +410,18 @@
       "ciudad": "Nacional",
       "mes": "Julio",
       "enlace": "https://www.handtherapyacademy.com/"
+    },
+    {
+      "id": "universidad-del-rosario-gestion-estrategica-para-la-reincorporacion-ocupacional",
+      "titulo": "Gestión Estratégica para la Reincorporación Ocupacional",
+      "institucion": "Universidad del Rosario",
+      "disciplina": "Terapia Ocupacional",
+      "tema": "Reincorporación Ocupacional",
+      "tipo": "Curso",
+      "modalidad": "Virtual",
+      "ciudad": "Bogotá",
+      "mes": "Julio",
+      "enlace": "https://educacioncontinua.urosario.edu.co/buscar"
     }
   ]
 }
