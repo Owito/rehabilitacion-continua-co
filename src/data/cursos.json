@@ -1,20 +1,8 @@
 {
-  "actualizado": "2026-07-08",
+  "actualizado": "2026-07-09",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
-    {
-      "id": "escuela-colombiana-de-rehabilitacion-ecr-curso-de-manejo-interdisciplinario-de-trastornos-de-la-condu",
-      "titulo": "Curso de Manejo Interdisciplinario de Trastornos de la Conducta Alimentaria",
-      "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
-      "disciplina": "Fisioterapia",
-      "tema": "Trastornos de la conducta alimentaria",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Bogotá",
-      "mes": "Julio",
-      "enlace": "https://ecr.edu.co/diplomados"
-    },
     {
       "id": "forafis-piso-pelvico-gdp",
       "titulo": "Diplomado Internacional en Piso Pélvico — Concepto GDP",
@@ -76,18 +64,6 @@
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
-      "id": "forafis-diplomado-internacional-en-piso-pelvico",
-      "titulo": "Diplomado Internacional en Piso Pélvico",
-      "institucion": "Forafis",
-      "disciplina": "Fisioterapia",
-      "tema": "Piso pélvico",
-      "tipo": "Diplomado",
-      "modalidad": "Híbrida",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
-    },
-    {
       "id": "forafis-curso-de-fisioterapia-en-las-disfunciones-urinarias-y-prolap",
       "titulo": "Curso de Fisioterapia en las Disfunciones Urinarias y Prolapsos de Órganos Pélvicos",
       "institucion": "Forafis",
@@ -121,6 +97,18 @@
       "modalidad": "Presencial",
       "ciudad": "Cali",
       "mes": "Agosto",
+      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+    },
+    {
+      "id": "fundacion-ideal-telesalud-en-rehabilitacion-fisica-y-salud-mental",
+      "titulo": "Telesalud en Rehabilitación Física y Salud Mental",
+      "institucion": "Fundación IDEAL",
+      "disciplina": "Fisioterapia",
+      "tema": "Telerehabilitación",
+      "tipo": "Curso",
+      "modalidad": "Virtual",
+      "ciudad": "Cali",
+      "mes": "Julio",
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
@@ -268,6 +256,30 @@
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-terapeutico/"
     },
     {
+      "id": "universidad-manuela-beltran-umb-diplomado-en-fisioterapia-para-el-cuidado-materno-parto-y-po",
+      "titulo": "Diplomado en Fisioterapia para el Cuidado Materno, Parto y Postparto",
+      "institucion": "Universidad Manuela Beltrán (UMB)",
+      "disciplina": "Fisioterapia",
+      "tema": "Cuidado Materno",
+      "tipo": "Diplomado",
+      "modalidad": "Virtual",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
+      "enlace": "https://umb.edu.co/diplomados/"
+    },
+    {
+      "id": "universidad-manuela-beltran-umb-diplomado-en-rehabilitacion-cardiovascular-y-pulmonar",
+      "titulo": "Diplomado en Rehabilitación Cardiovascular y Pulmonar",
+      "institucion": "Universidad Manuela Beltrán (UMB)",
+      "disciplina": "Fisioterapia",
+      "tema": "Rehabilitación Cardiovascular",
+      "tipo": "Diplomado",
+      "modalidad": "Virtual",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
+      "enlace": "https://umb.edu.co/diplomados/"
+    },
+    {
       "id": "asofono-disfagia-practica-moderna",
       "titulo": "Disfagia en la práctica moderna: retos y soluciones basadas en evidencia",
       "institucion": "ASOFONO",
@@ -304,12 +316,24 @@
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
+      "id": "universidad-de-santander-udes-diplomado-en-inclusion-de-poblacion-con-dificultad-de-aprend",
+      "titulo": "Diplomado en Inclusión de Población con Dificultad de Aprendizaje en Espacios Inteligentes",
+      "institucion": "Universidad de Santander (UDES)",
+      "disciplina": "Fonoaudiología",
+      "tema": "Inclusión Educativa",
+      "tipo": "Diplomado",
+      "modalidad": "Virtual",
+      "ciudad": "Bucaramanga",
+      "mes": "Julio",
+      "enlace": "https://udes.edu.co/estudia/educacion-continua"
+    },
+    {
       "id": "universidad-del-rosario-neuropsicologia-en-los-trastornos-del-lenguaje-y-el-aprendiz",
       "titulo": "Neuropsicología en los Trastornos del Lenguaje y el Aprendizaje",
       "institucion": "Universidad del Rosario",
       "disciplina": "Fonoaudiología",
-      "tema": "Neuropsicología",
-      "tipo": "Diplomado",
+      "tema": "Trastornos del lenguaje",
+      "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
       "mes": "Julio",
@@ -380,7 +404,7 @@
       "titulo": "Diplomado Terapia Ocupacional en Cuidados Paliativos",
       "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
       "disciplina": "Terapia Ocupacional",
-      "tema": "Cuidados paliativos",
+      "tema": "Cuidados Paliativos",
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
@@ -412,11 +436,23 @@
       "enlace": "https://www.handtherapyacademy.com/"
     },
     {
+      "id": "universidad-de-santander-udes-diplomado-perdida-de-capacidad-laboral-y-ocupacional",
+      "titulo": "Diplomado Pérdida de Capacidad Laboral y Ocupacional",
+      "institucion": "Universidad de Santander (UDES)",
+      "disciplina": "Terapia Ocupacional",
+      "tema": "Capacidad Laboral",
+      "tipo": "Diplomado",
+      "modalidad": "Virtual",
+      "ciudad": "Cúcuta",
+      "mes": "Agosto",
+      "enlace": "https://udes.edu.co/estudia/educacion-continua"
+    },
+    {
       "id": "universidad-del-rosario-gestion-estrategica-para-la-reincorporacion-ocupacional",
       "titulo": "Gestión Estratégica para la Reincorporación Ocupacional",
       "institucion": "Universidad del Rosario",
       "disciplina": "Terapia Ocupacional",
-      "tema": "Reincorporación Ocupacional",
+      "tema": "Reincorporación ocupacional",
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
