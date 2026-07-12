@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-11",
+  "actualizado": "2026-07-12",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -64,6 +64,18 @@
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
+      "id": "forafis-diplomado-internacional-en-piso-pelvico",
+      "titulo": "Diplomado Internacional en Piso Pélvico",
+      "institucion": "Forafis",
+      "disciplina": "Fisioterapia",
+      "tema": "Piso pélvico",
+      "tipo": "Diplomado",
+      "modalidad": "Híbrida",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
+      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+    },
+    {
       "id": "forafis-curso-de-fisioterapia-en-las-disfunciones-urinarias-y-prolap",
       "titulo": "Curso de Fisioterapia en las Disfunciones Urinarias y Prolapsos de Órganos Pélvicos",
       "institucion": "Forafis",
@@ -97,6 +109,18 @@
       "modalidad": "Presencial",
       "ciudad": "Cali",
       "mes": "Agosto",
+      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+    },
+    {
+      "id": "fundacion-ideal-telesalud-en-rehabilitacion-fisica-y-salud-mental",
+      "titulo": "Telesalud en Rehabilitación Física y Salud Mental",
+      "institucion": "Fundación IDEAL",
+      "disciplina": "Fisioterapia",
+      "tema": "Telerehabilitación",
+      "tipo": "Curso",
+      "modalidad": "Virtual",
+      "ciudad": "Cali",
+      "mes": "Julio",
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
@@ -254,6 +278,30 @@
       "ciudad": "Bogotá",
       "mes": "Julio",
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-terapeutico/"
+    },
+    {
+      "id": "universidad-manuela-beltran-umb-diplomado-en-fisioterapia-para-el-cuidado-materno-parto-y-po",
+      "titulo": "Diplomado en Fisioterapia para el Cuidado Materno, Parto y Postparto",
+      "institucion": "Universidad Manuela Beltrán (UMB)",
+      "disciplina": "Fisioterapia",
+      "tema": "Cuidado Materno",
+      "tipo": "Diplomado",
+      "modalidad": "Virtual",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
+      "enlace": "https://umb.edu.co/diplomados/"
+    },
+    {
+      "id": "universidad-manuela-beltran-umb-diplomado-en-rehabilitacion-cardiovascular-y-pulmonar",
+      "titulo": "Diplomado en Rehabilitación Cardiovascular y Pulmonar",
+      "institucion": "Universidad Manuela Beltrán (UMB)",
+      "disciplina": "Fisioterapia",
+      "tema": "Rehabilitación Cardiovascular",
+      "tipo": "Diplomado",
+      "modalidad": "Virtual",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
+      "enlace": "https://umb.edu.co/diplomados/"
     },
     {
       "id": "asofono-disfagia-practica-moderna",
