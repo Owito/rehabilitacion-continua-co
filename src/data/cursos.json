@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-12",
+  "actualizado": "2026-07-13",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -64,18 +64,6 @@
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
-      "id": "forafis-diplomado-internacional-en-piso-pelvico",
-      "titulo": "Diplomado Internacional en Piso Pélvico",
-      "institucion": "Forafis",
-      "disciplina": "Fisioterapia",
-      "tema": "Piso pélvico",
-      "tipo": "Diplomado",
-      "modalidad": "Híbrida",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
-    },
-    {
       "id": "forafis-curso-de-fisioterapia-en-las-disfunciones-urinarias-y-prolap",
       "titulo": "Curso de Fisioterapia en las Disfunciones Urinarias y Prolapsos de Órganos Pélvicos",
       "institucion": "Forafis",
@@ -109,18 +97,6 @@
       "modalidad": "Presencial",
       "ciudad": "Cali",
       "mes": "Agosto",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-telesalud-en-rehabilitacion-fisica-y-salud-mental",
-      "titulo": "Telesalud en Rehabilitación Física y Salud Mental",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Telerehabilitación",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Cali",
-      "mes": "Julio",
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
@@ -225,18 +201,6 @@
       "institucion": "Universidad de Santander (UDES)",
       "disciplina": "Fisioterapia",
       "tema": "Drenaje linfático",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Bucaramanga",
-      "mes": "Agosto",
-      "enlace": "https://udes.edu.co/estudia/educacion-continua"
-    },
-    {
-      "id": "universidad-de-santander-udes-iii-simposio-de-residentes-de-medicina-critica-y-cuidado-int",
-      "titulo": "III Simposio de Residentes de Medicina Crítica y Cuidado Intensivo Pediátrico: “Un Enfoque Fisiológico y Clínico del Niño Críticamente Enfermo”",
-      "institucion": "Universidad de Santander (UDES)",
-      "disciplina": "Fisioterapia",
-      "tema": "Medicina Crítica",
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bucaramanga",
@@ -409,18 +373,6 @@
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
       "mes": "Julio",
-      "enlace": "https://ecr.edu.co/diplomados"
-    },
-    {
-      "id": "escuela-colombiana-de-rehabilitacion-ecr-diplomado-terapia-ocupacional-en-cuidados-paliativos",
-      "titulo": "Diplomado Terapia Ocupacional en Cuidados Paliativos",
-      "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
-      "disciplina": "Terapia Ocupacional",
-      "tema": "Cuidados Paliativos",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
       "enlace": "https://ecr.edu.co/diplomados"
     },
     {
