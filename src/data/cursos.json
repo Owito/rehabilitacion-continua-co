@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-14",
+  "actualizado": "2026-07-15",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -61,18 +61,6 @@
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
       "mes": "Julio",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
-    },
-    {
-      "id": "forafis-diplomado-internacional-en-piso-pelvico",
-      "titulo": "Diplomado Internacional en Piso Pélvico",
-      "institucion": "Forafis",
-      "disciplina": "Fisioterapia",
-      "tema": "Piso pélvico",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
@@ -220,6 +208,18 @@
       "enlace": "https://udes.edu.co/estudia/educacion-continua"
     },
     {
+      "id": "universidad-de-santander-udes-iii-simposio-de-residentes-de-medicina-critica-y-cuidado-int",
+      "titulo": "III Simposio de Residentes de Medicina Crítica y Cuidado Intensivo Pediátrico: “Un Enfoque Fisiológico y Clínico del Niño Críticamente Enfermo”",
+      "institucion": "Universidad de Santander (UDES)",
+      "disciplina": "Fisioterapia",
+      "tema": "Medicina Crítica",
+      "tipo": "Curso",
+      "modalidad": "Presencial",
+      "ciudad": "Bucaramanga",
+      "mes": "Julio",
+      "enlace": "https://udes.edu.co/estudia/educacion-continua"
+    },
+    {
       "id": "umb-neurorrehabilitacion-pediatria",
       "titulo": "Diplomado en Neurorrehabilitación en Pediatría",
       "institucion": "Universidad Manuela Beltrán (UMB)",
@@ -280,18 +280,6 @@
       "enlace": "https://umb.edu.co/diplomados/"
     },
     {
-      "id": "universidad-manuela-beltran-umb-abordaje-fisioterapeutico-y-alternativo-de-la-salud-mental",
-      "titulo": "Abordaje Fisioterapéutico y Alternativo de la Salud Mental",
-      "institucion": "Universidad Manuela Beltrán (UMB)",
-      "disciplina": "Fisioterapia",
-      "tema": "Salud Mental",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://umb.edu.co/diplomados/"
-    },
-    {
       "id": "asofono-disfagia-practica-moderna",
       "titulo": "Disfagia en la práctica moderna: retos y soluciones basadas en evidencia",
       "institucion": "ASOFONO",
@@ -326,18 +314,6 @@
       "ciudad": "Cali",
       "mes": "Julio",
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "universidad-del-rosario-neuropsicologia-en-los-trastornos-del-lenguaje-y-el-aprendiz",
-      "titulo": "Neuropsicología en los Trastornos del Lenguaje y el Aprendizaje",
-      "institucion": "Universidad del Rosario",
-      "disciplina": "Fonoaudiología",
-      "tema": "Trastornos del lenguaje",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Julio",
-      "enlace": "https://educacioncontinua.urosario.edu.co/buscar"
     },
     {
       "id": "univalle-traqueostomia",
@@ -434,18 +410,6 @@
       "ciudad": "Nacional",
       "mes": "Julio",
       "enlace": "https://www.handtherapyacademy.com/"
-    },
-    {
-      "id": "universidad-del-rosario-gestion-estrategica-para-la-reincorporacion-ocupacional",
-      "titulo": "Gestión Estratégica para la Reincorporación Ocupacional",
-      "institucion": "Universidad del Rosario",
-      "disciplina": "Terapia Ocupacional",
-      "tema": "Reincorporación ocupacional",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Julio",
-      "enlace": "https://educacioncontinua.urosario.edu.co/buscar"
     }
   ]
 }
