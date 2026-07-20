@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-19",
+  "actualizado": "2026-07-20",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -61,18 +61,6 @@
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
       "mes": "Julio",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
-    },
-    {
-      "id": "forafis-curso-de-fisioterapia-en-las-disfunciones-urinarias-y-prolap",
-      "titulo": "Curso de Fisioterapia en las Disfunciones Urinarias y Prolapsos de Órganos Pélvicos",
-      "institucion": "Forafis",
-      "disciplina": "Fisioterapia",
-      "tema": "Disfunciones urinarias",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
@@ -280,18 +268,6 @@
       "enlace": "https://umb.edu.co/diplomados/"
     },
     {
-      "id": "universidad-manuela-beltran-umb-abordaje-fisioterapeutico-y-alternativo-de-la-salud-mental",
-      "titulo": "Abordaje Fisioterapéutico y Alternativo de la Salud Mental",
-      "institucion": "Universidad Manuela Beltrán (UMB)",
-      "disciplina": "Fisioterapia",
-      "tema": "Salud Mental",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://umb.edu.co/diplomados/"
-    },
-    {
       "id": "asofono-disfagia-practica-moderna",
       "titulo": "Disfagia en la práctica moderna: retos y soluciones basadas en evidencia",
       "institucion": "ASOFONO",
@@ -385,18 +361,6 @@
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
       "mes": "Julio",
-      "enlace": "https://ecr.edu.co/diplomados"
-    },
-    {
-      "id": "escuela-colombiana-de-rehabilitacion-ecr-diplomado-terapia-ocupacional-en-cuidados-paliativos",
-      "titulo": "Diplomado Terapia Ocupacional en Cuidados Paliativos",
-      "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
-      "disciplina": "Terapia Ocupacional",
-      "tema": "Cuidados Paliativos",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
       "enlace": "https://ecr.edu.co/diplomados"
     },
     {
