@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-20",
+  "actualizado": "2026-07-21",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -61,6 +61,18 @@
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
       "mes": "Julio",
+      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+    },
+    {
+      "id": "forafis-curso-de-fisioterapia-en-las-disfunciones-urinarias-y-prolap",
+      "titulo": "Curso de Fisioterapia en las Disfunciones Urinarias y Prolapsos de Órganos Pélvicos",
+      "institucion": "Forafis",
+      "disciplina": "Fisioterapia",
+      "tema": "Disfunciones urinarias",
+      "tipo": "Curso",
+      "modalidad": "Presencial",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
