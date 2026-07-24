@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-23",
+  "actualizado": "2026-07-24",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -208,18 +208,6 @@
       "enlace": "https://udes.edu.co/estudia/educacion-continua"
     },
     {
-      "id": "universidad-de-santander-udes-seminario-de-rehabilitacion-oncologica-terapia-manual-y-dren",
-      "titulo": "Seminario de Rehabilitación Oncológica: Terapia Manual y Drenaje Linfático en Cáncer de Mama",
-      "institucion": "Universidad de Santander (UDES)",
-      "disciplina": "Fisioterapia",
-      "tema": "Rehabilitación Oncológica",
-      "tipo": "Seminario",
-      "modalidad": "Presencial",
-      "ciudad": "Bucaramanga",
-      "mes": "Julio",
-      "enlace": "https://udes.edu.co/estudia/educacion-continua"
-    },
-    {
       "id": "umb-neurorrehabilitacion-pediatria",
       "titulo": "Diplomado en Neurorrehabilitación en Pediatría",
       "institucion": "Universidad Manuela Beltrán (UMB)",
@@ -254,6 +242,42 @@
       "ciudad": "Bogotá",
       "mes": "Julio",
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-terapeutico/"
+    },
+    {
+      "id": "universidad-manuela-beltran-umb-diplomado-en-fisioterapia-para-el-cuidado-materno-parto-y-po",
+      "titulo": "Diplomado en Fisioterapia para el Cuidado Materno, Parto y Postparto",
+      "institucion": "Universidad Manuela Beltrán (UMB)",
+      "disciplina": "Fisioterapia",
+      "tema": "Cuidado Materno",
+      "tipo": "Diplomado",
+      "modalidad": "Virtual",
+      "ciudad": "Bogotá",
+      "mes": "Julio",
+      "enlace": "https://umb.edu.co/diplomados/"
+    },
+    {
+      "id": "universidad-manuela-beltran-umb-abordaje-fisioterapeutico-y-alternativo-de-la-salud-mental",
+      "titulo": "Abordaje Fisioterapéutico y Alternativo de la Salud Mental",
+      "institucion": "Universidad Manuela Beltrán (UMB)",
+      "disciplina": "Fisioterapia",
+      "tema": "Salud Mental",
+      "tipo": "Diplomado",
+      "modalidad": "Virtual",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
+      "enlace": "https://umb.edu.co/diplomados/"
+    },
+    {
+      "id": "universidad-manuela-beltran-umb-diplomado-en-rehabilitacion-cardiovascular-y-pulmonar",
+      "titulo": "Diplomado en Rehabilitación Cardiovascular y Pulmonar",
+      "institucion": "Universidad Manuela Beltrán (UMB)",
+      "disciplina": "Fisioterapia",
+      "tema": "Rehabilitación",
+      "tipo": "Diplomado",
+      "modalidad": "Virtual",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
+      "enlace": "https://umb.edu.co/diplomados/"
     },
     {
       "id": "asofono-disfagia-practica-moderna",
