@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-24",
+  "actualizado": "2026-07-25",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -61,18 +61,6 @@
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
       "mes": "Julio",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
-    },
-    {
-      "id": "forafis-curso-de-fisioterapia-en-las-disfunciones-urinarias-y-prolap",
-      "titulo": "Curso de Fisioterapia en las Disfunciones Urinarias y Prolapsos de Órganos Pélvicos",
-      "institucion": "Forafis",
-      "disciplina": "Fisioterapia",
-      "tema": "Disfunciones urinarias",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
@@ -208,6 +196,18 @@
       "enlace": "https://udes.edu.co/estudia/educacion-continua"
     },
     {
+      "id": "universidad-el-bosque-curso-de-accesos-vasculares-guiados-por-ecografia-enfoque-en",
+      "titulo": "Curso de Accesos Vasculares Guiados por Ecografía: Enfoque en Seguridad del Paciente (Adulto y Pediátrico)",
+      "institucion": "Universidad El Bosque",
+      "disciplina": "Fisioterapia",
+      "tema": "Accesos vasculares",
+      "tipo": "Curso",
+      "modalidad": "Virtual",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
+      "enlace": "https://www.unbosque.edu.co/educacion-continua/escuela-de-salud-oferta"
+    },
+    {
       "id": "umb-neurorrehabilitacion-pediatria",
       "titulo": "Diplomado en Neurorrehabilitación en Pediatría",
       "institucion": "Universidad Manuela Beltrán (UMB)",
@@ -252,7 +252,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://umb.edu.co/diplomados/"
     },
     {
@@ -302,6 +302,18 @@
       "ciudad": "Nacional",
       "mes": "Agosto",
       "enlace": "https://asofono.co/cursos-virtuales/"
+    },
+    {
+      "id": "escuela-colombiana-de-rehabilitacion-ecr-diplomado-violencias-y-cuidado-de-la-salud-mental",
+      "titulo": "Diplomado Violencias y Cuidado de la Salud Mental",
+      "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
+      "disciplina": "Fonoaudiología",
+      "tema": "Salud Mental",
+      "tipo": "Diplomado",
+      "modalidad": "Híbrida",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
+      "enlace": "https://ecr.edu.co/diplomados"
     },
     {
       "id": "ideal-disfagia-neurodesarrollo",
@@ -382,7 +394,7 @@
       "disciplina": "Terapia Ocupacional",
       "tema": "Cuidados Paliativos",
       "tipo": "Diplomado",
-      "modalidad": "Virtual",
+      "modalidad": "Híbrida",
       "ciudad": "Bogotá",
       "mes": "Agosto",
       "enlace": "https://ecr.edu.co/diplomados"
