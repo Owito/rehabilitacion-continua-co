@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-25",
+  "actualizado": "2026-07-26",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -64,6 +64,18 @@
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
+      "id": "forafis-curso-de-fisioterapia-en-las-disfunciones-urinarias-y-prolap",
+      "titulo": "Curso de Fisioterapia en las Disfunciones Urinarias y Prolapsos de Órganos Pélvicos",
+      "institucion": "Forafis",
+      "disciplina": "Fisioterapia",
+      "tema": "Disfunciones urinarias",
+      "tipo": "Curso",
+      "modalidad": "Presencial",
+      "ciudad": "Bogotá",
+      "mes": "Agosto",
+      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+    },
+    {
       "id": "ideal-neurodesarrollo-ndta",
       "titulo": "Curso Introductorio en Neurodesarrollo y Neurorrehabilitación (Modelo NDTA)",
       "institucion": "Fundación IDEAL",
@@ -85,6 +97,18 @@
       "modalidad": "Presencial",
       "ciudad": "Cali",
       "mes": "Agosto",
+      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+    },
+    {
+      "id": "fundacion-ideal-telesalud-en-rehabilitacion-fisica-y-salud-mental",
+      "titulo": "Telesalud en Rehabilitación Física y Salud Mental",
+      "institucion": "Fundación IDEAL",
+      "disciplina": "Fisioterapia",
+      "tema": "Telerehabilitación",
+      "tipo": "Curso",
+      "modalidad": "Virtual",
+      "ciudad": "Cali",
+      "mes": "Julio",
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
@@ -196,18 +220,6 @@
       "enlace": "https://udes.edu.co/estudia/educacion-continua"
     },
     {
-      "id": "universidad-el-bosque-curso-de-accesos-vasculares-guiados-por-ecografia-enfoque-en",
-      "titulo": "Curso de Accesos Vasculares Guiados por Ecografía: Enfoque en Seguridad del Paciente (Adulto y Pediátrico)",
-      "institucion": "Universidad El Bosque",
-      "disciplina": "Fisioterapia",
-      "tema": "Accesos vasculares",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://www.unbosque.edu.co/educacion-continua/escuela-de-salud-oferta"
-    },
-    {
       "id": "umb-neurorrehabilitacion-pediatria",
       "titulo": "Diplomado en Neurorrehabilitación en Pediatría",
       "institucion": "Universidad Manuela Beltrán (UMB)",
@@ -242,42 +254,6 @@
       "ciudad": "Bogotá",
       "mes": "Julio",
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-terapeutico/"
-    },
-    {
-      "id": "universidad-manuela-beltran-umb-diplomado-en-fisioterapia-para-el-cuidado-materno-parto-y-po",
-      "titulo": "Diplomado en Fisioterapia para el Cuidado Materno, Parto y Postparto",
-      "institucion": "Universidad Manuela Beltrán (UMB)",
-      "disciplina": "Fisioterapia",
-      "tema": "Cuidado Materno",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://umb.edu.co/diplomados/"
-    },
-    {
-      "id": "universidad-manuela-beltran-umb-abordaje-fisioterapeutico-y-alternativo-de-la-salud-mental",
-      "titulo": "Abordaje Fisioterapéutico y Alternativo de la Salud Mental",
-      "institucion": "Universidad Manuela Beltrán (UMB)",
-      "disciplina": "Fisioterapia",
-      "tema": "Salud Mental",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://umb.edu.co/diplomados/"
-    },
-    {
-      "id": "universidad-manuela-beltran-umb-diplomado-en-rehabilitacion-cardiovascular-y-pulmonar",
-      "titulo": "Diplomado en Rehabilitación Cardiovascular y Pulmonar",
-      "institucion": "Universidad Manuela Beltrán (UMB)",
-      "disciplina": "Fisioterapia",
-      "tema": "Rehabilitación",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://umb.edu.co/diplomados/"
     },
     {
       "id": "asofono-disfagia-practica-moderna",
