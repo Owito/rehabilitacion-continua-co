@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-27",
+  "actualizado": "2026-07-28",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -97,6 +97,18 @@
       "modalidad": "Presencial",
       "ciudad": "Cali",
       "mes": "Agosto",
+      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+    },
+    {
+      "id": "fundacion-ideal-telesalud-en-rehabilitacion-fisica-y-salud-mental",
+      "titulo": "Telesalud en Rehabilitación Física y Salud Mental",
+      "institucion": "Fundación IDEAL",
+      "disciplina": "Fisioterapia",
+      "tema": "Telerehabilitación",
+      "tipo": "Curso",
+      "modalidad": "Virtual",
+      "ciudad": "Cali",
+      "mes": "Julio",
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
@@ -252,7 +264,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
-      "mes": "Julio",
+      "mes": "Agosto",
       "enlace": "https://umb.edu.co/diplomados/"
     },
     {
@@ -260,7 +272,7 @@
       "titulo": "Diplomado en Rehabilitación Cardiovascular y Pulmonar",
       "institucion": "Universidad Manuela Beltrán (UMB)",
       "disciplina": "Fisioterapia",
-      "tema": "Rehabilitación",
+      "tema": "Rehabilitación Cardiovascular",
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
