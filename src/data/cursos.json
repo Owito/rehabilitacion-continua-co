@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-07-28",
+  "actualizado": "2026-07-29",
   "fuente": "automatico",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -254,30 +254,6 @@
       "ciudad": "Bogotá",
       "mes": "Julio",
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-terapeutico/"
-    },
-    {
-      "id": "universidad-manuela-beltran-umb-diplomado-en-fisioterapia-para-el-cuidado-materno-parto-y-po",
-      "titulo": "Diplomado en Fisioterapia para el Cuidado Materno, Parto y Postparto",
-      "institucion": "Universidad Manuela Beltrán (UMB)",
-      "disciplina": "Fisioterapia",
-      "tema": "Cuidado Materno",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://umb.edu.co/diplomados/"
-    },
-    {
-      "id": "universidad-manuela-beltran-umb-diplomado-en-rehabilitacion-cardiovascular-y-pulmonar",
-      "titulo": "Diplomado en Rehabilitación Cardiovascular y Pulmonar",
-      "institucion": "Universidad Manuela Beltrán (UMB)",
-      "disciplina": "Fisioterapia",
-      "tema": "Rehabilitación Cardiovascular",
-      "tipo": "Diplomado",
-      "modalidad": "Virtual",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://umb.edu.co/diplomados/"
     },
     {
       "id": "asofono-disfagia-practica-moderna",
