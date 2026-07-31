@@ -1,6 +1,6 @@
 {
-  "actualizado": "2026-07-30",
-  "fuente": "automatico",
+  "actualizado": "2026-07-31",
+  "fuente": "semilla",
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
     {
@@ -64,18 +64,6 @@
       "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
     },
     {
-      "id": "forafis-curso-de-fisioterapia-en-las-disfunciones-urinarias-y-prolap",
-      "titulo": "Curso de Fisioterapia en las Disfunciones Urinarias y Prolapsos de Órganos Pélvicos",
-      "institucion": "Forafis",
-      "disciplina": "Fisioterapia",
-      "tema": "Disfunciones urinarias",
-      "tipo": "Curso",
-      "modalidad": "Presencial",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
-    },
-    {
       "id": "ideal-neurodesarrollo-ndta",
       "titulo": "Curso Introductorio en Neurodesarrollo y Neurorrehabilitación (Modelo NDTA)",
       "institucion": "Fundación IDEAL",
@@ -97,18 +85,6 @@
       "modalidad": "Presencial",
       "ciudad": "Cali",
       "mes": "Agosto",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
-    },
-    {
-      "id": "fundacion-ideal-telesalud-en-rehabilitacion-fisica-y-salud-mental",
-      "titulo": "Telesalud en Rehabilitación Física y Salud Mental",
-      "institucion": "Fundación IDEAL",
-      "disciplina": "Fisioterapia",
-      "tema": "Telerehabilitación",
-      "tipo": "Curso",
-      "modalidad": "Virtual",
-      "ciudad": "Cali",
-      "mes": "Julio",
       "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
     },
     {
@@ -280,18 +256,6 @@
       "enlace": "https://asofono.co/cursos-virtuales/"
     },
     {
-      "id": "escuela-colombiana-de-rehabilitacion-ecr-diplomado-violencias-y-cuidado-de-la-salud-mental",
-      "titulo": "Diplomado Violencias y Cuidado de la Salud Mental",
-      "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
-      "disciplina": "Fonoaudiología",
-      "tema": "Salud Mental",
-      "tipo": "Diplomado",
-      "modalidad": "Híbrida",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
-      "enlace": "https://ecr.edu.co/diplomados"
-    },
-    {
       "id": "ideal-disfagia-neurodesarrollo",
       "titulo": "Curso Intensivo de Intervención en Disfagia y Neurodesarrollo",
       "institucion": "Fundación IDEAL",
@@ -361,18 +325,6 @@
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
       "mes": "Julio",
-      "enlace": "https://ecr.edu.co/diplomados"
-    },
-    {
-      "id": "escuela-colombiana-de-rehabilitacion-ecr-diplomado-terapia-ocupacional-en-cuidados-paliativos",
-      "titulo": "Diplomado Terapia Ocupacional en Cuidados Paliativos",
-      "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
-      "disciplina": "Terapia Ocupacional",
-      "tema": "Cuidados Paliativos",
-      "tipo": "Diplomado",
-      "modalidad": "Híbrida",
-      "ciudad": "Bogotá",
-      "mes": "Agosto",
       "enlace": "https://ecr.edu.co/diplomados"
     },
     {
