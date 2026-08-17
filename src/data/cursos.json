@@ -16,10 +16,12 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Octubre",
+      "fecha": "virtual del 15 de octubre al 30 de noviembre; presencial del 5 al 9 de diciembre",
+      "fechaVerificada": true,
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+      "enlace": "https://forafis.com/curso/diplomado-internacional-en-piso-pelvico-concepto-gdp/"
     },
     {
       "id": "forafis-neuromodulacion-percutanea",
@@ -31,9 +33,11 @@
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
       "mes": "Septiembre",
+      "fecha": "4, 5 y 6 de septiembre",
+      "fechaVerificada": true,
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+      "enlace": "https://forafis.com/curso/curso-neuromodulacion-percutanea-bogota/"
     },
     {
       "id": "forafis-ecografia-musculoesqueletica",
@@ -42,12 +46,14 @@
       "disciplina": "Fisioterapia",
       "tema": "Ecografía musculoesquelética",
       "tipo": "Curso",
-      "modalidad": "Presencial",
+      "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Noviembre",
+      "fecha": "13 y 14 de noviembre",
+      "fechaVerificada": true,
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+      "enlace": "https://forafis.com/curso/curso-ecografia-musculoesqueletica-bogota/"
     },
     {
       "id": "forafis-puncion-seca",
@@ -58,10 +64,12 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Septiembre",
+      "mes": "Octubre",
+      "fecha": "del 14 al 18 de octubre",
+      "fechaVerificada": true,
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+      "enlace": "https://forafis.com/curso/formacion-internacional-fisioterapia-conservadora-e-invasiva-del-sindrome-de-dolor-miofascial-puncion-seca/"
     },
     {
       "id": "forafis-tecnicas-invasivas-suelo-pelvico",
@@ -75,7 +83,23 @@
       "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+      "enlace": "https://forafis.com/curso/curso-tecncias-invasivas-aplicadas-al-suelo-pelvico/"
+    },
+    {
+      "id": "forafis-ecografia-pelviperineal",
+      "titulo": "Ecografía Pelviperineal para Fisioterapeutas (Bogotá)",
+      "institucion": "Forafis",
+      "disciplina": "Fisioterapia",
+      "tema": "Ecografía pelviperineal",
+      "tipo": "Curso",
+      "modalidad": "Presencial",
+      "ciudad": "Bogotá",
+      "mes": "Diciembre",
+      "fecha": "12 y 13 de diciembre",
+      "fechaVerificada": true,
+      "verificacion": "verificado",
+      "verificadoEl": "2026-08-17",
+      "enlace": "https://forafis.com/curso/ecografia-pelviperineal-para-fisioterapeutas-bogota/"
     },
     {
       "id": "ideal-neurodesarrollo-ndta",
@@ -89,7 +113,7 @@
       "mes": "Agosto",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+      "enlace": "https://www.fundacionideal.org.co/curso/curso-introductorio-terapia-de-neurodesarrollo-bobath-ndta"
     },
     {
       "id": "ideal-terapia-acuatica-iatf",
@@ -103,7 +127,7 @@
       "mes": "Agosto",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+      "enlace": "https://www.fundacionideal.org.co/curso/curso-introductorio-en-terapia-acuatica-international-aquatic-therapy-faculty-iatf"
     },
     {
       "id": "fucs-fisioterapia-pelvi-perineal",
@@ -376,7 +400,7 @@
       "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://asofono.co/cursos-virtuales/"
+      "enlace": "https://asofono.co/productos/diplomado-fonoaudiologia-para-el-peritaje-forense/"
     },
     {
       "id": "asofono-practicas-centradas-familia-atencion-temprana",
@@ -418,7 +442,7 @@
       "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+      "enlace": "https://www.fundacionideal.org.co/curso/curso-intensivo-de-intervencion-en-disfagia-y-neurodesarrollo"
     },
     {
       "id": "univalle-traqueostomia",
