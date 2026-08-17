@@ -22,8 +22,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
       - name: Build con Astro
-        uses: withastro/action@v3
-        # path por defecto: "." | node-version por defecto: 20
+        uses: withastro/action@v6
+        # path por defecto: "." | node-version por defecto: 24
+        # v6 usa actions/setup-node@v6 y upload-pages-artifact@v4 por dentro; v3 arrastraba
+        # setup-node@v4 y upload-artifact@v4, ya deprecados (Node 20 forzado a Node 24).
+        # upload-pages-artifact@v4 EXCLUYE dotfiles del artefacto: no nos afecta porque
+        # dist/ solo contiene _astro/ e index.html, y el deploy por artefacto no corre
+        # Jekyll (no hace falta .nojekyll para que se sirva _astro/).
 
   deploy:
     needs: build
@@ -34,4 +39,4 @@ jobs:
     steps:
       - name: Deploy a GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
