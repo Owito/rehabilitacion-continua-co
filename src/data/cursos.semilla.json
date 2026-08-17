@@ -15,17 +15,19 @@
   },
   {
     "id": "ces-fisioterapia-pelviperineal",
-    "titulo": "Fisioterapia Pelviperineal",
+    "titulo": "Diplomado en Fisioterapia Pelviperineal",
     "institucion": "Universidad CES",
     "disciplina": "Fisioterapia",
     "tema": "Suelo pélvico",
-    "tipo": "Curso",
+    "tipo": "Diplomado",
     "modalidad": "Presencial",
     "ciudad": "Medellín",
     "mes": "Agosto",
+    "fecha": "del 25 de agosto al 27 de octubre (100 horas)",
+    "fechaVerificada": true,
     "verificacion": "verificado",
     "verificadoEl": "2026-08-17",
-    "enlace": "https://www.ces.edu.co/educacion-continua/"
+    "enlace": "https://www.ces.edu.co/diplomado/fisioterapia-pelviperianeal/"
   },
   {
     "id": "ces-abordaje-fisioterapeutico-del-dolor",
@@ -34,12 +36,14 @@
     "disciplina": "Fisioterapia",
     "tema": "Dolor",
     "tipo": "Curso",
-    "modalidad": "Híbrida",
+    "modalidad": "Presencial",
     "ciudad": "Medellín",
-    "mes": "Julio",
+    "mes": "Octubre",
+    "fecha": "23 y 24 de octubre (13 horas)",
+    "fechaVerificada": true,
     "verificacion": "verificado",
     "verificadoEl": "2026-08-17",
-    "enlace": "https://www.ces.edu.co/educacion-continua/"
+    "enlace": "https://www.ces.edu.co/curso/abordaje-fisioterapeutico-del-dolor/"
   },
   {
     "id": "ces-manejo-integral-linfedema",
@@ -47,13 +51,15 @@
     "institucion": "Universidad CES",
     "disciplina": "Fisioterapia",
     "tema": "Linfedema y rehabilitación oncológica",
-    "tipo": "Curso",
-    "modalidad": "Presencial",
+    "tipo": "Diplomado",
+    "modalidad": "Híbrida",
     "ciudad": "Medellín",
-    "mes": "Agosto",
+    "mes": "Septiembre",
+    "fecha": "del 1 de septiembre al 28 de noviembre (90 horas)",
+    "fechaVerificada": true,
     "verificacion": "verificado",
     "verificadoEl": "2026-08-17",
-    "enlace": "https://www.ces.edu.co/educacion-continua/"
+    "enlace": "https://www.ces.edu.co/diplomado/manejo-integral-de-linfedema-un-abordaje-multidisciplinario/"
   },
   {
     "id": "ecr-to-cuidados-paliativos",
@@ -207,7 +213,7 @@
     "mes": "Agosto",
     "verificacion": "verificado",
     "verificadoEl": "2026-08-17",
-    "enlace": "https://asofono.co/cursos-virtuales/"
+    "enlace": "https://asofono.co/productos/diplomado-fonoaudiologia-para-el-peritaje-forense/"
   },
   {
     "id": "forafis-piso-pelvico-gdp",
@@ -218,10 +224,12 @@
     "tipo": "Diplomado",
     "modalidad": "Híbrida",
     "ciudad": "Bogotá",
-    "mes": "Agosto",
+    "mes": "Octubre",
+    "fecha": "virtual del 15 de octubre al 30 de noviembre; presencial del 5 al 9 de diciembre",
+    "fechaVerificada": true,
     "verificacion": "verificado",
     "verificadoEl": "2026-08-17",
-    "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+    "enlace": "https://forafis.com/curso/diplomado-internacional-en-piso-pelvico-concepto-gdp/"
   },
   {
     "id": "forafis-neuromodulacion-percutanea",
@@ -232,10 +240,12 @@
     "tipo": "Curso",
     "modalidad": "Presencial",
     "ciudad": "Bogotá",
-    "mes": "Julio",
+    "mes": "Septiembre",
+    "fecha": "4, 5 y 6 de septiembre",
+    "fechaVerificada": true,
     "verificacion": "verificado",
     "verificadoEl": "2026-08-17",
-    "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+    "enlace": "https://forafis.com/curso/curso-neuromodulacion-percutanea-bogota/"
   },
   {
     "id": "forafis-ecografia-musculoesqueletica",
@@ -244,12 +254,14 @@
     "disciplina": "Fisioterapia",
     "tema": "Ecografía musculoesquelética",
     "tipo": "Curso",
-    "modalidad": "Presencial",
+    "modalidad": "Híbrida",
     "ciudad": "Bogotá",
-    "mes": "Agosto",
+    "mes": "Noviembre",
+    "fecha": "13 y 14 de noviembre",
+    "fechaVerificada": true,
     "verificacion": "verificado",
     "verificadoEl": "2026-08-17",
-    "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+    "enlace": "https://forafis.com/curso/curso-ecografia-musculoesqueletica-bogota/"
   },
   {
     "id": "forafis-puncion-seca",
@@ -260,10 +272,12 @@
     "tipo": "Curso",
     "modalidad": "Presencial",
     "ciudad": "Bogotá",
-    "mes": "Agosto",
+    "mes": "Octubre",
+    "fecha": "del 14 al 18 de octubre",
+    "fechaVerificada": true,
     "verificacion": "verificado",
     "verificadoEl": "2026-08-17",
-    "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+    "enlace": "https://forafis.com/curso/formacion-internacional-fisioterapia-conservadora-e-invasiva-del-sindrome-de-dolor-miofascial-puncion-seca/"
   },
   {
     "id": "ideal-neurodesarrollo-ndta",
@@ -277,7 +291,7 @@
     "mes": "Julio",
     "verificacion": "verificado",
     "verificadoEl": "2026-08-17",
-    "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+    "enlace": "https://www.fundacionideal.org.co/curso/curso-introductorio-terapia-de-neurodesarrollo-bobath-ndta"
   },
   {
     "id": "ideal-disfagia-neurodesarrollo",
@@ -291,7 +305,7 @@
     "mes": "Agosto",
     "verificacion": "verificado",
     "verificadoEl": "2026-08-17",
-    "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+    "enlace": "https://www.fundacionideal.org.co/curso/curso-intensivo-de-intervencion-en-disfagia-y-neurodesarrollo"
   },
   {
     "id": "ideal-terapia-acuatica-iatf",
@@ -305,7 +319,7 @@
     "mes": "Julio",
     "verificacion": "verificado",
     "verificadoEl": "2026-08-17",
-    "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+    "enlace": "https://www.fundacionideal.org.co/curso/curso-introductorio-en-terapia-acuatica-international-aquatic-therapy-faculty-iatf"
   },
   {
     "id": "univalle-traqueostomia",
@@ -454,6 +468,73 @@
     "mes": "Septiembre",
     "verificacion": "verificado",
     "verificadoEl": "2026-08-17",
-    "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+    "enlace": "https://forafis.com/curso/curso-tecncias-invasivas-aplicadas-al-suelo-pelvico/"
+  },
+  {
+    "id": "ces-razonamiento-clinico-fisioterapia-musculoesqueletica",
+    "titulo": "Razonamiento Clínico en Fisioterapia Musculoesquelética",
+    "institucion": "Universidad CES",
+    "disciplina": "Fisioterapia",
+    "tema": "Razonamiento clínico musculoesquelético",
+    "tipo": "Curso",
+    "modalidad": "Presencial",
+    "ciudad": "Medellín",
+    "sede": "Sede El Poblado",
+    "mes": "Septiembre",
+    "fecha": "del 10 al 12 de septiembre (17 horas)",
+    "fechaVerificada": true,
+    "verificacion": "verificado",
+    "verificadoEl": "2026-08-17",
+    "enlace": "https://www.ces.edu.co/curso/razonamiento-clinico-en-fisioterapia-musculoesqueletica/"
+  },
+  {
+    "id": "ces-entrenamiento-piso-pelvico-funcion-sexual",
+    "titulo": "Entrenamiento del Piso Pélvico Aplicado a la Función Sexual para Fisioterapeutas",
+    "institucion": "Universidad CES",
+    "disciplina": "Fisioterapia",
+    "tema": "Suelo pélvico y función sexual",
+    "tipo": "Curso",
+    "modalidad": "Presencial",
+    "ciudad": "Medellín",
+    "sede": "Sede El Poblado",
+    "mes": "Octubre",
+    "fecha": "del 16 al 24 de octubre (22 horas)",
+    "fechaVerificada": true,
+    "verificacion": "verificado",
+    "verificadoEl": "2026-08-17",
+    "enlace": "https://www.ces.edu.co/curso/entrenamiento-del-piso-pelvico-aplicado-a-la-funcion-sexual-para-fisioterapeutas/"
+  },
+  {
+    "id": "ces-taller-prebienal-electromiografia-superficie",
+    "titulo": "Taller Prebienal de Fisioterapia: electromiografía de superficie aplicada a la rehabilitación",
+    "institucion": "Universidad CES",
+    "disciplina": "Fisioterapia",
+    "tema": "Electromiografía de superficie",
+    "tipo": "Seminario",
+    "modalidad": "Presencial",
+    "ciudad": "Medellín",
+    "sede": "Sede El Poblado",
+    "mes": "Octubre",
+    "fecha": "1 de octubre (2 horas)",
+    "fechaVerificada": true,
+    "verificacion": "verificado",
+    "verificadoEl": "2026-08-17",
+    "enlace": "https://www.ces.edu.co/curso/taller-prebienal-de-fisioterapia-electromiografia-de-superficie-aplicada-a-la-rehabilitacion/"
+  },
+  {
+    "id": "forafis-ecografia-pelviperineal",
+    "titulo": "Ecografía Pelviperineal para Fisioterapeutas (Bogotá)",
+    "institucion": "Forafis",
+    "disciplina": "Fisioterapia",
+    "tema": "Ecografía pelviperineal",
+    "tipo": "Curso",
+    "modalidad": "Presencial",
+    "ciudad": "Bogotá",
+    "mes": "Diciembre",
+    "fecha": "12 y 13 de diciembre",
+    "fechaVerificada": true,
+    "verificacion": "verificado",
+    "verificadoEl": "2026-08-17",
+    "enlace": "https://forafis.com/curso/ecografia-pelviperineal-para-fisioterapeutas-bogota/"
   }
 ]

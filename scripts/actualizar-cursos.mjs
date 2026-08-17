@@ -2,17 +2,30 @@
 /**
  * Actualiza src/data/cursos.json a partir de los portales oficiales de las instituciones.
  *
- * Usa la API de Google Gemini (nivel gratuito) para extraer la oferta de educación
- * continua de cada sitio y normalizarla a JSON estricto.
+ * Usa la API de Groq (nivel gratuito, sin tarjeta) para extraer la oferta de educación
+ * continua de cada sitio y normalizarla a JSON estricto vía structured outputs.
  *
- * Requiere la variable de entorno GEMINI_API_KEY (en GitHub Actions, el secreto del
+ * Requiere la variable de entorno GROQ_API_KEY (en GitHub Actions, el secreto del
  * mismo nombre). No usa ninguna API de pago.
  *
- * Antes usaba GitHub Models con el GITHUB_TOKEN, que no requería secretos. Ese
- * servicio se retiró (HTTP 410 `github_models_retirement_brownout`) y durante días la
- * extracción devolvió 0 hallazgos mientras el workflow seguía en verde. De ahí dos
- * reglas nuevas: sin clave se construye SOLO desde la base curada avisándolo, y con
- * clave configurada el proceso FALLA si ninguna fuente respondió (ver main()).
+ * IMPORTANTE — la extracción con LLM es OPCIONAL. La fuente de verdad del sitio es la
+ * base curada `cursos.semilla.json`, verificada a mano contra la página oficial de cada
+ * programa. Sin clave configurada el script funciona en "modo curaduría" y eso es un
+ * estado normal, no un fallo.
+ *
+ * Por qué quedó así, para no repetir la historia:
+ *  - GitHub Models (con GITHUB_TOKEN, sin secretos) se retiró: HTTP 410
+ *    `github_models_retirement_brownout`. Durante ~10 días la extracción devolvió 0
+ *    hallazgos mientras el workflow seguía EN VERDE y el sitio quedaba congelado.
+ *  - Google Gemini se descartó porque la clave de AI Studio de esta cuenta no tiene
+ *    nivel gratuito: HTTP 429 "Your prepayment credits are depleted".
+ *  - Y la auditoría del 2026-08-17 encontró que el bot había publicado 4 programas
+ *    FANTASMA que no existían en la fuente oficial, mientras 5 de 14 portales lo
+ *    bloquean con 403 y otros listan cursos ya vencidos. O sea: la extracción
+ *    automática nunca fue la parte fiable del sistema.
+ *
+ * Regla que queda: con clave configurada, el proceso FALLA si ninguna fuente respondió
+ * (ver main()), para que una caída del proveedor no vuelva a pasar inadvertida.
  *
  * Modo sin LLM: `node scripts/actualizar-cursos.mjs --solo-semilla` reconstruye
  * cursos.json desde la base curada, sin llamar a ningún modelo.
@@ -36,10 +49,11 @@ const RUTA_INSTITUCIONES = join(RAIZ, 'src', 'data', 'instituciones.json');
 const RUTA_SEMILLA = join(RAIZ, 'src', 'data', 'cursos.semilla.json');
 const RUTA_CURSOS = join(RAIZ, 'src', 'data', 'cursos.json');
 
-const MODELO = process.env.GEMINI_MODEL || 'gemini-2.5-flash-lite';
-const MODELS_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${MODELO}:generateContent`;
-const TOKEN = process.env.GEMINI_API_KEY;
+const MODELO = process.env.GROQ_MODEL || 'openai/gpt-oss-20b';
+const MODELS_ENDPOINT = 'https://api.groq.com/openai/v1/chat/completions';
+const TOKEN = process.env.GROQ_API_KEY;
 const SOLO_SEMILLA = process.argv.includes('--solo-semilla');
+const PAUSA_MS = Number(process.env.PAUSA_MS || 1500);  // respiro entre llamadas (RPM)
 
 const DISCIPLINAS = ['Fisioterapia', 'Fonoaudiología', 'Terapia Ocupacional',
   'Medicina Física y Rehabilitación'];
@@ -225,31 +239,33 @@ async function recopilarTexto(inst) {
   return enfocar(partes.join('\n'));
 }
 
-/** Esquema que Gemini debe respetar al devolver la oferta (structured output). */
+/** Esquema JSON que el modelo debe respetar (structured outputs de Groq, modo estricto). */
 const ESQUEMA_RESPUESTA = {
-  type: 'OBJECT',
+  type: 'object',
   properties: {
     cursos: {
-      type: 'ARRAY',
+      type: 'array',
       items: {
-        type: 'OBJECT',
+        type: 'object',
         properties: {
-          titulo: { type: 'STRING' },
-          disciplina: { type: 'STRING', enum: DISCIPLINAS },
-          tema: { type: 'STRING' },
-          tipo: { type: 'STRING', enum: TIPOS },
-          modalidad: { type: 'STRING', enum: MODALIDADES },
-          ciudad: { type: 'STRING' },
-          mes: { type: 'STRING', enum: MESES },
+          titulo: { type: 'string' },
+          disciplina: { type: 'string', enum: DISCIPLINAS },
+          tema: { type: 'string' },
+          tipo: { type: 'string', enum: TIPOS },
+          modalidad: { type: 'string', enum: MODALIDADES },
+          ciudad: { type: 'string' },
+          mes: { type: 'string', enum: MESES },
         },
-        required: ['titulo', 'disciplina', 'tipo', 'modalidad', 'ciudad', 'mes'],
+        required: ['titulo', 'disciplina', 'tema', 'tipo', 'modalidad', 'ciudad', 'mes'],
+        additionalProperties: false,
       },
     },
   },
   required: ['cursos'],
+  additionalProperties: false,
 };
 
-/** Pide a Gemini que extraiga la oferta del texto del sitio. */
+/** Pide al modelo que extraiga la oferta del texto del sitio. */
 async function extraer(institucion, texto) {
   const sistema = `Eres un asistente que extrae oferta de educación continua en rehabilitación humana (Fisioterapia, Fonoaudiología, Terapia Ocupacional, Medicina Física y Rehabilitación) en Colombia para los meses de ${MESES[0]} y ${MESES[1]}.
 Devuelve EXCLUSIVAMENTE un objeto JSON con la forma {"cursos": [...]}. Cada curso:
@@ -267,26 +283,29 @@ Reglas: solo programas reales que aparezcan en el texto y que sean de fisioterap
   const res = await fetch(MODELS_ENDPOINT, {
     method: 'POST',
     headers: {
-      'x-goog-api-key': TOKEN,
+      'Authorization': `Bearer ${TOKEN}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      systemInstruction: { parts: [{ text: sistema }] },
-      contents: [{ role: 'user', parts: [{ text: usuario }] }],
-      generationConfig: {
-        temperature: 0.1,
-        responseMimeType: 'application/json',
-        responseSchema: ESQUEMA_RESPUESTA,
+      model: MODELO,
+      temperature: 0.1,
+      messages: [
+        { role: 'system', content: sistema },
+        { role: 'user', content: usuario },
+      ],
+      response_format: {
+        type: 'json_schema',
+        json_schema: { name: 'oferta_rehabilitacion', strict: true, schema: ESQUEMA_RESPUESTA },
       },
     }),
   });
 
   if (!res.ok) {
     const detalle = await res.text().catch(() => '');
-    throw new Error(`Gemini HTTP ${res.status} ${detalle.slice(0, 200)}`);
+    throw new Error(`Groq HTTP ${res.status} ${detalle.slice(0, 200)}`);
   }
   const data = await res.json();
-  const contenido = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? '{}';
+  const contenido = data?.choices?.[0]?.message?.content ?? '{}';
   const parsed = JSON.parse(contenido);
   return Array.isArray(parsed?.cursos) ? parsed.cursos : [];
 }
@@ -326,13 +345,10 @@ async function main() {
   if (SOLO_SEMILLA) {
     log('modo --solo-semilla: se reconstruye desde la base curada, sin llamar al modelo.');
   } else if (!TOKEN) {
-    log('⚠ falta GEMINI_API_KEY: se construye SOLO desde la base curada, sin extracción automática.');
-    log('  En local: export GEMINI_API_KEY=<clave>. En Actions: secreto GEMINI_API_KEY.');
-    // No se aborta (el sitio debe seguir publicándose desde la base curada), pero la
-    // degradación tiene que VERSE: sin anotación, un run en verde sin extracción es
-    // indistinguible de un run sano, que es justo lo que pasó con GitHub Models.
-    anotar('warning', 'Falta el secreto GEMINI_API_KEY: la oferta se publicó solo desde la ' +
-      'base curada, sin extracción automática de los portales.');
+    // Modo NORMAL del proyecto, no una degradación: la base curada es la fuente de verdad
+    // y la extracción con LLM es un extra opcional. Ver la nota de arriba sobre por qué.
+    log('modo curaduría: sin LLM configurado, se publica la base curada verificada a mano.');
+    log('  (opcional) para activar la extracción automática: secreto GROQ_API_KEY.');
   }
 
   const instituciones = JSON.parse(await readFile(RUTA_INSTITUCIONES, 'utf8'));
@@ -340,7 +356,12 @@ async function main() {
 
   const recolectados = [];
   let fuentesOk = 0;      // fuentes que respondieron sin error (aunque den 0 programas)
+  let primera = true;
   for (const inst of conLlm ? instituciones : []) {
+    // Respiro entre llamadas: el nivel gratuito limita peticiones por minuto y las 14
+    // fuentes seguidas lo agotaban.
+    if (!primera) await new Promise((r) => setTimeout(r, PAUSA_MS));
+    primera = false;
     try {
       log(`→ ${inst.nombre}`);
       const texto = await recopilarTexto(inst);
@@ -360,9 +381,9 @@ async function main() {
   // quedaba congelado en silencio durante días; ahora el workflow debe fallar en rojo.
   if (conLlm && fuentesOk === 0) {
     anotar('error', `Ninguna de las ${instituciones.length} fuentes respondió: la extracción ` +
-      `automática está caída. Revisa GEMINI_API_KEY, la cuota y el modelo (${MODELO}).`);
+      `automática está caída. Revisa GROQ_API_KEY, la cuota y el modelo (${MODELO}).`);
     console.error(`ERROR: ninguna de las ${instituciones.length} fuentes respondió. ` +
-      'Revisa GEMINI_API_KEY, la cuota del nivel gratuito y el nombre del modelo ' +
+      'Revisa GROQ_API_KEY, la cuota del nivel gratuito y el nombre del modelo ' +
       `(${MODELO}). No se reescribió cursos.json.`);
     process.exit(1);
   }

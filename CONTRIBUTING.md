@@ -5,7 +5,7 @@ Colombia**! Este proyecto es un bien comunitario: entre más completa y verifica
 oferta, más útil es para fisioterapeutas, fonoaudiólogos y terapeutas ocupacionales del país.
 
 Hay dos formas principales de contribuir: **proponer una nueva oferta** (un curso, diplomado,
-etc.) y **proponer una institución** para que sea barrida por la automatización semanal.
+etc.) y **proponer una institución** para que sea barrida por la automatización diaria.
 
 ---
 
@@ -14,7 +14,7 @@ etc.) y **proponer una institución** para que sea barrida por la automatizació
 - `src/data/cursos.semilla.json` → **base curada editable a mano**. Es el *piso* que nunca se
   borra y que tú controlas. **Aquí van las contribuciones manuales.**
 - `src/data/cursos.json` → archivo **GENERADO**. Cada día la automatización (GitHub
-  Actions + API de Gemini) lo reconstruye combinando la semilla con los hallazgos
+  Actions + API de Groq) lo reconstruye combinando la semilla con los hallazgos
   automáticos. **No lo edites a mano**: tus cambios se sobrescriben. Tras editar la semilla,
   regenéralo con `npm run actualizar:semilla`.
 - `src/data/instituciones.json` → lista de instituciones y sus URL oficiales que la
@@ -144,6 +144,38 @@ Luego abre un Pull Request describiendo qué agregaste y la fuente oficial. Se r
 enlaces sean oficiales y vigentes antes de mergear.
 
 ---
+
+## Cómo hacer una ronda de curaduría
+
+La extracción automática **no** es la parte fiable del sistema: 5 de 14 portales bloquean al
+bot con 403, Univalle publica en PDF escaneado, varias páginas se renderizan por JavaScript y
+otras listan cursos ya vencidos. La base curada es la fuente de verdad, y se actualiza así:
+
+1. **Buscar el sitemap antes que raspar el listado.** Muchos portales renderizan la oferta con
+   JavaScript (el listado de CES no trae un solo enlace en el HTML), pero **sí exponen
+   sitemaps** con la URL individual de cada programa:
+
+   ```bash
+   curl -s https://www.ces.edu.co/sitemap_index.xml     # indice
+   curl -s https://www.ces.edu.co/curso-sitemap.xml     # 137 cursos
+   curl -s https://www.ces.edu.co/diplomado-sitemap.xml #  28 diplomados
+   ```
+
+   De ahí salen las URLs reales, que además permiten enlazar a la ficha del programa en vez
+   de a una página genérica.
+
+2. **Abrir la ficha individual y leer los campos de ahí.** `modalidad`, `tipo`, fechas y sede
+   salen de la ficha oficial, nunca de una suposición. Cuidado con las barras laterales de
+   "otros programas": traen fechas de otros cursos y es fácil copiarlas por error.
+
+3. **Descartar lo vencido.** Los listados mezclan oferta vigente con pasada. En la ronda del
+   2026-08-17, de 7 cursos nuevos de CES, 4 estaban vencidos (tres de mayo de 2026 y uno de
+   octubre de **2025**). Un bot que lea ese listado los publica como vigentes.
+
+4. **Verificar el `tipo` por la URL.** Si la ficha vive bajo `/diplomado/`, es un diplomado.
+   Dos entradas estaban marcadas como `Curso` siendo diplomados de 90 y 100 horas.
+
+5. Regenerar con `npm run actualizar:semilla` y compilar con `npm run build`.
 
 ## Verificación de calidad
 

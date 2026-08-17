@@ -16,10 +16,12 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Septiembre",
+      "mes": "Octubre",
+      "fecha": "virtual del 15 de octubre al 30 de noviembre; presencial del 5 al 9 de diciembre",
+      "fechaVerificada": true,
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+      "enlace": "https://forafis.com/curso/diplomado-internacional-en-piso-pelvico-concepto-gdp/"
     },
     {
       "id": "forafis-neuromodulacion-percutanea",
@@ -30,10 +32,12 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Septiembre",
+      "fecha": "4, 5 y 6 de septiembre",
+      "fechaVerificada": true,
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+      "enlace": "https://forafis.com/curso/curso-neuromodulacion-percutanea-bogota/"
     },
     {
       "id": "forafis-ecografia-musculoesqueletica",
@@ -42,12 +46,14 @@
       "disciplina": "Fisioterapia",
       "tema": "Ecografía musculoesquelética",
       "tipo": "Curso",
-      "modalidad": "Presencial",
+      "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Septiembre",
+      "mes": "Noviembre",
+      "fecha": "13 y 14 de noviembre",
+      "fechaVerificada": true,
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+      "enlace": "https://forafis.com/curso/curso-ecografia-musculoesqueletica-bogota/"
     },
     {
       "id": "forafis-puncion-seca",
@@ -58,10 +64,12 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Octubre",
+      "fecha": "del 14 al 18 de octubre",
+      "fechaVerificada": true,
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+      "enlace": "https://forafis.com/curso/formacion-internacional-fisioterapia-conservadora-e-invasiva-del-sindrome-de-dolor-miofascial-puncion-seca/"
     },
     {
       "id": "forafis-tecnicas-invasivas-suelo-pelvico",
@@ -72,10 +80,26 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://forafis.com/cursos-en-fisioterapia-colombia/"
+      "enlace": "https://forafis.com/curso/curso-tecncias-invasivas-aplicadas-al-suelo-pelvico/"
+    },
+    {
+      "id": "forafis-ecografia-pelviperineal",
+      "titulo": "Ecografía Pelviperineal para Fisioterapeutas (Bogotá)",
+      "institucion": "Forafis",
+      "disciplina": "Fisioterapia",
+      "tema": "Ecografía pelviperineal",
+      "tipo": "Curso",
+      "modalidad": "Presencial",
+      "ciudad": "Bogotá",
+      "mes": "Diciembre",
+      "fecha": "12 y 13 de diciembre",
+      "fechaVerificada": true,
+      "verificacion": "verificado",
+      "verificadoEl": "2026-08-17",
+      "enlace": "https://forafis.com/curso/ecografia-pelviperineal-para-fisioterapeutas-bogota/"
     },
     {
       "id": "ideal-neurodesarrollo-ndta",
@@ -86,10 +110,10 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Septiembre",
+      "mes": "Agosto",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+      "enlace": "https://www.fundacionideal.org.co/curso/curso-introductorio-terapia-de-neurodesarrollo-bobath-ndta"
     },
     {
       "id": "ideal-terapia-acuatica-iatf",
@@ -100,10 +124,10 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Septiembre",
+      "mes": "Agosto",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+      "enlace": "https://www.fundacionideal.org.co/curso/curso-introductorio-en-terapia-acuatica-international-aquatic-therapy-faculty-iatf"
     },
     {
       "id": "fucs-fisioterapia-pelvi-perineal",
@@ -114,7 +138,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.fucsalud.edu.co/diplomados/Diplomado-Fisioterapia-pelvi-perineal"
@@ -128,7 +152,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Septiembre",
+      "mes": "Agosto",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.fucsalud.edu.co/diplomados/Diplomado-intervencion-fisioterapeutica-paliativa-en-cancer"
@@ -142,7 +166,7 @@
       "tipo": "Diplomado",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.fucsalud.edu.co/diplomados/Diplomado-Rehabilitacion-musculo-esqueletica-Miembro-Superior"
@@ -156,7 +180,7 @@
       "tipo": "Diplomado",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Septiembre",
+      "mes": "Agosto",
       "verificacion": "bloqueado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.fucsalud.edu.co/diplomados/Diplomado-Rehabilitacion-Deportiva-Readaptacion-Funcional"
@@ -194,17 +218,19 @@
     },
     {
       "id": "ces-fisioterapia-pelviperineal",
-      "titulo": "Fisioterapia Pelviperineal",
+      "titulo": "Diplomado en Fisioterapia Pelviperineal",
       "institucion": "Universidad CES",
       "disciplina": "Fisioterapia",
       "tema": "Suelo pélvico",
-      "tipo": "Curso",
+      "tipo": "Diplomado",
       "modalidad": "Presencial",
       "ciudad": "Medellín",
-      "mes": "Septiembre",
+      "mes": "Agosto",
+      "fecha": "del 25 de agosto al 27 de octubre (100 horas)",
+      "fechaVerificada": true,
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://www.ces.edu.co/educacion-continua/"
+      "enlace": "https://www.ces.edu.co/diplomado/fisioterapia-pelviperianeal/"
     },
     {
       "id": "ces-abordaje-fisioterapeutico-del-dolor",
@@ -213,12 +239,14 @@
       "disciplina": "Fisioterapia",
       "tema": "Dolor",
       "tipo": "Curso",
-      "modalidad": "Híbrida",
+      "modalidad": "Presencial",
       "ciudad": "Medellín",
-      "mes": "Agosto",
+      "mes": "Octubre",
+      "fecha": "23 y 24 de octubre (13 horas)",
+      "fechaVerificada": true,
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://www.ces.edu.co/educacion-continua/"
+      "enlace": "https://www.ces.edu.co/curso/abordaje-fisioterapeutico-del-dolor/"
     },
     {
       "id": "ces-manejo-integral-linfedema",
@@ -226,13 +254,66 @@
       "institucion": "Universidad CES",
       "disciplina": "Fisioterapia",
       "tema": "Linfedema y rehabilitación oncológica",
+      "tipo": "Diplomado",
+      "modalidad": "Híbrida",
+      "ciudad": "Medellín",
+      "mes": "Septiembre",
+      "fecha": "del 1 de septiembre al 28 de noviembre (90 horas)",
+      "fechaVerificada": true,
+      "verificacion": "verificado",
+      "verificadoEl": "2026-08-17",
+      "enlace": "https://www.ces.edu.co/diplomado/manejo-integral-de-linfedema-un-abordaje-multidisciplinario/"
+    },
+    {
+      "id": "ces-razonamiento-clinico-fisioterapia-musculoesqueletica",
+      "titulo": "Razonamiento Clínico en Fisioterapia Musculoesquelética",
+      "institucion": "Universidad CES",
+      "disciplina": "Fisioterapia",
+      "tema": "Razonamiento clínico musculoesquelético",
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Medellín",
+      "sede": "Sede El Poblado",
       "mes": "Septiembre",
+      "fecha": "del 10 al 12 de septiembre (17 horas)",
+      "fechaVerificada": true,
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://www.ces.edu.co/educacion-continua/"
+      "enlace": "https://www.ces.edu.co/curso/razonamiento-clinico-en-fisioterapia-musculoesqueletica/"
+    },
+    {
+      "id": "ces-entrenamiento-piso-pelvico-funcion-sexual",
+      "titulo": "Entrenamiento del Piso Pélvico Aplicado a la Función Sexual para Fisioterapeutas",
+      "institucion": "Universidad CES",
+      "disciplina": "Fisioterapia",
+      "tema": "Suelo pélvico y función sexual",
+      "tipo": "Curso",
+      "modalidad": "Presencial",
+      "ciudad": "Medellín",
+      "sede": "Sede El Poblado",
+      "mes": "Octubre",
+      "fecha": "del 16 al 24 de octubre (22 horas)",
+      "fechaVerificada": true,
+      "verificacion": "verificado",
+      "verificadoEl": "2026-08-17",
+      "enlace": "https://www.ces.edu.co/curso/entrenamiento-del-piso-pelvico-aplicado-a-la-funcion-sexual-para-fisioterapeutas/"
+    },
+    {
+      "id": "ces-taller-prebienal-electromiografia-superficie",
+      "titulo": "Taller Prebienal de Fisioterapia: electromiografía de superficie aplicada a la rehabilitación",
+      "institucion": "Universidad CES",
+      "disciplina": "Fisioterapia",
+      "tema": "Electromiografía de superficie",
+      "tipo": "Seminario",
+      "modalidad": "Presencial",
+      "ciudad": "Medellín",
+      "sede": "Sede El Poblado",
+      "mes": "Octubre",
+      "fecha": "1 de octubre (2 horas)",
+      "fechaVerificada": true,
+      "verificacion": "verificado",
+      "verificadoEl": "2026-08-17",
+      "enlace": "https://www.ces.edu.co/curso/taller-prebienal-de-fisioterapia-electromiografia-de-superficie-aplicada-a-la-rehabilitacion/"
     },
     {
       "id": "udes-diplomado-terapia-fisica-linfedema",
@@ -243,7 +324,7 @@
       "tipo": "Diplomado",
       "modalidad": "Presencial",
       "ciudad": "Bucaramanga",
-      "mes": "Septiembre",
+      "mes": "Agosto",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://udes.edu.co/estudia/educacion-continua"
@@ -257,7 +338,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Septiembre",
+      "mes": "Agosto",
       "verificacion": "bloqueado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://umb.edu.co/programa/diplomado-en-neurorrehabilitacion-en-pediatria/"
@@ -271,7 +352,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "bloqueado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-fisioterapeutico-y-alternativo-de-la-salud-mental/"
@@ -285,7 +366,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Septiembre",
+      "mes": "Agosto",
       "verificacion": "bloqueado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-terapeutico/"
@@ -316,10 +397,10 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://asofono.co/cursos-virtuales/"
+      "enlace": "https://asofono.co/productos/diplomado-fonoaudiologia-para-el-peritaje-forense/"
     },
     {
       "id": "asofono-practicas-centradas-familia-atencion-temprana",
@@ -330,7 +411,7 @@
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://asofono.co/cursos-de-actualizacion/"
@@ -344,7 +425,7 @@
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Septiembre",
+      "mes": "Agosto",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://asofono.co/cursos-de-actualizacion/"
@@ -358,10 +439,10 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
-      "enlace": "https://www.fundacionideal.org.co/cursos-y-seminarios"
+      "enlace": "https://www.fundacionideal.org.co/curso/curso-intensivo-de-intervencion-en-disfagia-y-neurodesarrollo"
     },
     {
       "id": "univalle-traqueostomia",
@@ -372,7 +453,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "no-verificable",
       "verificadoEl": "2026-08-17",
       "enlace": "https://extensionsalud.univalle.edu.co/oferta-de-cursos-talleres-diplomados/2-uncategorised/24-escuela-de-rehabilitacion-humana"
@@ -403,7 +484,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Septiembre",
+      "mes": "Agosto",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://academiaexpertia.com/producto/diplomado-en-rehabilitacion-fisica-y-terapia-ocupacional/"
@@ -417,7 +498,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://ecr.edu.co/diplomados"
@@ -431,7 +512,7 @@
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
-      "mes": "Septiembre",
+      "mes": "Agosto",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://ecr.edu.co/diplomados"
@@ -445,7 +526,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.fucsalud.edu.co/diplomados/abordaje-rehabilitacion-integral-pediatria"
@@ -459,7 +540,7 @@
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "bloqueado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.handtherapyacademy.com/"
