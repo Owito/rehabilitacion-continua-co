@@ -8,8 +8,8 @@ buscador y filtros, que se **actualiza sola a diario**.
 
 - **100% gratis** y estático en **GitHub Pages** (0 JavaScript de framework; solo unos
   scripts inline para filtros y buscador).
-- **Sin APIs de pago**: la oferta se refresca **cada día** con la **API de Gemini**
-  (nivel gratuito) dentro de GitHub Actions.
+- **Sin APIs de pago**: la oferta se refresca **cada día** con la **API de Groq**
+  (nivel gratuito, sin tarjeta) dentro de GitHub Actions.
 - **Diseño neo-brutalista** (papel/tinta, bordes gruesos, sombras duras).
 
 ## Stack
@@ -19,7 +19,7 @@ buscador y filtros, que se **actualiza sola a diario**.
 | Sitio | [Astro 5](https://astro.build) |
 | Hosting | GitHub Pages (deploy con `withastro/action`) |
 | Datos | `src/data/cursos.json` (versionado) |
-| Automatización | GitHub Actions (cron diario) + API de Gemini (nivel gratuito) |
+| Automatización | GitHub Actions (cron diario) + API de Groq (nivel gratuito) |
 
 ## Funcionalidades
 
@@ -62,7 +62,7 @@ src/
   pages/index.astro      # nav + <main> con el Directorio
   utils/meses.js         # orden/rango de meses + partición vigente vs. "Próximamente"
 scripts/
-  actualizar-cursos.mjs  # motor de actualización (API de Gemini)
+  actualizar-cursos.mjs  # motor de actualización (API de Groq)
 .github/workflows/
   deploy.yml             # build + deploy a Pages (push a main / dispatch)
   actualizar.yml         # cron diario (6 AM Colombia) + dispara el deploy
@@ -83,24 +83,27 @@ scripts/
 - Calcula la **ventana de meses** vigente (actual + siguiente), parte de la **base curada**
   (`cursos.semilla.json`, re-estampando a esa ventana **solo** las entradas sin
   `fechaVerificada`), descarga cada portal oficial —incluye multi-URL y parseo de PDFs de
-  Google Drive— extrae oferta con la **API de Gemini**, filtra ruido en otros idiomas,
+  Google Drive— extrae oferta con la **API de Groq**, filtra ruido en otros idiomas,
   deduplica y **suma** los hallazgos a la base. Escribe `cursos.json`, commitea si hubo
   cambios y **dispara el deploy** (un push con `GITHUB_TOKEN` no encadena workflows, por eso
   se lanza explícitamente).
-- **Un secreto**: `GEMINI_API_KEY` en *Settings → Secrets and variables → Actions*. La clave
-  se saca gratis en [Google AI Studio](https://aistudio.google.com/apikey). El modelo se
-  puede cambiar con la variable `GEMINI_MODEL` (por defecto `gemini-2.5-flash-lite`).
+- **Un secreto**: `GROQ_API_KEY` en *Settings → Secrets and variables → Actions*. La clave se
+  saca gratis y **sin tarjeta** en [Groq Console](https://console.groq.com/keys). El modelo se
+  cambia con la variable `GROQ_MODEL` (por defecto `openai/gpt-oss-20b`) y el respiro entre
+  llamadas con `PAUSA_MS` (por defecto 1500 ms, para no agotar el límite por minuto).
 - **Falla en rojo si la inferencia se cae.** Si hay clave configurada y **ninguna** fuente
   responde, el script sale con error en vez de reescribir `cursos.json`.
-  > Historia: el motor usaba **GitHub Models** con el `GITHUB_TOKEN` y sin secretos. Ese
-  > servicio se retiró (HTTP 410 `github_models_retirement_brownout`) y durante días las
-  > 13 fuentes fallaron mientras el workflow seguía **en verde** y el sitio quedaba
-  > congelado en silencio. De ahí esta alarma.
+  > Historia de los dos proveedores anteriores, que es la razón de ser de esta alarma:
+  > **GitHub Models** (con `GITHUB_TOKEN`, sin secretos) se retiró — HTTP 410
+  > `github_models_retirement_brownout` — y durante ~10 días las 13 fuentes fallaron mientras
+  > el workflow seguía **en verde** y el sitio quedaba congelado en silencio. **Google Gemini**
+  > se descartó porque la clave de AI Studio de esta cuenta no tiene nivel gratuito: HTTP 429
+  > `"Your prepayment credits are depleted"`.
 
 ### Probar el script en local
 
 ```bash
-export GEMINI_API_KEY=<clave de Google AI Studio>
+export GROQ_API_KEY=<clave de console.groq.com/keys>
 npm run actualizar
 
 # Sin llamar a ningún modelo: reconstruye cursos.json solo desde la base curada.

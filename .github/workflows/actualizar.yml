@@ -10,7 +10,7 @@ permissions:
   contents: write   # para commitear cursos.json
   actions: write    # para disparar el workflow de deploy tras commitear
   # Ya no se pide `models: read`: GitHub Models se retiró (HTTP 410) y la extracción
-  # ahora usa la API de Gemini con el secreto GEMINI_API_KEY.
+  # ahora usa la API de Groq con el secreto GROQ_API_KEY.
 
 jobs:
   actualizar:
@@ -26,7 +26,7 @@ jobs:
 
       - name: Ejecutar actualización
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: node scripts/actualizar-cursos.mjs
 
       - name: Commit y disparar deploy si hubo cambios

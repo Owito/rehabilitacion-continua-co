@@ -5,7 +5,7 @@ Colombia**! Este proyecto es un bien comunitario: entre más completa y verifica
 oferta, más útil es para fisioterapeutas, fonoaudiólogos y terapeutas ocupacionales del país.
 
 Hay dos formas principales de contribuir: **proponer una nueva oferta** (un curso, diplomado,
-etc.) y **proponer una institución** para que sea barrida por la automatización semanal.
+etc.) y **proponer una institución** para que sea barrida por la automatización diaria.
 
 ---
 
@@ -14,7 +14,7 @@ etc.) y **proponer una institución** para que sea barrida por la automatizació
 - `src/data/cursos.semilla.json` → **base curada editable a mano**. Es el *piso* que nunca se
   borra y que tú controlas. **Aquí van las contribuciones manuales.**
 - `src/data/cursos.json` → archivo **GENERADO**. Cada día la automatización (GitHub
-  Actions + API de Gemini) lo reconstruye combinando la semilla con los hallazgos
+  Actions + API de Groq) lo reconstruye combinando la semilla con los hallazgos
   automáticos. **No lo edites a mano**: tus cambios se sobrescriben. Tras editar la semilla,
   regenéralo con `npm run actualizar:semilla`.
 - `src/data/instituciones.json` → lista de instituciones y sus URL oficiales que la
