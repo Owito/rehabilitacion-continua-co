@@ -87,10 +87,14 @@ scripts/
   deduplica y **suma** los hallazgos a la base. Escribe `cursos.json`, commitea si hubo
   cambios y **dispara el deploy** (un push con `GITHUB_TOKEN` no encadena workflows, por eso
   se lanza explícitamente).
-- **Un secreto**: `GROQ_API_KEY` en *Settings → Secrets and variables → Actions*. La clave se
-  saca gratis y **sin tarjeta** en [Groq Console](https://console.groq.com/keys). El modelo se
-  cambia con la variable `GROQ_MODEL` (por defecto `openai/gpt-oss-20b`) y el respiro entre
-  llamadas con `PAUSA_MS` (por defecto 1500 ms, para no agotar el límite por minuto).
+- **La extracción con LLM es OPCIONAL.** Sin clave configurada el script corre en **modo
+  curaduría** y publica la base curada: es el estado normal del proyecto, no un fallo. La
+  fuente de verdad es `cursos.semilla.json`, verificada a mano contra la ficha oficial de cada
+  programa (ver "Cómo hacer una ronda de curaduría" en CONTRIBUTING).
+- Para activar la extracción automática: secreto `GROQ_API_KEY` en *Settings → Secrets and
+  variables → Actions* (clave gratis y sin tarjeta en [Groq](https://console.groq.com/keys)).
+  Modelo con `GROQ_MODEL` (por defecto `openai/gpt-oss-20b`), respiro entre llamadas con
+  `PAUSA_MS` (1500 ms, para no agotar el límite por minuto).
 - **Falla en rojo si la inferencia se cae.** Si hay clave configurada y **ninguna** fuente
   responde, el script sale con error en vez de reescribir `cursos.json`.
   > Historia de los dos proveedores anteriores, que es la razón de ser de esta alarma:

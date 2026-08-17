@@ -8,14 +8,24 @@
  * Requiere la variable de entorno GROQ_API_KEY (en GitHub Actions, el secreto del
  * mismo nombre). No usa ninguna API de pago.
  *
- * Historia de los dos proveedores anteriores, para no repetirla:
+ * IMPORTANTE — la extracción con LLM es OPCIONAL. La fuente de verdad del sitio es la
+ * base curada `cursos.semilla.json`, verificada a mano contra la página oficial de cada
+ * programa. Sin clave configurada el script funciona en "modo curaduría" y eso es un
+ * estado normal, no un fallo.
+ *
+ * Por qué quedó así, para no repetir la historia:
  *  - GitHub Models (con GITHUB_TOKEN, sin secretos) se retiró: HTTP 410
  *    `github_models_retirement_brownout`. Durante ~10 días la extracción devolvió 0
  *    hallazgos mientras el workflow seguía EN VERDE y el sitio quedaba congelado.
  *  - Google Gemini se descartó porque la clave de AI Studio de esta cuenta no tiene
  *    nivel gratuito: HTTP 429 "Your prepayment credits are depleted".
- * De ahí dos reglas: sin clave se construye SOLO desde la base curada avisándolo, y con
- * clave configurada el proceso FALLA si ninguna fuente respondió (ver main()).
+ *  - Y la auditoría del 2026-08-17 encontró que el bot había publicado 4 programas
+ *    FANTASMA que no existían en la fuente oficial, mientras 5 de 14 portales lo
+ *    bloquean con 403 y otros listan cursos ya vencidos. O sea: la extracción
+ *    automática nunca fue la parte fiable del sistema.
+ *
+ * Regla que queda: con clave configurada, el proceso FALLA si ninguna fuente respondió
+ * (ver main()), para que una caída del proveedor no vuelva a pasar inadvertida.
  *
  * Modo sin LLM: `node scripts/actualizar-cursos.mjs --solo-semilla` reconstruye
  * cursos.json desde la base curada, sin llamar a ningún modelo.
@@ -335,13 +345,10 @@ async function main() {
   if (SOLO_SEMILLA) {
     log('modo --solo-semilla: se reconstruye desde la base curada, sin llamar al modelo.');
   } else if (!TOKEN) {
-    log('⚠ falta GROQ_API_KEY: se construye SOLO desde la base curada, sin extracción automática.');
-    log('  En local: export GROQ_API_KEY=<clave>. En Actions: secreto GROQ_API_KEY.');
-    // No se aborta (el sitio debe seguir publicándose desde la base curada), pero la
-    // degradación tiene que VERSE: sin anotación, un run en verde sin extracción es
-    // indistinguible de un run sano, que es justo lo que pasó con GitHub Models.
-    anotar('warning', 'Falta el secreto GROQ_API_KEY: la oferta se publicó solo desde la ' +
-      'base curada, sin extracción automática de los portales.');
+    // Modo NORMAL del proyecto, no una degradación: la base curada es la fuente de verdad
+    // y la extracción con LLM es un extra opcional. Ver la nota de arriba sobre por qué.
+    log('modo curaduría: sin LLM configurado, se publica la base curada verificada a mano.');
+    log('  (opcional) para activar la extracción automática: secreto GROQ_API_KEY.');
   }
 
   const instituciones = JSON.parse(await readFile(RUTA_INSTITUCIONES, 'utf8'));
