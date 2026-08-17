@@ -1,6 +1,10 @@
 {
   "actualizado": "2026-08-17",
   "fuente": "semilla",
+  "ventana": [
+    "Agosto",
+    "Septiembre"
+  ],
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
     {
@@ -136,6 +140,21 @@
       "enlace": "https://www.fucsalud.edu.co/diplomados/Diplomado-Rehabilitacion-Deportiva-Readaptacion-Funcional"
     },
     {
+      "id": "loscobos-ii-congreso-internacional-cuidado-intensivo",
+      "titulo": "II Congreso Internacional de Cuidado Intensivo",
+      "institucion": "Los Cobos Medical Center",
+      "disciplina": "Fisioterapia",
+      "tema": "Rehabilitación del paciente crítico y terapia respiratoria; en alianza académica con Universidad El Bosque y Mayo Clinic",
+      "tipo": "Congreso",
+      "modalidad": "Presencial",
+      "ciudad": "Bogotá",
+      "sede": "Los Cobos Medical Center y Universidad El Bosque",
+      "mes": "Noviembre",
+      "fecha": "19 al 21 de noviembre",
+      "fechaVerificada": true,
+      "enlace": "https://www.loscobosmc.com/II-Congreso-Internacional-Cuidado-Intensivo"
+    },
+    {
       "id": "ces-fisioterapia-clinica-musculoesqueletica",
       "titulo": "Diplomado en Fisioterapia Clínica Musculoesquelética",
       "institucion": "Universidad CES",
@@ -232,6 +251,21 @@
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-terapeutico/"
     },
     {
+      "id": "unisimon-congreso-internacional-fisioterapia-ciencia-movimiento",
+      "titulo": "Congreso Internacional de Fisioterapia: 30 Años de Ciencia y Movimiento",
+      "institucion": "Universidad Simón Bolívar",
+      "disciplina": "Fisioterapia",
+      "tema": "Investigación en fisioterapia; incluye el II Encuentro Internacional de Semilleros de Investigación y el I Encuentro de Investigación Profesional en Fisioterapia",
+      "tipo": "Congreso",
+      "modalidad": "Presencial",
+      "ciudad": "Barranquilla",
+      "sede": "Teatro José Consuegra Higgins",
+      "mes": "Septiembre",
+      "fecha": "14 al 16 de septiembre",
+      "fechaVerificada": true,
+      "enlace": "https://www.unisimon.edu.co/aspirantes/educacioncontinuada"
+    },
+    {
       "id": "asofono-disfagia-practica-moderna",
       "titulo": "Disfagia en la práctica moderna: retos y soluciones basadas en evidencia",
       "institucion": "ASOFONO",
@@ -278,6 +312,21 @@
       "ciudad": "Cali",
       "mes": "Agosto",
       "enlace": "https://extensionsalud.univalle.edu.co/oferta-de-cursos-talleres-diplomados/2-uncategorised/24-escuela-de-rehabilitacion-humana"
+    },
+    {
+      "id": "unal-viii-curso-actualizacion-medicina-fisica-rehabilitacion",
+      "titulo": "VIII Curso de Actualización en Medicina Física y Rehabilitación y V Encuentro de Egresados",
+      "institucion": "Universidad Nacional de Colombia",
+      "disciplina": "Medicina Física y Rehabilitación",
+      "tema": "Evaluación funcional en rehabilitación",
+      "tipo": "Curso",
+      "modalidad": "Presencial",
+      "ciudad": "Bogotá",
+      "sede": "Hotel Wyndham, Av. La Esperanza",
+      "mes": "Agosto",
+      "fecha": "21 de agosto, 8:00 a. m. a 5:00 p. m.",
+      "fechaVerificada": true,
+      "enlace": "https://www.aexmun.org.co/viii-curso-actualizacion-en-medicina-fisica-y-rehabilitacion/"
     },
     {
       "id": "expertia-rehabilitacion-fisica-to",
