@@ -14,6 +14,23 @@ export function ordenarMeses(meses) {
   );
 }
 
+/**
+ * Parte la oferta en la vigente (meses dentro de la ventana móvil) y la futura.
+ * `ventana` la escribe el script de actualización en cursos.json; si falta (datos
+ * viejos), todo se considera vigente para no esconder programas por accidente.
+ */
+export function partirPorVentana(cursos, ventana) {
+  if (!Array.isArray(ventana) || ventana.length === 0) {
+    return { vigentes: cursos, proximos: [] };
+  }
+  const dentro = new Set(ventana);
+  const vigentes = cursos.filter((c) => dentro.has(c.mes));
+  const proximos = cursos
+    .filter((c) => !dentro.has(c.mes))
+    .sort((a, b) => ORDEN_MESES.indexOf(a.mes) - ORDEN_MESES.indexOf(b.mes));
+  return { vigentes, proximos };
+}
+
 /** Texto del rango: "Julio", "Julio y Agosto" o "Julio a Octubre". */
 export function rangoMeses(meses) {
   const o = ordenarMeses(meses);
