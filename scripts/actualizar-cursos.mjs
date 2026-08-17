@@ -67,6 +67,12 @@ const hoy = new Date().toISOString().slice(0, 10);
 
 function log(...a) { console.log('[actualizar]', ...a); }
 
+/** Anotación de GitHub Actions: aparece en el resumen del run, no solo en el log crudo.
+ *  Fuera de Actions no estorba (se ve como una línea más). */
+function anotar(nivel, mensaje) {
+  console.log(`::${nivel}::${mensaje}`);
+}
+
 function slug(texto) {
   return texto
     .toLowerCase()
@@ -317,6 +323,11 @@ async function main() {
   } else if (!TOKEN) {
     log('⚠ falta GEMINI_API_KEY: se construye SOLO desde la base curada, sin extracción automática.');
     log('  En local: export GEMINI_API_KEY=<clave>. En Actions: secreto GEMINI_API_KEY.');
+    // No se aborta (el sitio debe seguir publicándose desde la base curada), pero la
+    // degradación tiene que VERSE: sin anotación, un run en verde sin extracción es
+    // indistinguible de un run sano, que es justo lo que pasó con GitHub Models.
+    anotar('warning', 'Falta el secreto GEMINI_API_KEY: la oferta se publicó solo desde la ' +
+      'base curada, sin extracción automática de los portales.');
   }
 
   const instituciones = JSON.parse(await readFile(RUTA_INSTITUCIONES, 'utf8'));
@@ -343,6 +354,8 @@ async function main() {
   // inferencia está caído o la clave no sirve. Antes esto salía en verde y el sitio se
   // quedaba congelado en silencio durante días; ahora el workflow debe fallar en rojo.
   if (conLlm && fuentesOk === 0) {
+    anotar('error', `Ninguna de las ${instituciones.length} fuentes respondió: la extracción ` +
+      `automática está caída. Revisa GEMINI_API_KEY, la cuota y el modelo (${MODELO}).`);
     console.error(`ERROR: ninguna de las ${instituciones.length} fuentes respondió. ` +
       'Revisa GEMINI_API_KEY, la cuota del nivel gratuito y el nombre del modelo ' +
       `(${MODELO}). No se reescribió cursos.json.`);
