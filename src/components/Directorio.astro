@@ -1,17 +1,23 @@
 ---
 import data from '../data/cursos.json';
-import { ordenarMeses, rangoMeses } from '../utils/meses.js';
-const { cursos, actualizado, fuente } = data;
+import { ordenarMeses, rangoMeses, partirPorVentana } from '../utils/meses.js';
+const { cursos, actualizado, fuente, ventana } = data;
 
-const disciplinas = [...new Set(cursos.map((c) => c.disciplina))].sort();
-const modalidades = [...new Set(cursos.map((c) => c.modalidad))].sort();
-const meses = ordenarMeses(cursos.map((c) => c.mes));
-const rango = rangoMeses(cursos.map((c) => c.mes));
+// La oferta se parte en dos: la vigente (dentro de la ventana móvil de meses) y la
+// futura, que va a "Próximamente". Sin esta separación un congreso de noviembre
+// estiraría el título del directorio a "Agosto a Noviembre" y ensuciaría los filtros.
+const { vigentes, proximos } = partirPorVentana(cursos, ventana);
+
+const disciplinas = [...new Set(vigentes.map((c) => c.disciplina))].sort();
+const modalidades = [...new Set(vigentes.map((c) => c.modalidad))].sort();
+const meses = ordenarMeses(vigentes.map((c) => c.mes));
+const rango = rangoMeses(vigentes.map((c) => c.mes));
 
 const colorDisciplina = {
   'Fisioterapia': '#2f6df0',
   'Fonoaudiología': '#19b58a',
   'Terapia Ocupacional': '#ff7a3c',
+  'Medicina Física y Rehabilitación': '#b06ae8',
 };
 
 const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO', {
@@ -74,7 +80,7 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
     <p class="dir__contador" id="dir-contador"></p>
 
     <div class="dir__grid" id="dir-grid">
-      {cursos.map((c) => (
+      {vigentes.map((c) => (
         <article
           class="curso"
           data-disciplina={c.disciplina}
@@ -91,8 +97,11 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
           <p class="curso__institucion">{c.institucion}</p>
           <ul class="curso__meta">
             <li class="curso__disciplina">{c.disciplina}</li>
-            <li><span aria-hidden="true">📍</span> {c.ciudad}</li>
-            <li><span aria-hidden="true">🗓️</span> {c.mes}</li>
+            <li><span aria-hidden="true">📍</span> {c.sede ? `${c.ciudad} — ${c.sede}` : c.ciudad}</li>
+            <li>
+              <span aria-hidden="true">🗓️</span> {c.fecha ?? c.mes}
+              {c.fechaVerificada && <span class="curso__confirmada">fecha confirmada</span>}
+            </li>
           </ul>
           <a
             class="curso__cta"
@@ -109,6 +118,54 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
     <p class="dir__vacio" id="dir-vacio" hidden>No hay programas que coincidan con los filtros seleccionados.</p>
   </div>
 </section>
+
+{proximos.length > 0 && (
+  <section class="seccion seccion--proximos" id="proximamente">
+    <div class="contenedor">
+      <span class="seccion__eyebrow">Próximamente</span>
+      <h2 class="seccion__titulo prox__titulo">Agenda más adelante</h2>
+      <p class="seccion__intro">
+        Eventos con fecha confirmada que caen después del periodo vigente. Se suman al
+        directorio de arriba cuando llegue su mes; entretanto quedan aquí para que puedas
+        planear e inscribirte con tiempo.
+      </p>
+
+      <div class="dir__grid prox__grid">
+        {proximos.map((c) => (
+          <article
+            class="curso curso--prox"
+            style={`--acento:${colorDisciplina[c.disciplina] ?? 'var(--azul)'}`}
+          >
+            <div class="curso__top">
+              <span class="curso__tag curso__tag--tipo">{c.tipo}</span>
+              <span class="curso__tag curso__tag--mod">{c.modalidad}</span>
+              <span class="curso__tag curso__tag--mes">{c.mes}</span>
+            </div>
+            <h3 class="curso__titulo">{c.titulo}</h3>
+            <p class="curso__institucion">{c.institucion}</p>
+            <ul class="curso__meta">
+              <li class="curso__disciplina">{c.disciplina}</li>
+              <li><span aria-hidden="true">📍</span> {c.sede ? `${c.ciudad} — ${c.sede}` : c.ciudad}</li>
+              <li>
+                <span aria-hidden="true">🗓️</span> {c.fecha ?? c.mes}
+                {c.fechaVerificada && <span class="curso__confirmada">fecha confirmada</span>}
+              </li>
+            </ul>
+            <a
+              class="curso__cta"
+              href={c.enlace}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${c.titulo} — abre el sitio oficial en una pestaña nueva`}
+            >
+              Ver en sitio oficial <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
 
 <script>
   const filtros = { disciplina: 'todas', modalidad: 'todas', mes: 'todas' };
@@ -298,6 +355,28 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
     flex: 1;
   }
   .curso__disciplina { color: var(--tinta); font-weight: 800; }
+  /* Distingue una fecha confirmada en la fuente oficial de un mes estimado: el resto del
+     directorio trae meses aproximados y el aviso pide verificar, así que marcar lo que sí
+     está confirmado evita que el usuario tenga que dudar de todo por igual. */
+  .curso__confirmada {
+    display: inline-block;
+    margin-left: 0.35rem;
+    padding: 0.1rem 0.4rem;
+    border: 2px solid var(--tinta);
+    background: var(--acento);
+    color: var(--tinta);
+    font-size: 0.68rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  /* --- Próximamente --- */
+  .seccion--proximos { border-top: var(--borde-grueso); }
+  .prox__titulo { font-size: clamp(1.5rem, 3.2vw, 2.2rem); }
+  .curso__tag--mes { background: var(--tinta); color: var(--papel); }
+  .curso--prox { box-shadow: var(--sombra-dura-sm); }
+  .curso--prox:hover { box-shadow: 7px 7px 0 var(--acento); }
   .curso__cta {
     align-self: flex-start;
     margin-top: auto;

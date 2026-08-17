@@ -2,11 +2,20 @@
 /**
  * Actualiza src/data/cursos.json a partir de los portales oficiales de las instituciones.
  *
- * Usa GitHub Models (inferencia LLM GRATUITA para cuentas personales) para extraer la
- * oferta de educación continua de cada sitio y normalizarla a JSON estricto.
+ * Usa la API de Google Gemini (nivel gratuito) para extraer la oferta de educación
+ * continua de cada sitio y normalizarla a JSON estricto.
  *
- * Requiere la variable de entorno GITHUB_TOKEN (en GitHub Actions se inyecta sola con
- * el permiso `models: read`). No usa ninguna API de pago.
+ * Requiere la variable de entorno GEMINI_API_KEY (en GitHub Actions, el secreto del
+ * mismo nombre). No usa ninguna API de pago.
+ *
+ * Antes usaba GitHub Models con el GITHUB_TOKEN, que no requería secretos. Ese
+ * servicio se retiró (HTTP 410 `github_models_retirement_brownout`) y durante días la
+ * extracción devolvió 0 hallazgos mientras el workflow seguía en verde. De ahí dos
+ * reglas nuevas: sin clave se construye SOLO desde la base curada avisándolo, y con
+ * clave configurada el proceso FALLA si ninguna fuente respondió (ver main()).
+ *
+ * Modo sin LLM: `node scripts/actualizar-cursos.mjs --solo-semilla` reconstruye
+ * cursos.json desde la base curada, sin llamar a ningún modelo.
  *
  * Cada institución en instituciones.json puede traer:
  *   - url:  string  (una sola página), o
@@ -27,13 +36,15 @@ const RUTA_INSTITUCIONES = join(RAIZ, 'src', 'data', 'instituciones.json');
 const RUTA_SEMILLA = join(RAIZ, 'src', 'data', 'cursos.semilla.json');
 const RUTA_CURSOS = join(RAIZ, 'src', 'data', 'cursos.json');
 
-const MODELS_ENDPOINT = 'https://models.github.ai/inference/chat/completions';
-const MODELO = process.env.GH_MODEL || 'openai/gpt-4o-mini';
-const TOKEN = process.env.GITHUB_TOKEN;
+const MODELO = process.env.GEMINI_MODEL || 'gemini-2.5-flash-lite';
+const MODELS_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${MODELO}:generateContent`;
+const TOKEN = process.env.GEMINI_API_KEY;
+const SOLO_SEMILLA = process.argv.includes('--solo-semilla');
 
-const DISCIPLINAS = ['Fisioterapia', 'Fonoaudiología', 'Terapia Ocupacional'];
+const DISCIPLINAS = ['Fisioterapia', 'Fonoaudiología', 'Terapia Ocupacional',
+  'Medicina Física y Rehabilitación'];
 const MODALIDADES = ['Virtual', 'Híbrida', 'Presencial'];
-const TIPOS = ['Curso', 'Diplomado', 'Especialización', 'Seminario'];
+const TIPOS = ['Curso', 'Diplomado', 'Especialización', 'Seminario', 'Congreso'];
 
 // Ventana de meses MÓVIL: mes actual + siguiente (según la fecha de ejecución).
 // Así la oferta y el texto del sitio avanzan con el calendario, sin "julio y agosto" fijo.
@@ -55,6 +66,12 @@ const PALABRAS_CLAVE = [
 const hoy = new Date().toISOString().slice(0, 10);
 
 function log(...a) { console.log('[actualizar]', ...a); }
+
+/** Anotación de GitHub Actions: aparece en el resumen del run, no solo en el log crudo.
+ *  Fuera de Actions no estorba (se ve como una línea más). */
+function anotar(nivel, mensaje) {
+  console.log(`::${nivel}::${mensaje}`);
+}
 
 function slug(texto) {
   return texto
@@ -208,9 +225,33 @@ async function recopilarTexto(inst) {
   return enfocar(partes.join('\n'));
 }
 
-/** Pide a GitHub Models que extraiga la oferta del texto del sitio. */
+/** Esquema que Gemini debe respetar al devolver la oferta (structured output). */
+const ESQUEMA_RESPUESTA = {
+  type: 'OBJECT',
+  properties: {
+    cursos: {
+      type: 'ARRAY',
+      items: {
+        type: 'OBJECT',
+        properties: {
+          titulo: { type: 'STRING' },
+          disciplina: { type: 'STRING', enum: DISCIPLINAS },
+          tema: { type: 'STRING' },
+          tipo: { type: 'STRING', enum: TIPOS },
+          modalidad: { type: 'STRING', enum: MODALIDADES },
+          ciudad: { type: 'STRING' },
+          mes: { type: 'STRING', enum: MESES },
+        },
+        required: ['titulo', 'disciplina', 'tipo', 'modalidad', 'ciudad', 'mes'],
+      },
+    },
+  },
+  required: ['cursos'],
+};
+
+/** Pide a Gemini que extraiga la oferta del texto del sitio. */
 async function extraer(institucion, texto) {
-  const sistema = `Eres un asistente que extrae oferta de educación continua en rehabilitación humana (Fisioterapia, Fonoaudiología, Terapia Ocupacional) en Colombia para los meses de ${MESES[0]} y ${MESES[1]}.
+  const sistema = `Eres un asistente que extrae oferta de educación continua en rehabilitación humana (Fisioterapia, Fonoaudiología, Terapia Ocupacional, Medicina Física y Rehabilitación) en Colombia para los meses de ${MESES[0]} y ${MESES[1]}.
 Devuelve EXCLUSIVAMENTE un objeto JSON con la forma {"cursos": [...]}. Cada curso:
 - titulo (string)
 - disciplina (uno de: ${DISCIPLINAS.join(', ')})
@@ -226,27 +267,26 @@ Reglas: solo programas reales que aparezcan en el texto y que sean de fisioterap
   const res = await fetch(MODELS_ENDPOINT, {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${TOKEN}`,
+      'x-goog-api-key': TOKEN,
       'Content-Type': 'application/json',
-      'Accept': 'application/json',
     },
     body: JSON.stringify({
-      model: MODELO,
-      temperature: 0.1,
-      response_format: { type: 'json_object' },
-      messages: [
-        { role: 'system', content: sistema },
-        { role: 'user', content: usuario },
-      ],
+      systemInstruction: { parts: [{ text: sistema }] },
+      contents: [{ role: 'user', parts: [{ text: usuario }] }],
+      generationConfig: {
+        temperature: 0.1,
+        responseMimeType: 'application/json',
+        responseSchema: ESQUEMA_RESPUESTA,
+      },
     }),
   });
 
   if (!res.ok) {
     const detalle = await res.text().catch(() => '');
-    throw new Error(`Models HTTP ${res.status} ${detalle.slice(0, 200)}`);
+    throw new Error(`Gemini HTTP ${res.status} ${detalle.slice(0, 200)}`);
   }
   const data = await res.json();
-  const contenido = data?.choices?.[0]?.message?.content ?? '{}';
+  const contenido = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? '{}';
   const parsed = JSON.parse(contenido);
   return Array.isArray(parsed?.cursos) ? parsed.cursos : [];
 }
@@ -277,16 +317,25 @@ function normalizar(crudo, institucion) {
 }
 
 async function main() {
-  if (!TOKEN) {
-    console.error('ERROR: falta GITHUB_TOKEN. En local: export GITHUB_TOKEN=<token con models:read>.');
-    process.exit(1);
+  const conLlm = !SOLO_SEMILLA && Boolean(TOKEN);
+  if (SOLO_SEMILLA) {
+    log('modo --solo-semilla: se reconstruye desde la base curada, sin llamar al modelo.');
+  } else if (!TOKEN) {
+    log('⚠ falta GEMINI_API_KEY: se construye SOLO desde la base curada, sin extracción automática.');
+    log('  En local: export GEMINI_API_KEY=<clave>. En Actions: secreto GEMINI_API_KEY.');
+    // No se aborta (el sitio debe seguir publicándose desde la base curada), pero la
+    // degradación tiene que VERSE: sin anotación, un run en verde sin extracción es
+    // indistinguible de un run sano, que es justo lo que pasó con GitHub Models.
+    anotar('warning', 'Falta el secreto GEMINI_API_KEY: la oferta se publicó solo desde la ' +
+      'base curada, sin extracción automática de los portales.');
   }
 
   const instituciones = JSON.parse(await readFile(RUTA_INSTITUCIONES, 'utf8'));
   const semilla = JSON.parse(await readFile(RUTA_SEMILLA, 'utf8'));
 
   const recolectados = [];
-  for (const inst of instituciones) {
+  let fuentesOk = 0;      // fuentes que respondieron sin error (aunque den 0 programas)
+  for (const inst of conLlm ? instituciones : []) {
     try {
       log(`→ ${inst.nombre}`);
       const texto = await recopilarTexto(inst);
@@ -294,10 +343,23 @@ async function main() {
       const crudos = await extraer(inst, texto);
       const validos = crudos.map((c) => normalizar(c, inst)).filter(Boolean);
       log(`  ${validos.length} programa(s)`);
+      fuentesOk++;
       recolectados.push(...validos);
     } catch (e) {
       log(`  ⚠ ${inst.nombre}: ${e.message}`);
     }
+  }
+
+  // Alarma: si hay clave configurada y NINGUNA fuente respondió, el proveedor de
+  // inferencia está caído o la clave no sirve. Antes esto salía en verde y el sitio se
+  // quedaba congelado en silencio durante días; ahora el workflow debe fallar en rojo.
+  if (conLlm && fuentesOk === 0) {
+    anotar('error', `Ninguna de las ${instituciones.length} fuentes respondió: la extracción ` +
+      `automática está caída. Revisa GEMINI_API_KEY, la cuota y el modelo (${MODELO}).`);
+    console.error(`ERROR: ninguna de las ${instituciones.length} fuentes respondió. ` +
+      'Revisa GEMINI_API_KEY, la cuota del nivel gratuito y el nombre del modelo ' +
+      `(${MODELO}). No se reescribió cursos.json.`);
+    process.exit(1);
   }
 
   // Fusión: la base curada (semilla) es el piso; los hallazgos automáticos se suman
@@ -308,10 +370,17 @@ async function main() {
   // para colapsar variantes del mismo programa y no truncar títulos de nombres largos.
   const clave = (c) => `${slug(c.institucion)}__${claveTitulo(c.titulo)}`;
   const porClave = new Map();
-  // La base curada se re-estampa a la ventana de meses vigente (sus meses eran
-  // estimaciones, no fechas verificadas), para que el directorio sea siempre coherente
-  // con el periodo actual. El aviso del sitio recuerda verificar fechas en la fuente.
-  semilla.forEach((c, i) => porClave.set(clave(c), { ...c, mes: MESES[i % MESES.length] }));
+  // Re-estampado de meses en la base curada: SOLO para las entradas cuyo mes es una
+  // estimación (sin `fechaVerificada`), para que el directorio siga siendo coherente con
+  // el periodo vigente. Las entradas con fecha verificada conservan su mes intacto: son
+  // eventos con día y sede confirmados en la fuente oficial y re-estamparlos publicaría
+  // una fecha falsa. Antes se re-estampaba TODO por paridad de índice (MESES[i % 2]),
+  // lo que le habría cambiado el mes a un congreso con fecha real.
+  let estimadas = 0;
+  for (const c of semilla) {
+    const mes = c.fechaVerificada ? c.mes : MESES[estimadas++ % MESES.length];
+    porClave.set(clave(c), { ...c, mes });
+  }
   for (const c of recolectados) {                       // enriquecer con lo nuevo
     if (!porClave.has(clave(c))) porClave.set(clave(c), c);
   }
@@ -321,12 +390,18 @@ async function main() {
   const salida = {
     actualizado: hoy,
     fuente: huboHallazgos ? 'automatico' : 'semilla',
+    // Ventana vigente explícita: la página la usa para separar la oferta actual de la
+    // sección "Próximamente" y para el título. No se deduce de los datos, porque los
+    // eventos futuros traen meses fuera de la ventana a propósito.
+    ventana: MESES,
     nota: 'Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.',
     cursos: cursos.sort((a, b) => a.disciplina.localeCompare(b.disciplina, 'es') || a.institucion.localeCompare(b.institucion, 'es')),
   };
 
   await writeFile(RUTA_CURSOS, JSON.stringify(salida, null, 2) + '\n', 'utf8');
+  const verificadas = cursos.filter((c) => c.fechaVerificada).length;
   log(`✓ Escrito cursos.json: ${cursos.length} programas (${semilla.length} base + ${recolectados.length} hallazgos automáticos antes de deduplicar).`);
+  log(`  ventana ${MESES.join(' + ')} · ${verificadas} con fecha verificada (no re-estampada) · ${fuentesOk}/${instituciones.length} fuentes respondieron.`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
