@@ -13,9 +13,10 @@ etc.) y **proponer una institución** para que sea barrida por la automatizació
 
 - `src/data/cursos.semilla.json` → **base curada editable a mano**. Es el *piso* que nunca se
   borra y que tú controlas. **Aquí van las contribuciones manuales.**
-- `src/data/cursos.json` → archivo **GENERADO**. Cada semana la automatización (GitHub
-  Actions + GitHub Models) lo reconstruye combinando la semilla con los hallazgos
-  automáticos. **No lo edites a mano**: tus cambios se sobrescriben.
+- `src/data/cursos.json` → archivo **GENERADO**. Cada día la automatización (GitHub
+  Actions + API de Gemini) lo reconstruye combinando la semilla con los hallazgos
+  automáticos. **No lo edites a mano**: tus cambios se sobrescriben. Tras editar la semilla,
+  regenéralo con `npm run actualizar:semilla`.
 - `src/data/instituciones.json` → lista de instituciones y sus URL oficiales que la
   automatización barre en busca de oferta nueva.
 
@@ -49,19 +50,40 @@ Convenciones de cada campo:
 | `id` | minúsculas, sin tildes ni espacios, con guiones; **único** en el archivo. Sugerido: `institucion-tema`. |
 | `titulo` | nombre oficial tal como lo publica la institución. |
 | `institucion` | debe coincidir con un `nombre` de `instituciones.json` cuando aplique. |
-| `disciplina` | una de: `Fisioterapia`, `Fonoaudiología`, `Terapia Ocupacional`. |
+| `disciplina` | una de: `Fisioterapia`, `Fonoaudiología`, `Terapia Ocupacional`, `Medicina Física y Rehabilitación`. |
 | `tema` | descripción corta del área (p. ej. "Suelo pélvico", "Dolor"). |
-| `tipo` | `Curso`, `Diplomado`, `Seminario`, `Taller`, etc. |
+| `tipo` | `Curso`, `Diplomado`, `Especialización`, `Seminario`, `Congreso`. |
 | `modalidad` | `Presencial`, `Virtual` o `Híbrida`. |
 | `ciudad` | ciudad sede (o `Virtual`). |
 | `mes` | mes de inicio en español con mayúscula inicial (p. ej. `Julio`). |
 | `enlace` | URL **oficial** y vigente de la institución (no acortadores). |
 
+### Campos opcionales para eventos con fecha real
+
+Congresos, seminarios y cursos de uno o pocos días suelen traer día y sede confirmados. En
+ese caso agrega:
+
+| Campo | Regla |
+|-------|-------|
+| `fecha` | texto exacto que reemplaza al mes en la tarjeta: `"14 al 16 de septiembre"`, `"21 de agosto, 8:00 a. m. a 5:00 p. m."`. |
+| `fechaVerificada` | `true` **solo** si confirmaste la fecha en la fuente oficial (no en una publicación de redes sociales). Protege el `mes` del re-estampado automático y muestra la insignia "fecha confirmada". |
+| `sede` | lugar concreto: `"Teatro José Consuegra Higgins"`. Se muestra junto a la ciudad. |
+
+> Un `mes` fuera de la ventana vigente (mes actual + siguiente) **no** se pierde: la entrada
+> sale en la sección **"Próximamente"** y entra al directorio cuando llegue su mes. Así se
+> puede registrar hoy un congreso de noviembre.
+>
+> Sin `fechaVerificada`, el `mes` se considera una estimación y la automatización lo
+> re-estampa a la ventana vigente. Ponerlo en un evento cuya fecha no comprobaste haría que
+> el sitio publique una fecha falsa.
+
 Antes de abrir el PR:
 
 - [ ] El `id` no está repetido.
 - [ ] El `enlace` abre y corresponde a la oferta.
-- [ ] `disciplina` y `modalidad` usan exactamente los valores permitidos.
+- [ ] `disciplina`, `tipo` y `modalidad` usan exactamente los valores permitidos.
+- [ ] Si usas `fechaVerificada: true`, la fecha sale de la **fuente oficial**, y `mes`
+      coincide con el mes de `fecha`.
 - [ ] El JSON es válido (sin comas colgantes). Puedes verificar con
       `node -e "require('./src/data/cursos.semilla.json')"`.
 
@@ -82,7 +104,7 @@ Edita `src/data/instituciones.json` para que la automatización empiece a barrer
 
 - `url` debe ser la **página oficial de educación continua** (donde realmente se lista la
   oferta), no la home de la universidad.
-- `disciplinas` solo las que la institución ofrece, dentro de las tres del directorio.
+- `disciplinas` solo las que la institución ofrece, dentro de las cuatro del directorio.
 
 ---
 
@@ -92,7 +114,8 @@ Edita `src/data/instituciones.json` para que la automatización empiece a barrer
 git checkout -b aporte/nueva-oferta-ces
 # edita src/data/cursos.semilla.json o instituciones.json
 npm install
-npm run build        # debe compilar sin errores
+npm run actualizar:semilla   # regenera cursos.json desde la semilla (sin LLM)
+npm run build                # debe compilar sin errores
 git commit -am "data: agrega <curso/institución>"
 git push -u origin aporte/nueva-oferta-ces
 ```

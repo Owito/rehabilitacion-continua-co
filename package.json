@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "actualizar": "node scripts/actualizar-cursos.mjs"
+    "actualizar": "node scripts/actualizar-cursos.mjs",
+    "actualizar:semilla": "node scripts/actualizar-cursos.mjs --solo-semilla"
   },
   "dependencies": {
     "astro": "^5.6.1",
