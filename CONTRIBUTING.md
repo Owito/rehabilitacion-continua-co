@@ -77,6 +77,26 @@ ese caso agrega:
 > re-estampa a la ventana vigente. Ponerlo en un evento cuya fecha no comprobaste haría que
 > el sitio publique una fecha falsa.
 
+### Estado de verificación de existencia
+
+`fechaVerificada` responde *"¿la fecha es real?"*. `verificacion` responde otra pregunta
+distinta: *"¿el programa aparece de verdad en la página que enlaza?"*.
+
+| Valor | Significado |
+|-------|-------------|
+| `verificado` | Se abrió el `enlace` y el programa está listado ahí. Es el valor por defecto que debe tener toda entrada nueva. |
+| `bloqueado` | El sitio responde 403 al bot y no se pudo comprobar automáticamente. |
+| `no-verificable` | La oferta no está publicada en HTML legible (PDF o imagen escaneada), o la página enlazada es genérica y no lista el programa. |
+
+Acompáñalo de `verificadoEl` con la fecha de la comprobación (`YYYY-MM-DD`).
+
+> **Por qué existe este campo.** En la auditoría del 2026-08-17 aparecieron **4 programas
+> fantasma**: estaban en el directorio pero no en la página oficial que enlazaban (uno de
+> ECR, uno de UDES, uno de ASOFONO y uno de Forafis). Para un directorio del sector salud eso
+> es lo peor que puede pasar, así que ahora el estado queda explícito y auditable en los datos.
+> Los hallazgos automáticos se marcan `verificado` por construcción: se extraen del texto de
+> la propia página oficial.
+
 Antes de abrir el PR:
 
 - [ ] El `id` no está repetido.

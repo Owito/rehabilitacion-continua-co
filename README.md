@@ -121,6 +121,8 @@ npm run actualizar:semilla
   | `fecha` | Texto exacto que se muestra en la tarjeta en lugar del mes (`"14 al 16 de septiembre"`). |
   | `fechaVerificada` | `true` protege el `mes` del re-estampado y pinta la insignia "fecha confirmada". **Úsalo solo con fecha comprobada en la fuente oficial.** |
   | `sede` | Lugar concreto, se muestra junto a la ciudad (`"Teatro José Consuegra Higgins"`). |
+  | `verificacion` | `verificado` / `bloqueado` / `no-verificable`: si el programa se pudo comprobar en la página que enlaza. Ver CONTRIBUTING. |
+  | `verificadoEl` | Fecha de esa comprobación (`YYYY-MM-DD`). |
 
   Si el `mes` cae fuera de la ventana vigente, la entrada aparece en **"Próximamente"**.
 - **Colores/estilo**: variables CSS (tema neo-brutalista) en `src/layouts/Layout.astro`.
@@ -140,3 +142,9 @@ con el formato exacto de cada campo y el checklist de calidad en
   incompletos); esos quedan cubiertos por la base curada.
 - Sector salud: el sitio **siempre enlaza a la fuente oficial** y nunca afirma fechas, costos
   ni cupos sin verificación. Los meses son indicativos del periodo vigente.
+- **Auditoría de existencia (2026-08-17):** se comprobaron las 32 entradas contra la página
+  que enlazan. Se eliminaron **4 programas fantasma** (no estaban en la fuente oficial) y se
+  reemplazaron por programas reales vistos en esas mismas páginas; se corrigieron 7 títulos
+  que no calcaban el nombre oficial. Estado actual: **25 verificados**, 5 `bloqueado` (el
+  sitio responde 403) y 2 `no-verificable`. El campo `verificacion` de cada entrada lo
+  registra, así que la próxima auditoría no empieza de cero.

@@ -312,6 +312,11 @@ function normalizar(crudo, institucion) {
     modalidad: MODALIDADES.includes(crudo.modalidad) ? crudo.modalidad : 'Virtual',
     ciudad: typeof crudo.ciudad === 'string' && crudo.ciudad.trim() ? crudo.ciudad.trim() : institucion.ciudad,
     mes: MESES.includes(crudo.mes) ? crudo.mes : MESES[0],
+    // Un hallazgo automático se extrajo del texto de la propia página oficial, así que su
+    // existencia está comprobada por construcción. En la base curada, en cambio, el estado
+    // se estampa a mano tras auditar (ver `verificacion` en CONTRIBUTING).
+    verificacion: 'verificado',
+    verificadoEl: hoy,
     enlace,
   };
 }
