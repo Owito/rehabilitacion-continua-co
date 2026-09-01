@@ -1,9 +1,9 @@
 {
-  "actualizado": "2026-08-31",
+  "actualizado": "2026-09-01",
   "fuente": "semilla",
   "ventana": [
-    "Agosto",
-    "Septiembre"
+    "Septiembre",
+    "Octubre"
   ],
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -80,7 +80,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Septiembre",
+      "mes": "Octubre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://forafis.com/curso/curso-tecncias-invasivas-aplicadas-al-suelo-pelvico/"
@@ -110,7 +110,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.fundacionideal.org.co/curso/curso-introductorio-terapia-de-neurodesarrollo-bobath-ndta"
@@ -124,7 +124,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.fundacionideal.org.co/curso/curso-introductorio-en-terapia-acuatica-international-aquatic-therapy-faculty-iatf"
@@ -138,7 +138,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Septiembre",
+      "mes": "Octubre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.fucsalud.edu.co/diplomados/Diplomado-Fisioterapia-pelvi-perineal"
@@ -152,7 +152,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.fucsalud.edu.co/diplomados/Diplomado-intervencion-fisioterapeutica-paliativa-en-cancer"
@@ -166,7 +166,7 @@
       "tipo": "Diplomado",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Septiembre",
+      "mes": "Octubre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.fucsalud.edu.co/diplomados/Diplomado-Rehabilitacion-musculo-esqueletica-Miembro-Superior"
@@ -180,7 +180,7 @@
       "tipo": "Diplomado",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "bloqueado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.fucsalud.edu.co/diplomados/Diplomado-Rehabilitacion-Deportiva-Readaptacion-Funcional"
@@ -211,7 +211,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Medellín",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.ces.edu.co/educacion-continua/diplomado/diplomado-en-fisioterapia-clinica-musculoesqueletica/"
@@ -324,7 +324,7 @@
       "tipo": "Diplomado",
       "modalidad": "Presencial",
       "ciudad": "Bucaramanga",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://udes.edu.co/estudia/educacion-continua"
@@ -338,7 +338,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "bloqueado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://umb.edu.co/programa/diplomado-en-neurorrehabilitacion-en-pediatria/"
@@ -352,7 +352,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
-      "mes": "Septiembre",
+      "mes": "Octubre",
       "verificacion": "bloqueado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-fisioterapeutico-y-alternativo-de-la-salud-mental/"
@@ -366,7 +366,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "bloqueado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-terapeutico/"
@@ -397,7 +397,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Septiembre",
+      "mes": "Octubre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://asofono.co/productos/diplomado-fonoaudiologia-para-el-peritaje-forense/"
@@ -411,7 +411,7 @@
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Septiembre",
+      "mes": "Octubre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://asofono.co/cursos-de-actualizacion/"
@@ -425,7 +425,7 @@
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://asofono.co/cursos-de-actualizacion/"
@@ -439,7 +439,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Septiembre",
+      "mes": "Octubre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.fundacionideal.org.co/curso/curso-intensivo-de-intervencion-en-disfagia-y-neurodesarrollo"
@@ -453,7 +453,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Septiembre",
+      "mes": "Octubre",
       "verificacion": "no-verificable",
       "verificadoEl": "2026-08-17",
       "enlace": "https://extensionsalud.univalle.edu.co/oferta-de-cursos-talleres-diplomados/2-uncategorised/24-escuela-de-rehabilitacion-humana"
@@ -484,7 +484,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://academiaexpertia.com/producto/diplomado-en-rehabilitacion-fisica-y-terapia-ocupacional/"
@@ -498,7 +498,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Septiembre",
+      "mes": "Octubre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://ecr.edu.co/diplomados"
@@ -512,7 +512,7 @@
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
-      "mes": "Agosto",
+      "mes": "Septiembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://ecr.edu.co/diplomados"
@@ -526,7 +526,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Septiembre",
+      "mes": "Octubre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.fucsalud.edu.co/diplomados/abordaje-rehabilitacion-integral-pediatria"
@@ -540,7 +540,7 @@
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Septiembre",
+      "mes": "Octubre",
       "verificacion": "bloqueado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.handtherapyacademy.com/"
