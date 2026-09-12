@@ -64,8 +64,13 @@ porque varios portales no exponen enlaces en el HTML) está en **`CONTRIBUTING.m
 **La ventana de meses es móvil** (mes actual + siguiente, según la fecha de ejecución). El H1,
 el `<title>` y los chips de mes se **derivan de los datos**; nunca hardcodear meses.
 `cursos.json` incluye `ventana` explícita y `utils/meses.js` (`partirPorVentana`) la usa para
-separar la oferta vigente de la sección "Próximamente". Un programa con mes fuera de la
+separar la oferta vigente de la sección "Próximamente". Un programa con mes posterior a la
 ventana **no se pierde**: aparece en "Próximamente" y entra al directorio cuando llegue su mes.
+Un mes **anterior** a la ventana es una fecha ya pasada: `partirPorVentana` lo devuelve en
+`pasados`, la página no lo pinta y el build lo lista en consola (`actualizar-cursos.mjs`
+además emite `::warning::`). Antes todo lo de fuera iba a "Próximamente" y una cohorte de
+agosto seguía anunciada como futura en septiembre. La distancia se mide desde el primer mes
+de la ventana con vuelta de año: hasta 6 meses por delante es futuro, más allá es pasado.
 
 **Dos campos distintos que es fácil confundir:**
 
@@ -93,7 +98,10 @@ es un diplomado.
 
 `.github/workflows/`:
 - **`deploy.yml`** — build + deploy a Pages en cada push a `main` y por `workflow_dispatch`.
-- **`actualizar.yml`** — cron diario 11:00 UTC (6 AM Colombia) + manual.
+- **`actualizar.yml`** — cron diario 11:17 UTC (6:17 AM Colombia) + manual. Minuto fuera de
+  la hora en punto a propósito: a las :00 GitHub encola el run con el resto del mundo y en
+  septiembre de 2026 llegaba con 2,5 a 10 horas de retraso. **Solo commitea y despliega si
+  cambió la oferta** (`git diff -I '"actualizado":'`): la fecha de ejecución sola no cuenta.
 
 Dos cosas que cambian cómo se trabaja aquí:
 

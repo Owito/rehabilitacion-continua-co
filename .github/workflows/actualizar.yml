@@ -2,8 +2,10 @@ name: Actualizar oferta (diaria)
 
 on:
   schedule:
-    # Todos los días 11:00 UTC = 6:00 AM hora Colombia (UTC-5)
-    - cron: '0 11 * * *'
+    # Todos los días 11:17 UTC = 6:17 AM hora Colombia (UTC-5).
+    # Minuto fuera de la hora en punto: GitHub encola los cron de las :00 con el resto del
+    # mundo y entre el 27-ago y el 11-sep de 2026 este run llegó entre 2,5 y 10 horas tarde.
+    - cron: '17 11 * * *'
   workflow_dispatch: # permite ejecutarlo manualmente desde la pestaña Actions
 
 permissions:
@@ -35,7 +37,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          if [[ -n "$(git status --porcelain src/data/cursos.json)" ]]; then
+          # Solo se commitea si cambió la OFERTA (programas, meses, ventana). La línea
+          # "actualizado" cambia todos los días por definición y sola no justifica un
+          # commit ni un deploy: entre el 18-ago y el 11-sep de 2026 hubo 25 commits y 25
+          # deploys que no cambiaban nada más que esa fecha.
+          if ! git diff --quiet -I '"actualizado":' -- src/data/cursos.json; then
             git add src/data/cursos.json
             git commit -m "chore: actualización automática diaria de la oferta"
             git push
@@ -44,5 +50,6 @@ jobs:
             gh workflow run deploy.yml --ref main
             echo "Cambios commiteados y deploy disparado."
           else
-            echo "Sin cambios en la oferta hoy."
+            git checkout -- src/data/cursos.json
+            echo "Sin cambios en la oferta hoy (solo la fecha de ejecución)."
           fi
