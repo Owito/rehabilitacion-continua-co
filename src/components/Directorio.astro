@@ -6,7 +6,13 @@ const { cursos, actualizado, fuente, ventana } = data;
 // La oferta se parte en dos: la vigente (dentro de la ventana móvil de meses) y la
 // futura, que va a "Próximamente". Sin esta separación un congreso de noviembre
 // estiraría el título del directorio a "Agosto a Noviembre" y ensuciaría los filtros.
-const { vigentes, proximos } = partirPorVentana(cursos, ventana);
+const { vigentes, proximos, pasados } = partirPorVentana(cursos, ventana);
+// Lo vencido no se pinta, pero tampoco se calla: el build lo lista para que la próxima
+// ronda de curaduría lo saque de la semilla o lo actualice con la nueva cohorte.
+if (pasados.length > 0) {
+  console.warn(`[directorio] ${pasados.length} programa(s) con mes ya pasado, no se publican: ` +
+    pasados.map((c) => `${c.institucion} · ${c.titulo} (${c.mes})`).join(' | '));
+}
 
 const disciplinas = [...new Set(vigentes.map((c) => c.disciplina))].sort();
 const modalidades = [...new Set(vigentes.map((c) => c.modalidad))].sort();
@@ -79,6 +85,7 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
 
     <p class="dir__contador" id="dir-contador"></p>
 
+    <h2 class="visualmente-oculto">Programas del periodo vigente</h2>
     <div class="dir__grid" id="dir-grid">
       {vigentes.map((c) => (
         <article
@@ -108,7 +115,7 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
             href={c.enlace}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`${c.titulo} — abre el sitio oficial en una pestaña nueva`}
+            aria-label={`Ver en sitio oficial: ${c.titulo} (abre en una pestaña nueva)`}
           >
             Ver en sitio oficial <span aria-hidden="true">↗</span>
           </a>
@@ -156,7 +163,7 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
               href={c.enlace}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`${c.titulo} — abre el sitio oficial en una pestaña nueva`}
+              aria-label={`Ver en sitio oficial: ${c.titulo} (abre en una pestaña nueva)`}
             >
               Ver en sitio oficial <span aria-hidden="true">↗</span>
             </a>
@@ -318,6 +325,9 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
   .curso {
     background: var(--blanco);
     border: var(--borde-grueso);
+    /* El color de la disciplina vive en la franja superior, no en el texto de las
+       etiquetas: tinta sobre azul daba 4.0:1 y la norma AA pide 4.5:1 en texto pequeño. */
+    border-top: 10px solid var(--acento);
     border-radius: 0;
     padding: 1.4rem;
     display: flex;
@@ -338,7 +348,7 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
     padding: 0.22rem 0.55rem;
     border: 2px solid var(--tinta);
   }
-  .curso__tag--tipo { background: var(--acento); color: var(--tinta); }
+  .curso__tag--tipo { background: var(--tinta); color: var(--papel); }
   .curso__tag--mod { background: var(--blanco); color: var(--tinta); }
   .curso__titulo { font-size: 1.25rem; font-weight: 900; line-height: 1.05; margin: 0 0 0.3rem; color: var(--tinta); }
   .curso__institucion { color: var(--tinta); font-weight: 700; margin: 0 0 0.9rem; font-size: 0.92rem; }
@@ -363,8 +373,8 @@ const fechaFmt = new Date(actualizado + 'T00:00:00').toLocaleDateString('es-CO',
     margin-left: 0.35rem;
     padding: 0.1rem 0.4rem;
     border: 2px solid var(--tinta);
-    background: var(--acento);
-    color: var(--tinta);
+    background: var(--tinta);
+    color: var(--papel);
     font-size: 0.68rem;
     font-weight: 900;
     text-transform: uppercase;

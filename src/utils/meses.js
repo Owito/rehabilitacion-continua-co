@@ -21,14 +21,22 @@ export function ordenarMeses(meses) {
  */
 export function partirPorVentana(cursos, ventana) {
   if (!Array.isArray(ventana) || ventana.length === 0) {
-    return { vigentes: cursos, proximos: [] };
+    return { vigentes: cursos, proximos: [], pasados: [] };
   }
   const dentro = new Set(ventana);
   const vigentes = cursos.filter((c) => dentro.has(c.mes));
-  const proximos = cursos
-    .filter((c) => !dentro.has(c.mes))
-    .sort((a, b) => ORDEN_MESES.indexOf(a.mes) - ORDEN_MESES.indexOf(b.mes));
-  return { vigentes, proximos };
+  const fuera = cursos.filter((c) => !dentro.has(c.mes));
+  // Un mes fuera de la ventana puede ser FUTURO o PASADO. Antes todo lo de fuera iba a
+  // "Próximamente", y un diplomado con fecha confirmada de agosto seguía anunciado como
+  // futuro en septiembre. Se mide la distancia desde el primer mes de la ventana (con
+  // vuelta de año): hasta 6 meses por delante es futuro; más allá, es un mes ya pasado.
+  const inicio = ORDEN_MESES.indexOf(ventana[0]);
+  const distancia = (mes) => (ORDEN_MESES.indexOf(mes) - inicio + 12) % 12;
+  const proximos = fuera
+    .filter((c) => distancia(c.mes) <= 6)
+    .sort((a, b) => distancia(a.mes) - distancia(b.mes));
+  const pasados = fuera.filter((c) => distancia(c.mes) > 6);
+  return { vigentes, proximos, pasados };
 }
 
 /** Texto del rango: "Julio", "Julio y Agosto" o "Julio a Octubre". */

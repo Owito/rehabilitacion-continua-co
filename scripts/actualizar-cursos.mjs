@@ -412,6 +412,17 @@ async function main() {
   }
   const cursos = [...porClave.values()];
 
+  // Aviso (no error): una entrada con fecha confirmada cuyo mes ya quedó atrás de la
+  // ventana no se publica (la página la aparta como "pasada"), pero hay que verla en el
+  // resumen del run para sacarla de la semilla o actualizarla con la nueva cohorte.
+  const inicioVentana = NOMBRES_MES.indexOf(MESES[0]);
+  const vencidas = cursos.filter((c) =>
+    c.fechaVerificada && ((NOMBRES_MES.indexOf(c.mes) - inicioVentana + 12) % 12) > 6);
+  if (vencidas.length > 0) {
+    anotar('warning', `${vencidas.length} programa(s) con fecha confirmada ya vencida (no se publican): ` +
+      vencidas.map((c) => `${c.institucion} · ${c.titulo} (${c.mes})`).join(' | '));
+  }
+
   const huboHallazgos = recolectados.length > 0;
   const salida = {
     actualizado: hoy,
