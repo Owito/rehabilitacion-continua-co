@@ -34,7 +34,9 @@ buscador y filtros, que se **actualiza sola a diario**.
   el mes. El resto son estimaciones que sí se re-estampan a la ventana vigente.
 - **Sección "Próximamente"**: los eventos con fecha confirmada posterior a la ventana
   (p. ej. un congreso de noviembre) salen en un bloque aparte y **no** estiran el periodo
-  del título; se integran al directorio cuando llegue su mes.
+  del título; se integran al directorio cuando llegue su mes. Un mes **anterior** a la
+  ventana (una cohorte de agosto vista en septiembre) ya no se anuncia como futuro: no se
+  publica y el build lo lista en consola para sacarlo en la siguiente ronda.
 - **Accesibilidad**: `aria-pressed` en filtros, landmark `<main>`, `aria-hidden` en iconos
   decorativos, foco visible y `prefers-reduced-motion`.
 - Botón "volver arriba" y aviso de "verificar fechas/cupos en la fuente oficial".
@@ -65,7 +67,7 @@ scripts/
   actualizar-cursos.mjs  # motor de actualización (API de Groq)
 .github/workflows/
   deploy.yml             # build + deploy a Pages (push a main / dispatch)
-  actualizar.yml         # cron diario (6 AM Colombia) + dispara el deploy
+  actualizar.yml         # cron diario (6:17 AM Colombia); commitea y despliega solo si cambió la oferta
 ```
 
 ## Despliegue
@@ -131,7 +133,8 @@ npm run actualizar:semilla
   | `verificacion` | `verificado` / `bloqueado` / `no-verificable`: si el programa se pudo comprobar en la página que enlaza. Ver CONTRIBUTING. |
   | `verificadoEl` | Fecha de esa comprobación (`YYYY-MM-DD`). |
 
-  Si el `mes` cae fuera de la ventana vigente, la entrada aparece en **"Próximamente"**.
+  Si el `mes` cae después de la ventana vigente, la entrada aparece en **"Próximamente"**;
+  si cae antes (ya pasó), no se publica y el build lo avisa en consola.
 - **Colores/estilo**: variables CSS (tema neo-brutalista) en `src/layouts/Layout.astro`.
 
 ## Contribuir
@@ -152,6 +155,15 @@ con el formato exacto de cada campo y el checklist de calidad en
 - **Auditoría de existencia (2026-08-17):** se comprobaron las 32 entradas contra la página
   que enlazan. Se eliminaron **4 programas fantasma** (no estaban en la fuente oficial) y se
   reemplazaron por programas reales vistos en esas mismas páginas; se corrigieron 7 títulos
-  que no calcaban el nombre oficial. Estado actual: **25 verificados**, 5 `bloqueado` (el
-  sitio responde 403) y 2 `no-verificable`. El campo `verificacion` de cada entrada lo
+  que no calcaban el nombre oficial. El campo `verificacion` de cada entrada lo
   registra, así que la próxima auditoría no empieza de cero.
+- **Ronda de curaduría (2026-09-12):** se recomprobaron 27 entradas contra su ficha oficial.
+  Salieron 6 (dos con fecha confirmada ya vencida, una cohorte iniciada, una cohorte
+  terminada, una ficha en 404 y un diplomado que desapareció del listado de CES), entraron
+  6 con fecha leída en la ficha (5 de CES y 1 de ASOFONO) y 9 cambiaron de mes, fecha o
+  modalidad (CES movió "Razonamiento Clínico" de septiembre a noviembre; ASOFONO y UDES
+  publicaron fechas; UMB dejó de bloquear al bot). Estado actual: **33 verificados**,
+  0 `bloqueado` y 3 `no-verificable`; 21 entradas con fecha confirmada. Obstáculo nuevo:
+  Forafis, Fundación IDEAL, ECR y AEXMUN interponen un desafío JavaScript ("Un momento…
+  Espere mientras se verifica su solicitud") que `curl` no pasa; hay que abrir la ficha en
+  un navegador real.

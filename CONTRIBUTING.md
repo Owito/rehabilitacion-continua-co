@@ -69,9 +69,11 @@ ese caso agrega:
 | `fechaVerificada` | `true` **solo** si confirmaste la fecha en la fuente oficial (no en una publicación de redes sociales). Protege el `mes` del re-estampado automático y muestra la insignia "fecha confirmada". |
 | `sede` | lugar concreto: `"Teatro José Consuegra Higgins"`. Se muestra junto a la ciudad. |
 
-> Un `mes` fuera de la ventana vigente (mes actual + siguiente) **no** se pierde: la entrada
-> sale en la sección **"Próximamente"** y entra al directorio cuando llegue su mes. Así se
-> puede registrar hoy un congreso de noviembre.
+> Un `mes` posterior a la ventana vigente (mes actual + siguiente) **no** se pierde: la
+> entrada sale en la sección **"Próximamente"** y entra al directorio cuando llegue su mes.
+> Así se puede registrar hoy un congreso de noviembre. Un `mes` **anterior** a la ventana,
+> en cambio, es una fecha ya pasada: no se publica y el build lo lista en consola. Cuando
+> eso pase, saca la entrada de la semilla o actualízala con la nueva cohorte.
 >
 > Sin `fechaVerificada`, el `mes` se considera una estimación y la automatización lo
 > re-estampa a la ventana vigente. Ponerlo en un evento cuya fecha no comprobaste haría que
@@ -85,7 +87,7 @@ distinta: *"¿el programa aparece de verdad en la página que enlaza?"*.
 | Valor | Significado |
 |-------|-------------|
 | `verificado` | Se abrió el `enlace` y el programa está listado ahí. Es el valor por defecto que debe tener toda entrada nueva. |
-| `bloqueado` | El sitio responde 403 al bot y no se pudo comprobar automáticamente. |
+| `bloqueado` | El sitio responde 403 al bot, o interpone un desafío JavaScript ("Un momento… Espere mientras se verifica su solicitud", ~12 KB de HTML), y no se pudo comprobar automáticamente. |
 | `no-verificable` | La oferta no está publicada en HTML legible (PDF o imagen escaneada), o la página enlazada es genérica y no lista el programa. |
 
 Acompáñalo de `verificadoEl` con la fecha de la comprobación (`YYYY-MM-DD`).
@@ -147,9 +149,11 @@ enlaces sean oficiales y vigentes antes de mergear.
 
 ## Cómo hacer una ronda de curaduría
 
-La extracción automática **no** es la parte fiable del sistema: 5 de 14 portales bloquean al
-bot con 403, Univalle publica en PDF escaneado, varias páginas se renderizan por JavaScript y
-otras listan cursos ya vencidos. La base curada es la fuente de verdad, y se actualiza así:
+La extracción automática **no** es la parte fiable del sistema: varios portales bloquean al
+bot (403 o un desafío JavaScript que `curl` no pasa: Forafis, Fundación IDEAL, ECR y AEXMUN
+desde septiembre de 2026), Univalle publica en PDF escaneado, varias páginas se renderizan
+por JavaScript y otras listan cursos ya vencidos. La base curada es la fuente de verdad, y
+se actualiza así:
 
 1. **Buscar el sitemap antes que raspar el listado.** Muchos portales renderizan la oferta con
    JavaScript (el listado de CES no trae un solo enlace en el HTML), pero **sí exponen
@@ -174,6 +178,11 @@ otras listan cursos ya vencidos. La base curada es la fuente de verdad, y se act
 
 4. **Verificar el `tipo` por la URL.** Si la ficha vive bajo `/diplomado/`, es un diplomado.
    Dos entradas estaban marcadas como `Curso` siendo diplomados de 90 y 100 horas.
+
+   **Si `curl` devuelve ~12 KB con "Un momento… Espere mientras se verifica su solicitud"**,
+   es un desafío anti-bot, no la ficha: ábrela en un navegador real (Chrome pasa el desafío
+   en unos segundos) y lee ahí fechas y modalidad. Y si la ficha no expone texto (ASOFONO
+   publica la pieza gráfica del evento), la fecha se lee de la imagen y se anota igual.
 
 5. Regenerar con `npm run actualizar:semilla` y compilar con `npm run build`.
 

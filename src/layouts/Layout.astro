@@ -67,6 +67,20 @@ const url = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.ur
 
   html { scroll-behavior: smooth; }
 
+  /* Oculta visualmente pero deja el texto para lectores de pantalla (p. ej. el h2 que
+     mantiene el orden de encabezados h1 → h2 → h3 en el directorio). */
+  .visualmente-oculto {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   /* Accesibilidad: foco visible claro para teclado */
   :focus-visible { outline: 3px solid var(--fisio); outline-offset: 2px; }
 
