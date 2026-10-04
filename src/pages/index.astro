@@ -3,6 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import Directorio from '../components/Directorio.astro';
 import data from '../data/cursos.json';
 import { rangoMeses, partirPorVentana } from '../utils/meses.js';
+import { temporadaDe } from '../utils/temporada.js';
+
+const temporada = temporadaDe();
+const iconoLogo = temporada === 'halloween' ? '🎃' : '🧠';
 
 // El título describe el periodo VIGENTE, no todos los meses presentes en los datos: los
 // eventos de "Próximamente" traen meses futuros a propósito y estirarían el rango.
@@ -16,7 +20,7 @@ const description = `Directorio de cursos, diplomados, congresos y especializaci
 <Layout title={title} description={description}>
   <nav class="nav">
     <div class="contenedor nav__inner">
-      <a class="nav__logo" href="#"><span aria-hidden="true">🧠</span> Rehabilitación<span class="nav__logo-co">·CO</span></a>
+      <a class="nav__logo" href="#"><span aria-hidden="true">{iconoLogo}</span> Rehabilitación<span class="nav__logo-co">·CO</span></a>
     </div>
   </nav>
 
