@@ -52,7 +52,7 @@ Convenciones de cada campo:
 | `institucion` | debe coincidir con un `nombre` de `instituciones.json` cuando aplique. |
 | `disciplina` | una de: `Fisioterapia`, `Fonoaudiología`, `Terapia Ocupacional`, `Medicina Física y Rehabilitación`. |
 | `tema` | descripción corta del área (p. ej. "Suelo pélvico", "Dolor"). |
-| `tipo` | `Curso`, `Diplomado`, `Especialización`, `Seminario`, `Congreso`. |
+| `tipo` | `Curso`, `Taller`, `Diplomado`, `Especialización`, `Seminario`, `Congreso`. Usa `Taller` para la formación corta y práctica de uno a pocos días. |
 | `modalidad` | `Presencial`, `Virtual` o `Híbrida`. |
 | `ciudad` | ciudad sede (o `Virtual`). |
 | `mes` | mes de inicio en español con mayúscula inicial (p. ej. `Julio`). |

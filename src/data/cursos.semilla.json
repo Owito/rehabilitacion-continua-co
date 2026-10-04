@@ -536,5 +536,22 @@
     "verificacion": "verificado",
     "verificadoEl": "2026-08-17",
     "enlace": "https://forafis.com/curso/ecografia-pelviperineal-para-fisioterapeutas-bogota/"
+  },
+  {
+    "id": "ecr-taller-balance-y-movilidad",
+    "titulo": "Taller Teórico-Práctico: Evaluación Balance y Movilidad",
+    "institucion": "Escuela Colombiana de Rehabilitación (ECR)",
+    "disciplina": "Fonoaudiología",
+    "tema": "Pruebas vestibulares, balance y movilidad",
+    "tipo": "Taller",
+    "modalidad": "Presencial",
+    "ciudad": "Bogotá",
+    "sede": "Auditorio Juan Ruiz Mora",
+    "mes": "Octubre",
+    "fecha": "13 al 15 de octubre",
+    "fechaVerificada": true,
+    "verificacion": "verificado",
+    "verificadoEl": "2026-10-03",
+    "enlace": "https://www.ecr.edu.co/"
   }
 ]

@@ -58,7 +58,7 @@ const PAUSA_MS = Number(process.env.PAUSA_MS || 1500);  // respiro entre llamada
 const DISCIPLINAS = ['Fisioterapia', 'Fonoaudiología', 'Terapia Ocupacional',
   'Medicina Física y Rehabilitación'];
 const MODALIDADES = ['Virtual', 'Híbrida', 'Presencial'];
-const TIPOS = ['Curso', 'Diplomado', 'Especialización', 'Seminario', 'Congreso'];
+const TIPOS = ['Curso', 'Taller', 'Diplomado', 'Especialización', 'Seminario', 'Congreso'];
 
 // Ventana de meses MÓVIL: mes actual + siguiente (según la fecha de ejecución).
 // Así la oferta y el texto del sitio avanzan con el calendario, sin "julio y agosto" fijo.
