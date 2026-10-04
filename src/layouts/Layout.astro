@@ -1,14 +1,20 @@
 ---
+import { temporadaDe } from '../utils/temporada.js';
+
 export interface Props {
   title: string;
   description: string;
 }
 const { title, description } = Astro.props;
 const url = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.pathname;
+
+// Se resuelve en el build; el cron diario la activa y la retira sin tocar el repo.
+const temporada = temporadaDe();
+const icono = temporada === 'halloween' ? '🎃' : '🧠';
 ---
 
 <!doctype html>
-<html lang="es-CO">
+<html lang="es-CO" data-temporada={temporada}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,7 +30,7 @@ const url = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.ur
     <meta property="og:url" content={url} />
     <meta property="og:locale" content="es_CO" />
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
+    <link rel="icon" href={`data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>${icono}</text></svg>`} />
   </head>
   <body>
     <slot />
@@ -57,6 +63,25 @@ const url = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.ur
     --sombra-dura-sm: 4px 4px 0 var(--tinta);
     --fuente: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
   }
+
+  /* Temporada de octubre (Halloween).
+     Cambia el papel y suma un acento; NO toca los colores por disciplina, que son
+     semánticos para el filtro y ya tienen su contraste auditado. Contrastes medidos
+     sobre el papel de temporada #f6ddb0: tinta 13.92:1, calabaza 4.92:1, morado 7.49:1,
+     todos por encima del 4.5:1 que pide WCAG AA para texto normal. */
+  :root[data-temporada="halloween"] {
+    --papel: #f6ddb0;
+    --temporada: #a63a0d;      /* calabaza, apto para texto */
+    --temporada-alt: #5b2a86;  /* morado de noche */
+  }
+
+  /* Una cinta superior y el acento del logo bastan para que se note la temporada sin
+     convertir un directorio de salud en una fiesta. */
+  :root[data-temporada="halloween"] .nav {
+    border-top: 6px solid var(--temporada);
+  }
+  :root[data-temporada="halloween"] .nav__logo-co { color: var(--temporada); }
+  :root[data-temporada="halloween"] .seccion__eyebrow { color: var(--temporada-alt); }
 
   * { box-sizing: border-box; }
 
