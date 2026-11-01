@@ -1,9 +1,9 @@
 {
-  "actualizado": "2026-10-31",
+  "actualizado": "2026-11-01",
   "fuente": "semilla",
   "ventana": [
-    "Octubre",
-    "Noviembre"
+    "Noviembre",
+    "Diciembre"
   ],
   "nota": "Base curada enriquecida automáticamente desde los portales oficiales. Verifica siempre fechas, costos y cupos en el enlace de cada institución.",
   "cursos": [
@@ -64,7 +64,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Bogotá",
-      "mes": "Octubre",
+      "mes": "Noviembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://forafis.com/curso/curso-tecncias-invasivas-aplicadas-al-suelo-pelvico/"
@@ -94,7 +94,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Octubre",
+      "mes": "Noviembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.fundacionideal.org.co/curso/curso-introductorio-terapia-de-neurodesarrollo-bobath-ndta"
@@ -108,7 +108,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Octubre",
+      "mes": "Noviembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.fundacionideal.org.co/curso/curso-introductorio-en-terapia-acuatica-international-aquatic-therapy-faculty-iatf"
@@ -187,7 +187,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Virtual",
-      "mes": "Noviembre",
+      "mes": "Diciembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-10-04",
       "enlace": "https://virtual.javerianacali.edu.co/diplomados/deporte/rehabilitacion-deportiva/"
@@ -251,7 +251,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Virtual",
-      "mes": "Octubre",
+      "mes": "Noviembre",
       "verificacion": "bloqueado",
       "verificadoEl": "2026-10-04",
       "enlace": "https://umb.edu.co/programa/diplomado-en-neurorrehabilitacion-en-pediatria/"
@@ -265,7 +265,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
-      "mes": "Noviembre",
+      "mes": "Diciembre",
       "verificacion": "bloqueado",
       "verificadoEl": "2026-10-04",
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-fisioterapeutico-y-alternativo-de-la-salud-mental/"
@@ -279,7 +279,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Octubre",
+      "mes": "Noviembre",
       "verificacion": "bloqueado",
       "verificadoEl": "2026-10-04",
       "enlace": "https://umb.edu.co/programa/diplomado-en-abordaje-terapeutico/"
@@ -293,7 +293,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Noviembre",
+      "mes": "Diciembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-10-04",
       "enlace": "https://asofono.co/productos/diplomado-fonoaudiologia-para-el-peritaje-forense/"
@@ -356,7 +356,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Noviembre",
+      "mes": "Diciembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://www.fundacionideal.org.co/curso/curso-intensivo-de-intervencion-en-disfagia-y-neurodesarrollo"
@@ -386,7 +386,7 @@
       "tipo": "Curso",
       "modalidad": "Presencial",
       "ciudad": "Cali",
-      "mes": "Noviembre",
+      "mes": "Diciembre",
       "verificacion": "no-verificable",
       "verificadoEl": "2026-10-04",
       "enlace": "https://extensionsalud.univalle.edu.co/oferta-de-cursos-talleres-diplomados/2-uncategorised/24-escuela-de-rehabilitacion-humana"
@@ -400,7 +400,7 @@
       "tipo": "Diplomado",
       "modalidad": "Virtual",
       "ciudad": "Virtual",
-      "mes": "Octubre",
+      "mes": "Noviembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-10-04",
       "enlace": "https://academiaexpertia.com/producto/diplomado-en-rehabilitacion-fisica-y-terapia-ocupacional/"
@@ -414,7 +414,7 @@
       "tipo": "Diplomado",
       "modalidad": "Híbrida",
       "ciudad": "Bogotá",
-      "mes": "Octubre",
+      "mes": "Noviembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://ecr.edu.co/diplomados"
@@ -428,7 +428,7 @@
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Bogotá",
-      "mes": "Noviembre",
+      "mes": "Diciembre",
       "verificacion": "verificado",
       "verificadoEl": "2026-08-17",
       "enlace": "https://ecr.edu.co/diplomados"
@@ -442,7 +442,7 @@
       "tipo": "Curso",
       "modalidad": "Virtual",
       "ciudad": "Nacional",
-      "mes": "Noviembre",
+      "mes": "Diciembre",
       "verificacion": "bloqueado",
       "verificadoEl": "2026-10-04",
       "enlace": "https://www.handtherapyacademy.com/"
